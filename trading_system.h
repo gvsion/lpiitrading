@@ -114,6 +114,17 @@ void simular_evento_mercado(TradingSystem* sistema);
 void detectar_padroes_preco(TradingSystem* sistema);
 void calcular_estatisticas_execucao(TradingSystem* sistema);
 
+// Funções utilitárias para dados financeiros
+Ordem gerar_ordem_aleatoria(TradingSystem* sistema);
+void gerar_ordens_aleatorias(TradingSystem* sistema, int num_ordens);
+double calcular_preco_oferta_demanda(TradingSystem* sistema, int acao_id);
+void detectar_arbitragem_relacionadas(TradingSystem* sistema);
+int validar_ordem(TradingSystem* sistema, Ordem* ordem);
+void imprimir_ordem(Ordem* ordem, TradingSystem* sistema);
+void testar_funcoes_utilitarias(TradingSystem* sistema);
+void inicializar_dados_mercado();
+void imprimir_estatisticas_mercado(TradingSystem* sistema);
+
 // Funções de utilidade
 double gerar_preco_aleatorio(double min, double max);
 int gerar_id_aleatorio();
