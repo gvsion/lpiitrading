@@ -1,0 +1,10 @@
+=== PERDAS POR ORDENS PERDIDAS - threads_t2_e1_run2.log ===
+Data: 2025-08-05 23:20:29
+
+MÉTRICA,VALOR,UNIDADE,DESCRIÇÃO
+Total de Ordens Rejeitadas,26,ordens,Número de ordens rejeitadas
+Valor Total Perdido,R$ 377343.73,reais,Valor total das ordens perdidas
+Valor Médio por Ordem,R$ 14513.22,reais,Valor médio por ordem rejeitada
+Perda por Hora,R$ 45281247.60,reais/hora,Projeção por hora
+Perda por Dia,R$ 362249980.80,reais/dia,Projeção por dia (8h)
+Perda por Mês,R$ 7969499577.60,reais/mês,Projeção por mês (22 dias)

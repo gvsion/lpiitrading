@@ -1,0 +1,15 @@
+=== EFICIÊNCIA DO MERCADO - threads_t2_e1_run1.log ===
+Data: 2025-08-05 23:13:12
+
+MÉTRICA,VALOR,UNIDADE,DESCRIÇÃO
+Total de Ordens,100,ordens,Total de ordens criadas
+Ordens Executadas,45,ordens,Ordens executadas com sucesso
+Ordens Canceladas,18,ordens,Ordens canceladas ou rejeitadas
+Taxa de Execução,45.00,%,Percentual de ordens executadas
+Tempo Médio de Execução,126.40,ms,Tempo médio para executar uma ordem
+Tempo Mínimo de Execução,50,ms,Tempo mínimo de execução
+Tempo Máximo de Execução,198,ms,Tempo máximo de execução
+Throughput,1.50,ordens/segundo,Ordens processadas por segundo
+Latência Média,126.40,ms,Latência média do sistema
+Duração do Teste,30,segundos,Duração total do teste
+Eficiência Geral,.67,índice,Índice de eficiência geral

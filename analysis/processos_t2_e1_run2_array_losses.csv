@@ -1,0 +1,12 @@
+=== PERDAS POR CORRUPÇÃO DE ARRAYS - processos_t2_e1_run2.log ===
+Data: 2025-08-05 23:20:27
+
+MÉTRICA,VALOR,UNIDADE,DESCRIÇÃO
+Race Conditions em Arrays,0
+0,condições,Número de race conditions em arrays
+Ordens Corrompidas,0,ordens,Ordens estimadas corrompidas
+Valor Total Corrompido,R$ 0,reais,Valor total das ordens corrompidas
+Valor Médio por Ordem,R$ 3072.72,reais,Valor médio por ordem (estimado)
+Perda por Hora,R$ 0,reais/hora,Projeção por hora
+Perda por Dia,R$ 0,reais/dia,Projeção por dia (8h)
+Perda por Mês,R$ 0,reais/mês,Projeção por mês (22 dias)

@@ -1,0 +1,10 @@
+=== PERDAS POR CORRUPÇÃO DE PREÇOS - threads_t2_e1_run1.log ===
+Data: 2025-08-05 23:20:28
+
+MÉTRICA,VALOR,UNIDADE,DESCRIÇÃO
+Total de Variações,14,variações,Número de variações de preço analisadas
+Perda Total,R$ 2192847.96,reais,Perda total por corrupção de preços
+Perda Média,R$ 156631.99,reais,Perda média por variação
+Perda por Hora,R$ 263141755.20,reais/hora,Projeção por hora
+Perda por Dia,R$ 2105134041.60,reais/dia,Projeção por dia (8h)
+Perda por Mês,R$ 46312948915.20,reais/mês,Projeção por mês (22 dias)

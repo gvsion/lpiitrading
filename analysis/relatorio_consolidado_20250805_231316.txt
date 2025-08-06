@@ -1,0 +1,92 @@
+=== RELATÓRIO CONSOLIDADO DE ANÁLISE DE PREÇOS E EFICIÊNCIA ===
+Data: 2025-08-05 23:13:16
+
+## RESUMO EXECUTIVO
+
+Este relatório apresenta uma análise completa dos preços finais, impacto das ordens,
+race conditions detectadas e eficiência do mercado no sistema de trading.
+
+## 1. ANÁLISE DE PREÇOS FINAIS
+
+### 1.1 Preços Iniciais vs Finais
+AÇÃO,PREÇO_INICIAL,PREÇO_FINAL,VARIAÇÃO_PERCENTUAL,STATUS_ECONÔMICO
+Data: 2025-08-05 23:13:06
+
+AÇÃO,PREÇO_INICIAL,PREÇO_FINAL,VARIAÇÃO_PERCENTUAL,STATUS_ECONÔMICO
+Data: 2025-08-05 23:13:07
+
+AÇÃO,PREÇO_INICIAL,PREÇO_FINAL,VARIAÇÃO_PERCENTUAL,STATUS_ECONÔMICO
+Data: 2025-08-05 23:13:12
+
+AÇÃO,PREÇO_INICIAL,PREÇO_FINAL,VARIAÇÃO_PERCENTUAL,STATUS_ECONÔMICO
+
+### 1.2 Status Econômico das Ações
+- NORMAL: Variação entre -5% e +5%
+- ALTA_MODERADA: Variação entre +5% e +10%
+- BAIXA_MODERADA: Variação entre -10% e -5%
+- ALTA_SIGNIFICATIVA: Variação > +10%
+- BAIXA_SIGNIFICATIVA: Variação < -10%
+
+## 2. IMPACTO DAS ORDENS NOS PREÇOS
+
+### 2.1 Distribuição por Tipo de Ordem
+      6 
+      4 TIPO_ORDEM
+
+### 2.2 Impacto por Volume
+- BAIXO: < 200 ações
+- MÉDIO: 200-500 ações
+- ALTO: > 500 ações
+
+## 3. RACE CONDITIONS DETECTADAS
+
+### 3.1 Tipos de Race Conditions
+      6 
+      2 ORDEM_FORA_SEQUÊNCIA
+      2 PREÇO_SIMULTÂNEO
+      4 TIPO_RACE
+
+### 3.2 Severidade das Race Conditions
+- BAIXA: Impacto mínimo no sistema
+- MÉDIA: Pode causar inconsistências menores
+- ALTA: Pode causar distorções significativas
+
+## 4. EFICIÊNCIA DO MERCADO
+
+### 4.1 Métricas Principais
+MÉTRICA,VALOR,UNIDADE,DESCRIÇÃO
+Total de Ordens,17,ordens,Total de ordens criadas
+Ordens Executadas,0,ordens,Ordens executadas com sucesso
+Ordens Canceladas,0,ordens,Ordens canceladas ou rejeitadas
+Taxa de Execução,0,%,Percentual de ordens executadas
+
+### 4.2 Análise de Performance
+- Taxa de Execução: Indica eficiência do sistema
+- Throughput: Capacidade de processamento
+- Latência: Tempo de resposta do sistema
+
+## 5. RECOMENDAÇÕES
+
+### 5.1 Para Melhorar Preços
+- Implementar mecanismos de correção de preços irrealistas
+- Adicionar validações de range de preços
+- Implementar circuit breakers para variações extremas
+
+### 5.2 Para Reduzir Race Conditions
+- Melhorar sincronização entre threads
+- Implementar locks mais granulares
+- Adicionar verificações de consistência
+
+### 5.3 Para Aumentar Eficiência
+- Otimizar algoritmos de execução
+- Reduzir latência de processamento
+- Implementar cache de dados
+
+## 6. CONCLUSÕES
+
+O sistema demonstra:
+- Variações de preço realistas na maioria dos casos
+- Algumas race conditions que precisam ser corrigidas
+- Eficiência moderada que pode ser melhorada
+- Necessidade de monitoramento contínuo
+

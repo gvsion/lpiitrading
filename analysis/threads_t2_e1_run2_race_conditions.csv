@@ -1,0 +1,6 @@
+=== DETECÇÃO DE RACE CONDITIONS - threads_t2_e1_run2.log ===
+Data: 2025-08-05 23:13:16
+
+TIMESTAMP,TIPO_RACE,DESCRIÇÃO,SEVERIDADE,IMPACTO
+2025-08-05 23:13:16,PREÇO_SIMULTÂNEO,Atualizações simultâneas de preços detectadas,ALTA,Preços inconsistentes
+2025-08-05 23:13:16,ORDEM_FORA_SEQUÊNCIA,Ordens processadas fora de sequência,MÉDIA,Execução inconsistente
