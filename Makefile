@@ -4,21 +4,22 @@ CFLAGS = -Wall -Wextra -std=c99 -g -pthread
 LIBS = -lm -lpthread
 
 # Arquivos fonte
-SOURCES_THREADS = main_threads.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c
-SOURCES_PROCESSOS = main_processos.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c
+SOURCES_THREADS = main_threads.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c
+SOURCES_PROCESSOS = main_processos.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c
 HEADERS = trading_system.h
 
 # Executáveis
 TARGET_THREADS = trading_threads
 TARGET_PROCESSOS = trading_processos
 TARGET_TEST_UTILS = test_utils
+TARGET_TEST_MERCADO = test_mercado
 
 # Objetos
 OBJECTS_THREADS = $(SOURCES_THREADS:.c=.o)
 OBJECTS_PROCESSOS = $(SOURCES_PROCESSOS:.c=.o)
 
 # Regra padrão
-all: $(TARGET_THREADS) $(TARGET_PROCESSOS) $(TARGET_TEST_UTILS)
+all: $(TARGET_THREADS) $(TARGET_PROCESSOS) $(TARGET_TEST_UTILS) $(TARGET_TEST_MERCADO)
 
 # Compilar versão threads
 $(TARGET_THREADS): $(OBJECTS_THREADS)
@@ -31,9 +32,14 @@ $(TARGET_PROCESSOS): $(OBJECTS_PROCESSOS)
 	@echo "Versão processos compilada com sucesso!"
 
 # Compilar programa de teste das funções utilitárias
-$(TARGET_TEST_UTILS): test_utils.c sistema_common.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c
-	$(CC) $(CFLAGS) test_utils.c sistema_common.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c -o $(TARGET_TEST_UTILS) $(LIBS)
+$(TARGET_TEST_UTILS): test_utils.c sistema_common.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c
+	$(CC) $(CFLAGS) test_utils.c sistema_common.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c -o $(TARGET_TEST_UTILS) $(LIBS)
 	@echo "Programa de teste das funções utilitárias compilado com sucesso!"
+
+# Compilar programa de teste do mercado
+$(TARGET_TEST_MERCADO): test_mercado.c sistema_common.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c
+	$(CC) $(CFLAGS) test_mercado.c sistema_common.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c -o $(TARGET_TEST_MERCADO) $(LIBS)
+	@echo "Programa de teste do mercado compilado com sucesso!"
 
 # Compilar arquivos objeto
 %.o: %.c $(HEADERS)
@@ -51,6 +57,10 @@ run-processos: $(TARGET_PROCESSOS)
 run-test-utils: $(TARGET_TEST_UTILS)
 	./$(TARGET_TEST_UTILS)
 
+# Executar programa de teste do mercado
+run-test-mercado: $(TARGET_TEST_MERCADO)
+	./$(TARGET_TEST_MERCADO)
+
 # Executar ambas as versões
 run: run-threads run-processos
 
@@ -64,7 +74,7 @@ debug-processos: $(TARGET_PROCESSOS)
 
 # Limpar arquivos compilados
 clean:
-	rm -f $(OBJECTS_THREADS) $(OBJECTS_PROCESSOS) $(TARGET_THREADS) $(TARGET_PROCESSOS) $(TARGET_TEST_UTILS)
+	rm -f $(OBJECTS_THREADS) $(OBJECTS_PROCESSOS) $(TARGET_THREADS) $(TARGET_PROCESSOS) $(TARGET_TEST_UTILS) $(TARGET_TEST_MERCADO)
 	rm -f *.o
 	@echo "Arquivos compilados removidos!"
 
@@ -96,6 +106,7 @@ help:
 	@echo "  make run-threads      - Executar versão threads"
 	@echo "  make run-processos    - Executar versão processos"
 	@echo "  make run-test-utils   - Executar teste das funções utilitárias"
+	@echo "  make run-test-mercado - Executar teste do mercado"
 	@echo "  make run              - Executar ambas as versões"
 	@echo "  make debug-threads    - Debug versão threads com valgrind"
 	@echo "  make debug-processos  - Debug versão processos com valgrind"
@@ -113,7 +124,9 @@ help:
 	@echo "  - price_updater.c     - Módulo de atualização de preços"
 	@echo "  - arbitrage_monitor.c - Módulo de monitoramento de arbitragem"
 	@echo "  - utils.c             - Módulo de funções utilitárias"
+	@echo "  - mercado.c           - Módulo de dados do mercado"
 	@echo "  - test_utils.c        - Programa de teste das funções utilitárias"
+	@echo "  - test_mercado.c      - Programa de teste do mercado"
 	@echo "  - trading_system.h    - Header com estruturas e funções"
 
 .PHONY: all clean run run-threads run-processos debug-threads debug-processos deps install-deps test-compile help 

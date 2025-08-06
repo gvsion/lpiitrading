@@ -387,8 +387,8 @@ void testar_funcoes_utilitarias(TradingSystem* sistema) {
     printf("\n=== TESTES CONCLUÍDOS ===\n");
 }
 
-// Função para inicializar dados de mercado
-void inicializar_dados_mercado() {
+// Função para inicializar dados de mercado (utils)
+void inicializar_dados_mercado_utils() {
     for (int i = 0; i < MAX_ACOES; i++) {
         dados_mercado[i].ordens_compra = 0;
         dados_mercado[i].ordens_venda = 0;

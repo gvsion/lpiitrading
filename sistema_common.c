@@ -40,6 +40,9 @@ TradingSystem* inicializar_sistema() {
     pthread_mutex_init(&sistema->mutex_geral, NULL);
     sem_init(&sistema->sem_ordens, 0, 0);
     
+    // Inicializar dados do mercado
+    inicializar_dados_mercado();
+    
     // Inicializar componentes
     inicializar_acoes(sistema);
     inicializar_traders(sistema);

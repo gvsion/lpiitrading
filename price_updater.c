@@ -13,38 +13,8 @@ typedef struct {
 static HistoricoPreco historicos[MAX_ACOES];
 
 void inicializar_acoes(TradingSystem* sistema) {
-    char nomes[MAX_ACOES][MAX_NOME] = {
-        "PETR4", "VALE3", "ITUB4", "BBDC4", "ABEV3",
-        "WEGE3", "RENT3", "LREN3", "MGLU3", "JBSS3"
-    };
-    
-    double precos_iniciais[MAX_ACOES] = {
-        25.50, 68.30, 32.15, 15.80, 14.20,
-        45.90, 55.40, 18.75, 3.25, 22.10
-    };
-    
-    for (int i = 0; i < MAX_ACOES; i++) {
-        Acao* acao = &sistema->acoes[i];
-        strcpy(acao->nome, nomes[i]);
-        acao->preco_atual = precos_iniciais[i];
-        acao->preco_anterior = precos_iniciais[i];
-        acao->variacao = 0.0;
-        acao->volume_negociado = 0;
-        pthread_mutex_init(&acao->mutex, NULL);
-        
-        // Inicializar histórico
-        historicos[i].indice = 0;
-        historicos[i].total_precos = 0;
-        historicos[i].preco_medio = precos_iniciais[i];
-        historicos[i].volatilidade = 0.02; // 2% de volatilidade inicial
-        
-        for (int j = 0; j < 100; j++) {
-            historicos[i].precos[j] = precos_iniciais[i];
-        }
-    }
-    
-    sistema->num_acoes = MAX_ACOES;
-    log_evento("Ações inicializadas com sucesso");
+    // Usar a função do módulo mercado para inicializar ações
+    inicializar_acoes_mercado(sistema);
 }
 
 void atualizar_preco_acao(TradingSystem* sistema, int acao_id, double novo_preco) {

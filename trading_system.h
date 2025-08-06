@@ -17,7 +17,7 @@
 #include <sys/shm.h>
 
 // Constantes do sistema
-#define MAX_ACOES 10
+#define MAX_ACOES 13
 #define MAX_TRADERS 6
 #define MAX_ORDENS 100
 #define MAX_NOME 50
@@ -26,10 +26,22 @@
 // Estruturas de dados
 typedef struct {
     char nome[MAX_NOME];
+    char setor[MAX_NOME];
     double preco_atual;
     double preco_anterior;
+    double preco_maximo;
+    double preco_minimo;
     double variacao;
+    double volatilidade;
     int volume_negociado;
+    int volume_diario;
+    int volume_total;
+    int num_operacoes;
+    double variacao_diaria;
+    double variacao_semanal;
+    double variacao_mensal;
+    double historico_precos[30];
+    int indice_historico;
     pthread_mutex_t mutex;
 } Acao;
 
@@ -124,6 +136,18 @@ void imprimir_ordem(Ordem* ordem, TradingSystem* sistema);
 void testar_funcoes_utilitarias(TradingSystem* sistema);
 void inicializar_dados_mercado();
 void imprimir_estatisticas_mercado(TradingSystem* sistema);
+
+// Funções de mercado
+void inicializar_dados_mercado();
+void inicializar_acoes_mercado(TradingSystem* sistema);
+int mercado_esta_aberto();
+char* obter_horario_abertura();
+char* obter_horario_fechamento();
+void imprimir_estado_mercado(TradingSystem* sistema);
+void atualizar_estatisticas_mercado(TradingSystem* sistema, Ordem* ordem);
+void resetar_estatisticas_diarias(TradingSystem* sistema);
+void simular_abertura_mercado(TradingSystem* sistema);
+void simular_fechamento_mercado(TradingSystem* sistema);
 
 // Funções de utilidade
 double gerar_preco_aleatorio(double min, double max);
