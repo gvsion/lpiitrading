@@ -151,6 +151,11 @@ void iniciar_threads(TradingSystem* sistema) {
         printf("✗ Erro ao criar thread arbitrage monitor\n");
     }
     
+    // Criar thread detector de arbitragem
+    if (!criar_thread_arbitragem_detector(sistema)) {
+        printf("✗ Erro ao criar thread detector de arbitragem\n");
+    }
+    
     printf("=== TODAS AS THREADS INICIADAS ===\n");
 }
 

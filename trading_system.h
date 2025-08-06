@@ -55,6 +55,7 @@
 #define MAX_FILA_ORDENS 1000        // Tamanho máximo da fila de ordens
 #define TIMEOUT_THREAD_JOIN 5000    // 5 segundos timeout para join
 #define MAX_TENTATIVAS_THREAD 3     // Máximo de tentativas para criar thread
+#define MAX_OPORTUNIDADES 50        // Máximo de oportunidades de arbitragem
 
 // Estruturas globais para threads
 typedef struct {
@@ -318,6 +319,19 @@ void inicializar_dados_race_conditions();
 void executar_demo_race_conditions();
 void executar_multiplas_vezes(int num_execucoes);
 void demonstrar_tipos_race_conditions();
+
+// Funções para detector de arbitragem
+void inicializar_estatisticas_arbitragem();
+double calcular_spread(double preco1, double preco2);
+double calcular_lucro_potencial(double preco_compra, double preco_venda, int volume);
+void detectar_oportunidades_arbitragem(TradingSystem* sistema);
+void executar_arbitragem_detector(TradingSystem* sistema, void* oportunidade);
+void processar_oportunidades_pendentes(TradingSystem* sistema);
+void exibir_estatisticas_arbitragem();
+void exibir_oportunidades_ativas();
+void* thread_arbitragem_detector(void* arg);
+int criar_thread_arbitragem_detector(TradingSystem* sistema);
+void parar_detector_arbitragem();
 
 // Estruturas para comunicação entre processos/threads
 typedef struct {
