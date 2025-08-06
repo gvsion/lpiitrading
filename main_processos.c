@@ -129,31 +129,8 @@ void processo_trader(int trader_id) {
 
 // Função do processo price updater
 void processo_price_updater_func() {
-    printf("Processo de atualização de preços iniciado (PID: %d)\n", getpid());
-    
-    // Anexar memória compartilhada
-    TradingSystem* sistema = (TradingSystem*)shmat(shm_id, NULL, 0);
-    if (sistema == (void*)-1) {
-        perror("Erro ao anexar memória compartilhada no processo price updater");
-        exit(1);
-    }
-    
-    while (sistema->sistema_ativo) {
-        atualizar_todos_precos(sistema);
-        
-        // Simular notícias ocasionalmente
-        if (rand() % 100 < 10) { // 10% de chance
-            simular_noticia_mercado(sistema);
-        }
-        
-        sleep(3); // Atualizar preços a cada 3 segundos
-    }
-    
-    // Desanexar memória compartilhada
-    shmdt(sistema);
-    
-    printf("Processo de atualização de preços finalizado\n");
-    exit(0);
+    // Usar a versão melhorada do price updater
+    processo_price_updater_melhorado();
 }
 
 // Função do processo executor

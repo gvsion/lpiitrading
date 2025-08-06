@@ -43,6 +43,14 @@
 #define MAX_VOLUME_ACEITO 10000     // Volume máximo aceito por ordem
 #define MIN_VOLUME_ACEITO 10        // Volume mínimo aceito por ordem
 
+// Constantes para price updater
+#define MAX_VARIACAO_PRECO 0.20     // 20% de variação máxima
+#define MIN_PRECO_ACAO 0.50         // Preço mínimo de ação
+#define MAX_PRECO_ACAO 1000.0       // Preço máximo de ação
+#define PESO_ULTIMA_TRANSACAO 0.6   // Peso da última transação (60%)
+#define PESO_PRECO_ATUAL 0.4        // Peso do preço atual (40%)
+#define ARQUIVO_HISTORICO "historico_precos.txt" // Arquivo para salvar histórico
+
 // Estruturas de dados
 typedef struct {
     char nome[MAX_NOME];
@@ -250,6 +258,17 @@ int verificar_criterios_avancados(TradingSystem* sistema, Ordem* ordem);
 void log_execucao_ordem(Ordem* ordem, int resultado, double tempo_processamento);
 void atualizar_contadores_executor(TradingSystem* sistema, int resultado);
 void executar_ordem_aceita(TradingSystem* sistema, Ordem* ordem);
+
+// Funções para price updater melhorado
+void processo_price_updater_melhorado();
+int receber_notificacao_transacao(int pipe_read, Ordem* ordem, int* resultado);
+double calcular_preco_media_ponderada(double preco_atual, double preco_transacao, int volume);
+int validar_preco(double preco, double preco_anterior);
+void atualizar_estatisticas_acao(TradingSystem* sistema, int acao_id, double novo_preco);
+void enviar_atualizacao_arbitragem(int pipe_write, int acao_id, double preco_anterior, double novo_preco);
+void salvar_historico_precos(TradingSystem* sistema);
+void log_atualizacao_preco(int acao_id, double preco_anterior, double novo_preco, const char* motivo);
+void inicializar_arquivo_historico();
 
 // Estruturas para comunicação entre processos/threads
 typedef struct {
