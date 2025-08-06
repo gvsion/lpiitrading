@@ -270,7 +270,6 @@ void simular_evento_mercado(TradingSystem* sistema) {
             {
                 int acao = rand() % sistema->num_acoes;
                 double impacto = (rand() % 100 + 50) / 1000.0; // +5% a +15%
-                double novo_preco = sistema->acoes[acao].preco_atual * (1.0 + impacto);
                 
                 printf("EVENTO: Notícia positiva para %s (+%.2f%%)\n", 
                        sistema->acoes[acao].nome, impacto * 100);

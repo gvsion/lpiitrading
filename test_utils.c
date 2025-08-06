@@ -17,7 +17,7 @@ int main() {
     }
     
     // Inicializar dados de mercado
-    inicializar_dados_mercado_utils();
+    inicializar_dados_mercado();
     
     printf("Sistema inicializado com sucesso!\n");
     printf("Número de ações: %d\n", sistema->num_acoes);

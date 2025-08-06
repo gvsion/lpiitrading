@@ -4,8 +4,8 @@ CFLAGS = -Wall -Wextra -std=c99 -g -pthread
 LIBS = -lm -lpthread
 
 # Arquivos fonte
-SOURCES_THREADS = main_threads.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c
-SOURCES_PROCESSOS = main_processos.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c
+SOURCES_THREADS = main_threads.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c pipes_sistema.c
+SOURCES_PROCESSOS = main_processos.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c pipes_sistema.c
 HEADERS = trading_system.h
 
 # Executáveis
@@ -13,13 +13,14 @@ TARGET_THREADS = trading_threads
 TARGET_PROCESSOS = trading_processos
 TARGET_TEST_UTILS = test_utils
 TARGET_TEST_MERCADO = test_mercado
+TARGET_TEST_PIPES = test_pipes
 
 # Objetos
 OBJECTS_THREADS = $(SOURCES_THREADS:.c=.o)
 OBJECTS_PROCESSOS = $(SOURCES_PROCESSOS:.c=.o)
 
 # Regra padrão
-all: $(TARGET_THREADS) $(TARGET_PROCESSOS) $(TARGET_TEST_UTILS) $(TARGET_TEST_MERCADO)
+all: $(TARGET_THREADS) $(TARGET_PROCESSOS) $(TARGET_TEST_UTILS) $(TARGET_TEST_MERCADO) $(TARGET_TEST_PIPES)
 
 # Compilar versão threads
 $(TARGET_THREADS): $(OBJECTS_THREADS)
@@ -32,14 +33,19 @@ $(TARGET_PROCESSOS): $(OBJECTS_PROCESSOS)
 	@echo "Versão processos compilada com sucesso!"
 
 # Compilar programa de teste das funções utilitárias
-$(TARGET_TEST_UTILS): test_utils.c sistema_common.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c
-	$(CC) $(CFLAGS) test_utils.c sistema_common.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c -o $(TARGET_TEST_UTILS) $(LIBS)
+$(TARGET_TEST_UTILS): test_utils.c sistema_common.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c pipes_sistema.c
+	$(CC) $(CFLAGS) test_utils.c sistema_common.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c pipes_sistema.c -o $(TARGET_TEST_UTILS) $(LIBS)
 	@echo "Programa de teste das funções utilitárias compilado com sucesso!"
 
 # Compilar programa de teste do mercado
-$(TARGET_TEST_MERCADO): test_mercado.c sistema_common.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c
-	$(CC) $(CFLAGS) test_mercado.c sistema_common.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c -o $(TARGET_TEST_MERCADO) $(LIBS)
+$(TARGET_TEST_MERCADO): test_mercado.c sistema_common.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c pipes_sistema.c
+	$(CC) $(CFLAGS) test_mercado.c sistema_common.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c pipes_sistema.c -o $(TARGET_TEST_MERCADO) $(LIBS)
 	@echo "Programa de teste do mercado compilado com sucesso!"
+
+# Compilar programa de teste dos pipes
+$(TARGET_TEST_PIPES): test_pipes.c sistema_common.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c pipes_sistema.c
+	$(CC) $(CFLAGS) test_pipes.c sistema_common.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c pipes_sistema.c -o $(TARGET_TEST_PIPES) $(LIBS)
+	@echo "Programa de teste dos pipes compilado com sucesso!"
 
 # Compilar arquivos objeto
 %.o: %.c $(HEADERS)
@@ -61,6 +67,10 @@ run-test-utils: $(TARGET_TEST_UTILS)
 run-test-mercado: $(TARGET_TEST_MERCADO)
 	./$(TARGET_TEST_MERCADO)
 
+# Executar programa de teste dos pipes
+run-test-pipes: $(TARGET_TEST_PIPES)
+	./$(TARGET_TEST_PIPES)
+
 # Executar ambas as versões
 run: run-threads run-processos
 
@@ -74,7 +84,7 @@ debug-processos: $(TARGET_PROCESSOS)
 
 # Limpar arquivos compilados
 clean:
-	rm -f $(OBJECTS_THREADS) $(OBJECTS_PROCESSOS) $(TARGET_THREADS) $(TARGET_PROCESSOS) $(TARGET_TEST_UTILS) $(TARGET_TEST_MERCADO)
+	rm -f $(OBJECTS_THREADS) $(OBJECTS_PROCESSOS) $(TARGET_THREADS) $(TARGET_PROCESSOS) $(TARGET_TEST_UTILS) $(TARGET_TEST_MERCADO) $(TARGET_TEST_PIPES)
 	rm -f *.o
 	@echo "Arquivos compilados removidos!"
 
@@ -107,6 +117,7 @@ help:
 	@echo "  make run-processos    - Executar versão processos"
 	@echo "  make run-test-utils   - Executar teste das funções utilitárias"
 	@echo "  make run-test-mercado - Executar teste do mercado"
+	@echo "  make run-test-pipes   - Executar teste dos pipes"
 	@echo "  make run              - Executar ambas as versões"
 	@echo "  make debug-threads    - Debug versão threads com valgrind"
 	@echo "  make debug-processos  - Debug versão processos com valgrind"
@@ -125,8 +136,10 @@ help:
 	@echo "  - arbitrage_monitor.c - Módulo de monitoramento de arbitragem"
 	@echo "  - utils.c             - Módulo de funções utilitárias"
 	@echo "  - mercado.c           - Módulo de dados do mercado"
+	@echo "  - pipes_sistema.c     - Módulo de pipes entre processos"
 	@echo "  - test_utils.c        - Programa de teste das funções utilitárias"
 	@echo "  - test_mercado.c      - Programa de teste do mercado"
+	@echo "  - test_pipes.c        - Programa de teste dos pipes"
 	@echo "  - trading_system.h    - Header com estruturas e funções"
 
 .PHONY: all clean run run-threads run-processos debug-threads debug-processos deps install-deps test-compile help 

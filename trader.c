@@ -1,5 +1,13 @@
 #include "trading_system.h"
 
+// Declarações das funções de estratégia
+void executar_estrategia_conservadora(TradingSystem* sistema, int trader_id);
+void executar_estrategia_agressiva(TradingSystem* sistema, int trader_id);
+void executar_estrategia_momentum(TradingSystem* sistema, int trader_id);
+void executar_estrategia_mean_reversion(TradingSystem* sistema, int trader_id);
+void executar_estrategia_arbitragem(TradingSystem* sistema, int trader_id);
+void executar_estrategia_aleatoria(TradingSystem* sistema, int trader_id);
+
 // Estratégias de trading
 typedef enum {
     ESTRATEGIA_CONSERVADORA,
@@ -103,7 +111,6 @@ void executar_estrategia_trader(TradingSystem* sistema, int trader_id) {
 
 void executar_estrategia_conservadora(TradingSystem* sistema, int trader_id) {
     Trader* trader = &sistema->traders[trader_id];
-    DadosTrader* dados = &dados_traders[trader_id];
     
     // Estratégia conservadora: compra quando preço está baixo, vende quando está alto
     for (int i = 0; i < sistema->num_acoes; i++) {
@@ -272,12 +279,4 @@ void imprimir_estado_traders(TradingSystem* sistema) {
         }
         printf("\n");
     }
-}
-
-// Funções auxiliares (não declaradas no header)
-void executar_estrategia_conservadora(TradingSystem* sistema, int trader_id);
-void executar_estrategia_agressiva(TradingSystem* sistema, int trader_id);
-void executar_estrategia_momentum(TradingSystem* sistema, int trader_id);
-void executar_estrategia_mean_reversion(TradingSystem* sistema, int trader_id);
-void executar_estrategia_arbitragem(TradingSystem* sistema, int trader_id);
-void executar_estrategia_aleatoria(TradingSystem* sistema, int trader_id); 
+} 

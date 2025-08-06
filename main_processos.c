@@ -1,5 +1,7 @@
 #include "trading_system.h"
 #include <math.h>
+#include <fcntl.h>
+#include <errno.h>
 
 // Estruturas para processos
 typedef struct {
@@ -226,71 +228,149 @@ void processo_arbitrage_monitor_func() {
 
 // Função para iniciar todos os processos
 void iniciar_processos() {
-    // Iniciar processos dos traders
+    printf("=== INICIANDO PROCESSOS COM PIPES ===\n");
+    
+    // Inicializar seed do rand
+    srand(time(NULL));
+    
+    // Criar pipes do sistema
+    int* descritores = criar_pipes_sistema();
+    if (!descritores) {
+        printf("Erro: Falha ao criar pipes do sistema\n");
+        return;
+    }
+    
+    // Criar memória compartilhada
+    if (!criar_memoria_compartilhada()) {
+        printf("Erro: Falha ao criar memória compartilhada\n");
+        limpar_pipes_sistema();
+        return;
+    }
+    
+    // Inicializar estruturas de processos
+    memset(processos_traders, 0, sizeof(processos_traders));
+    memset(&processo_price_updater, 0, sizeof(processo_price_updater));
+    memset(&processo_executor, 0, sizeof(processo_executor));
+    memset(&processo_arbitrage_monitor, 0, sizeof(processo_arbitrage_monitor));
+    
+    // Iniciar processo Price Updater
+    pid_t pid_price = fork();
+    if (pid_price == 0) {
+        // Processo filho - fechar descritores desnecessários
+        close(descritores[0]); // Traders->Executor RD
+        close(descritores[1]); // Traders->Executor WR
+        close(descritores[2]); // Executor->PriceUpdater RD
+        close(descritores[5]); // PriceUpdater->Arbitrage WR
+        close(descritores[6]); // Arbitrage->Traders RD
+        close(descritores[7]); // Arbitrage->Traders WR
+        close(descritores[8]); // Control RD
+        close(descritores[9]); // Control WR
+        
+        processo_price_updater_func();
+        exit(0);
+    } else if (pid_price > 0) {
+        processo_price_updater.pid = pid_price;
+        processo_price_updater.ativo = 1;
+        printf("✓ Processo Price Updater iniciado (PID: %d)\n", pid_price);
+    } else {
+        perror("Erro ao criar processo Price Updater");
+        limpar_pipes_sistema();
+        return;
+    }
+    
+    // Iniciar processo Executor
+    pid_t pid_executor = fork();
+    if (pid_executor == 0) {
+        // Processo filho - fechar descritores desnecessários
+        close(descritores[0]); // Traders->Executor RD
+        close(descritores[3]); // Executor->PriceUpdater WR
+        close(descritores[4]); // PriceUpdater->Arbitrage RD
+        close(descritores[5]); // PriceUpdater->Arbitrage WR
+        close(descritores[6]); // Arbitrage->Traders RD
+        close(descritores[7]); // Arbitrage->Traders WR
+        close(descritores[8]); // Control RD
+        close(descritores[9]); // Control WR
+        
+        processo_executor_func();
+        exit(0);
+    } else if (pid_executor > 0) {
+        processo_executor.pid = pid_executor;
+        processo_executor.ativo = 1;
+        printf("✓ Processo Executor iniciado (PID: %d)\n", pid_executor);
+    } else {
+        perror("Erro ao criar processo Executor");
+        limpar_pipes_sistema();
+        return;
+    }
+    
+    // Iniciar processo Arbitrage Monitor
+    pid_t pid_arbitrage = fork();
+    if (pid_arbitrage == 0) {
+        // Processo filho - fechar descritores desnecessários
+        close(descritores[0]); // Traders->Executor RD
+        close(descritores[1]); // Traders->Executor WR
+        close(descritores[2]); // Executor->PriceUpdater RD
+        close(descritores[3]); // Executor->PriceUpdater WR
+        close(descritores[4]); // PriceUpdater->Arbitrage RD
+        close(descritores[7]); // Arbitrage->Traders WR
+        close(descritores[8]); // Control RD
+        close(descritores[9]); // Control WR
+        
+        processo_arbitrage_monitor_func();
+        exit(0);
+    } else if (pid_arbitrage > 0) {
+        processo_arbitrage_monitor.pid = pid_arbitrage;
+        processo_arbitrage_monitor.ativo = 1;
+        printf("✓ Processo Arbitrage Monitor iniciado (PID: %d)\n", pid_arbitrage);
+    } else {
+        perror("Erro ao criar processo Arbitrage Monitor");
+        limpar_pipes_sistema();
+        return;
+    }
+    
+    // Iniciar processos Traders
     for (int i = 0; i < MAX_TRADERS; i++) {
         processos_traders[i].trader_id = i;
         processos_traders[i].ativo = 0;
         
-        pid_t pid = fork();
-        if (pid == 0) {
-            // Processo filho
+        pid_t pid_trader = fork();
+        if (pid_trader == 0) {
+            // Processo filho - fechar descritores desnecessários
+            close(descritores[2]); // Executor->PriceUpdater RD
+            close(descritores[3]); // Executor->PriceUpdater WR
+            close(descritores[4]); // PriceUpdater->Arbitrage RD
+            close(descritores[5]); // PriceUpdater->Arbitrage WR
+            close(descritores[6]); // Arbitrage->Traders RD
+            close(descritores[8]); // Control RD
+            close(descritores[9]); // Control WR
+            
             processo_trader(i);
-        } else if (pid > 0) {
-            // Processo pai
-            processos_traders[i].pid = pid;
+            exit(0);
+        } else if (pid_trader > 0) {
+            processos_traders[i].pid = pid_trader;
             processos_traders[i].ativo = 1;
-            printf("Processo trader %d criado com PID %d\n", i, pid);
+            printf("✓ Processo Trader %d iniciado (PID: %d)\n", i, pid_trader);
         } else {
-            perror("Erro ao criar processo trader");
+            perror("Erro ao criar processo Trader");
+            limpar_pipes_sistema();
+            return;
         }
     }
     
-    // Iniciar processo de atualização de preços
-    pid_t pid_price = fork();
-    if (pid_price == 0) {
-        processo_price_updater_func();
-    } else if (pid_price > 0) {
-        processo_price_updater.pid = pid_price;
-        processo_price_updater.ativo = 1;
-        printf("Processo price updater criado com PID %d\n", pid_price);
-    } else {
-        perror("Erro ao criar processo price updater");
-    }
-    
-    // Iniciar processo do executor
-    pid_t pid_executor = fork();
-    if (pid_executor == 0) {
-        processo_executor_func();
-    } else if (pid_executor > 0) {
-        processo_executor.pid = pid_executor;
-        processo_executor.ativo = 1;
-        printf("Processo executor criado com PID %d\n", pid_executor);
-    } else {
-        perror("Erro ao criar processo executor");
-    }
-    
-    // Iniciar processo de monitoramento de arbitragem
-    pid_t pid_arbitrage = fork();
-    if (pid_arbitrage == 0) {
-        processo_arbitrage_monitor_func();
-    } else if (pid_arbitrage > 0) {
-        processo_arbitrage_monitor.pid = pid_arbitrage;
-        processo_arbitrage_monitor.ativo = 1;
-        printf("Processo arbitrage monitor criado com PID %d\n", pid_arbitrage);
-    } else {
-        perror("Erro ao criar processo arbitrage monitor");
-    }
-    
-    log_evento("Todos os processos iniciados");
+    printf("=== TODOS OS PROCESSOS INICIADOS COM PIPES ===\n\n");
+    log_evento("Todos os processos iniciados com pipes");
 }
 
 // Função para parar todos os processos
 void parar_processos() {
+    printf("=== PARANDO PROCESSOS E LIMPANDO PIPES ===\n");
+    
     // Parar processo de arbitragem
     if (processo_arbitrage_monitor.ativo) {
         kill(processo_arbitrage_monitor.pid, SIGTERM);
         waitpid(processo_arbitrage_monitor.pid, NULL, 0);
         processo_arbitrage_monitor.ativo = 0;
+        printf("✓ Processo Arbitrage Monitor parado\n");
     }
     
     // Parar processo executor
@@ -298,6 +378,7 @@ void parar_processos() {
         kill(processo_executor.pid, SIGTERM);
         waitpid(processo_executor.pid, NULL, 0);
         processo_executor.ativo = 0;
+        printf("✓ Processo Executor parado\n");
     }
     
     // Parar processo price updater
@@ -305,6 +386,7 @@ void parar_processos() {
         kill(processo_price_updater.pid, SIGTERM);
         waitpid(processo_price_updater.pid, NULL, 0);
         processo_price_updater.ativo = 0;
+        printf("✓ Processo Price Updater parado\n");
     }
     
     // Parar processos dos traders
@@ -313,10 +395,17 @@ void parar_processos() {
             kill(processos_traders[i].pid, SIGTERM);
             waitpid(processos_traders[i].pid, NULL, 0);
             processos_traders[i].ativo = 0;
+            printf("✓ Processo Trader %d parado\n", i);
         }
     }
     
-    log_evento("Todos os processos parados");
+    // Limpar pipes do sistema
+    if (pipes_estao_ativos()) {
+        limpar_pipes_sistema();
+    }
+    
+    printf("=== TODOS OS PROCESSOS PARADOS E PIPES LIMPOS ===\n\n");
+    log_evento("Todos os processos parados e pipes limpos");
 }
 
 // Função para exibir estatísticas em tempo real
@@ -344,6 +433,7 @@ void exibir_estatisticas_tempo_real() {
 
 // Handler para SIGINT (Ctrl+C)
 void signal_handler(int sig) {
+    (void)sig; // Evitar warning de parâmetro não utilizado
     printf("\nRecebido sinal de interrupção. Parando sistema...\n");
     if (sistema_compartilhado) {
         sistema_compartilhado->sistema_ativo = 0;

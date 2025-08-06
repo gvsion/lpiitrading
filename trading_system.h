@@ -149,6 +149,43 @@ void resetar_estatisticas_diarias(TradingSystem* sistema);
 void simular_abertura_mercado(TradingSystem* sistema);
 void simular_fechamento_mercado(TradingSystem* sistema);
 
+// Estruturas para pipes
+typedef struct {
+    int traders_to_executor[2];
+    int executor_to_price_updater[2];
+    int price_updater_to_arbitrage[2];
+    int arbitrage_to_traders[2];
+    int control_pipe[2];
+    int num_pipes_criados;
+    int pipes_ativos;
+} SistemaPipes;
+
+typedef struct {
+    int tipo_mensagem;
+    int origem_id;
+    int destino_id;
+    int dados_ordem;
+    double valor;
+    char dados_extras[100];
+    time_t timestamp;
+} MensagemPipe;
+
+// Funções de pipes entre processos
+int* criar_pipes_sistema();
+void limpar_pipes_sistema();
+int enviar_mensagem_pipe(int pipe_write, void* mensagem);
+int receber_mensagem_pipe(int pipe_read, void* mensagem);
+int pipes_estao_ativos();
+void imprimir_status_pipes();
+void testar_pipes_sistema();
+
+// Funções para criar mensagens
+MensagemPipe criar_mensagem_ordem(int trader_id, int acao_id, char tipo, double preco, int quantidade);
+MensagemPipe criar_mensagem_atualizacao_preco(int acao_id, double preco_anterior, double preco_novo);
+MensagemPipe criar_mensagem_arbitragem(int acao1_id, int acao2_id, double diferenca, double percentual);
+MensagemPipe criar_mensagem_controle(int comando, int origem_id, int destino_id);
+void imprimir_mensagem(MensagemPipe* mensagem);
+
 // Funções de utilidade
 double gerar_preco_aleatorio(double min, double max);
 int gerar_id_aleatorio();

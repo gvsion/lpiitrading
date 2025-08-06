@@ -1,6 +1,11 @@
+#define _POSIX_C_SOURCE 200809L
 #include "trading_system.h"
 #include <math.h>
 #include <unistd.h>
+#include <sys/time.h>
+
+// Declaração da função calcular_correlacao
+double calcular_correlacao(TradingSystem* sistema, int acao1, int acao2);
 
 // Estrutura para armazenar dados de oferta/demanda
 typedef struct {
@@ -14,20 +19,7 @@ typedef struct {
 
 static OfertaDemanda dados_mercado[MAX_ACOES];
 
-// Símbolos das ações brasileiras
-static const char* SIMBOLOS_ACOES[] = {
-    "PETR4", "VALE3", "ITUB4", "ABEV3", "BBAS3", "BBDC4", "WEGE3", "RENT3", "LREN3", "MGLU3"
-};
 
-// Preços médios das ações (baseados em dados reais aproximados)
-static const double PRECOS_MEDIOS[] = {
-    25.50, 68.30, 32.15, 14.20, 45.80, 15.80, 45.90, 55.40, 18.75, 3.25
-};
-
-// Volatilidades das ações (baseadas em dados reais)
-static const double VOLATILIDADES[] = {
-    0.025, 0.035, 0.020, 0.030, 0.022, 0.028, 0.018, 0.032, 0.040, 0.050
-};
 
 // Função para gerar ordens aleatórias realistas
 Ordem gerar_ordem_aleatoria(TradingSystem* sistema) {
@@ -427,4 +419,6 @@ void imprimir_estatisticas_mercado(TradingSystem* sistema) {
         
         printf("\n");
     }
-} 
+}
+
+ 
