@@ -4,8 +4,8 @@ CFLAGS = -Wall -Wextra -std=c99 -g -pthread
 LIBS = -lm -lpthread
 
 # Arquivos fonte
-SOURCES_THREADS = main_threads.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c pipes_sistema.c trader_profiles.c global_vars.c executor_melhorado.c price_updater_melhorado.c threads_sistema.c
-SOURCES_PROCESSOS = main_processos.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c pipes_sistema.c trader_profiles.c global_vars.c executor_melhorado.c price_updater_melhorado.c threads_sistema.c
+SOURCES_THREADS = main_threads.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c pipes_sistema.c trader_profiles.c global_vars.c executor_melhorado.c price_updater_melhorado.c threads_sistema.c race_conditions_demo.c
+SOURCES_PROCESSOS = main_processos.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c pipes_sistema.c trader_profiles.c global_vars.c executor_melhorado.c price_updater_melhorado.c threads_sistema.c race_conditions_demo.c
 HEADERS = trading_system.h
 
 # Executáveis
@@ -58,6 +58,17 @@ run-threads: $(TARGET_THREADS)
 # Executar versão processos
 run-processos: $(TARGET_PROCESSOS)
 	./$(TARGET_PROCESSOS)
+
+# Executar demo de race conditions
+run-race-demo: $(TARGET_THREADS)
+	@echo "=== EXECUTANDO DEMO DE RACE CONDITIONS ==="
+	@echo "⚠️  AVISO: Este demo gera problemas deliberadamente!"
+	@echo "⚠️  NÃO use em produção - apenas para demonstração!"
+	@echo ""
+	@echo "Pressione Enter para continuar..."
+	@read
+	@echo "Iniciando demo..."
+	@echo "demo_race_conditions();" | ./$(TARGET_THREADS)
 
 # Executar programa de teste das funções utilitárias
 run-test-utils: $(TARGET_TEST_UTILS)

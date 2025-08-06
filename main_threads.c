@@ -179,7 +179,22 @@ void exibir_estatisticas_tempo_real(TradingSystem* sistema) {
 
 int main() {
     printf("=== SISTEMA DE TRADING - VERSÃO THREADS ===\n");
-    printf("Iniciando sistema...\n\n");
+    printf("Escolha uma opção:\n");
+    printf("1. Executar sistema normal\n");
+    printf("2. Executar demo de race conditions\n");
+    printf("Digite sua escolha (1 ou 2): ");
+    
+    int escolha;
+    scanf("%d", &escolha);
+    
+    if (escolha == 2) {
+        // Executar demo de race conditions
+        demo_race_conditions();
+        return 0;
+    }
+    
+    // Executar sistema normal
+    printf("Iniciando sistema normal...\n\n");
     
     // Inicializar seed do rand
     srand(time(NULL));

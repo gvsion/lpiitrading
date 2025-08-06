@@ -311,6 +311,14 @@ void parar_todas_threads();
 int verificar_retorno_pthread(int resultado, const char* operacao);
 void aguardar_threads_terminarem();
 
+// Funções para demo de race conditions
+void demo_race_conditions();
+void detectar_inconsistencias();
+void inicializar_dados_race_conditions();
+void executar_demo_race_conditions();
+void executar_multiplas_vezes(int num_execucoes);
+void demonstrar_tipos_race_conditions();
+
 // Estruturas para comunicação entre processos/threads
 typedef struct {
     int tipo_mensagem; // 1: nova ordem, 2: atualizar preço, 3: executar ordem
