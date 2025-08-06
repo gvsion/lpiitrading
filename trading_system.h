@@ -35,6 +35,14 @@
 #define INTERVALO_MIN_ORDENS 1
 #define INTERVALO_MAX_ORDENS 3
 
+// Constantes para executor
+#define TEMPO_PROCESSAMENTO_MIN 50  // 50ms
+#define TEMPO_PROCESSAMENTO_MAX 200 // 200ms
+#define TIMEOUT_PIPE_READ 100       // 100ms timeout para leitura de pipes
+#define MAX_VOLATILIDADE_ACEITA 0.15 // 15% de volatilidade máxima
+#define MAX_VOLUME_ACEITO 10000     // Volume máximo aceito por ordem
+#define MIN_VOLUME_ACEITO 10        // Volume mínimo aceito por ordem
+
 // Estruturas de dados
 typedef struct {
     char nome[MAX_NOME];
@@ -230,6 +238,18 @@ int gerar_intervalo_aleatorio(int min, int max);
 int decidir_acao_trader(TradingSystem* sistema, int trader_id, PerfilTrader* perfil);
 double calcular_probabilidade_compra(TradingSystem* sistema, int acao_id, PerfilTrader* perfil);
 double calcular_probabilidade_venda(TradingSystem* sistema, int acao_id, PerfilTrader* perfil);
+
+// Funções para executor melhorado
+void processo_executor_melhorado();
+int ler_ordem_pipe(int pipe_read, Ordem* ordem);
+int enviar_resultado_price_updater(int pipe_write, Ordem* ordem, int resultado);
+int simular_tempo_processamento();
+int decidir_aceitar_ordem(TradingSystem* sistema, Ordem* ordem);
+double calcular_volatilidade_acao(TradingSystem* sistema, int acao_id);
+int verificar_criterios_avancados(TradingSystem* sistema, Ordem* ordem);
+void log_execucao_ordem(Ordem* ordem, int resultado, double tempo_processamento);
+void atualizar_contadores_executor(TradingSystem* sistema, int resultado);
+void executar_ordem_aceita(TradingSystem* sistema, Ordem* ordem);
 
 // Estruturas para comunicação entre processos/threads
 typedef struct {

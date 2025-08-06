@@ -158,25 +158,8 @@ void processo_price_updater_func() {
 
 // Função do processo executor
 void processo_executor_func() {
-    printf("Processo do executor iniciado (PID: %d)\n", getpid());
-    
-    // Anexar memória compartilhada
-    TradingSystem* sistema = (TradingSystem*)shmat(shm_id, NULL, 0);
-    if (sistema == (void*)-1) {
-        perror("Erro ao anexar memória compartilhada no processo executor");
-        exit(1);
-    }
-    
-    while (sistema->sistema_ativo) {
-        executar_ordens_pendentes(sistema);
-        sleep(1); // Executar ordens a cada segundo
-    }
-    
-    // Desanexar memória compartilhada
-    shmdt(sistema);
-    
-    printf("Processo do executor finalizado\n");
-    exit(0);
+    // Usar a versão melhorada do executor
+    processo_executor_melhorado();
 }
 
 // Função do processo arbitrage monitor
