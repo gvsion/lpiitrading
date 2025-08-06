@@ -1,0 +1,986 @@
+Erro ao anexar memória compartilhada de pipes: Invalid argument
+=== SISTEMA DE TRADING - VERSÃO PROCESSOS ===
+Iniciando sistema...
+
+=== INICIALIZANDO MÉTRICAS DE PERFORMANCE ===
+✓ Métricas de performance inicializadas
+=== INICIALIZANDO PERFIS DE TRADER ===
+✓ Perfis de trader inicializados:
+  - Conservador (ID: 0)
+  - Agressivo (ID: 1)
+  - Day Trader (ID: 2)
+
+=== INICIALIZANDO AÇÕES DO MERCADO ===
+✓ PETR4 (Petróleo) - R$ 25.50
+✓ VALE3 (Mineração) - R$ 68.30
+✓ ITUB4 (Bancos) - R$ 32.15
+✓ ABEV3 (Bebidas) - R$ 14.20
+✓ BBAS3 (Bancos) - R$ 45.80
+✓ BBDC4 (Bancos) - R$ 15.80
+✓ WEGE3 (Industrial) - R$ 45.90
+✓ RENT3 (Aluguel) - R$ 55.40
+✓ LREN3 (Varejo) - R$ 18.75
+✓ MGLU3 (Varejo) - R$ 3.25
+✓ JBSS3 (Alimentos) - R$ 22.10
+✓ SUZB3 (Papel) - R$ 35.60
+✓ GGBR4 (Siderurgia) - R$ 28.45
+=== 13 AÇÕES INICIALIZADAS ===
+
+[Tue Aug  5 23:06:27 2025] Traders inicializados com sucesso
+[Tue Aug  5 23:06:27 2025] Executor inicializado com sucesso
+[Tue Aug  5 23:06:27 2025] Memória compartilhada criada e inicializada
+=== INICIANDO PROCESSOS COM PIPES ===
+=== CRIANDO PIPES DO SISTEMA ===
+Criando pipe Traders -> Executor...
+✓ Pipe Traders -> Executor criado (RD: 3, WR: 4)
+Criando pipe Executor -> Price Updater...
+✓ Pipe Executor -> Price Updater criado (RD: 5, WR: 6)
+Criando pipe Price Updater -> Arbitrage Monitor...
+✓ Pipe Price Updater -> Arbitrage Monitor criado (RD: 7, WR: 8)
+Criando pipe Arbitrage Monitor -> Traders...
+✓ Pipe Arbitrage Monitor -> Traders criado (RD: 9, WR: 10)
+Criando pipe de controle...
+✓ Pipe de controle criado (RD: 11, WR: 12)
+=== 5 PIPES CRIADOS COM SUCESSO ===
+
+=== INICIALIZANDO AÇÕES DO MERCADO ===
+✓ PETR4 (Petróleo) - R$ 25.50
+✓ VALE3 (Mineração) - R$ 68.30
+✓ ITUB4 (Bancos) - R$ 32.15
+✓ ABEV3 (Bebidas) - R$ 14.20
+✓ BBAS3 (Bancos) - R$ 45.80
+✓ BBDC4 (Bancos) - R$ 15.80
+✓ WEGE3 (Industrial) - R$ 45.90
+✓ RENT3 (Aluguel) - R$ 55.40
+✓ LREN3 (Varejo) - R$ 18.75
+✓ MGLU3 (Varejo) - R$ 3.25
+✓ JBSS3 (Alimentos) - R$ 22.10
+✓ SUZB3 (Papel) - R$ 35.60
+✓ GGBR4 (Siderurgia) - R$ 28.45
+=== 13 AÇÕES INICIALIZADAS ===
+
+[Tue Aug  5 23:06:27 2025] Traders inicializados com sucesso
+[Tue Aug  5 23:06:27 2025] Executor inicializado com sucesso
+[Tue Aug  5 23:06:27 2025] Memória compartilhada criada e inicializada
+=== PROCESSO PRICE UPDATER MELHORADO INICIADO (PID: 23400) ===
+Erro ao anexar memória compartilhada de pipes: Invalid argument
+=== SISTEMA DE TRADING - VERSÃO PROCESSOS ===
+Iniciando sistema...
+
+=== INICIALIZANDO MÉTRICAS DE PERFORMANCE ===
+✓ Métricas de performance inicializadas
+=== INICIALIZANDO PERFIS DE TRADER ===
+✓ Perfis de trader inicializados:
+  - Conservador (ID: 0)
+  - Agressivo (ID: 1)
+  - Day Trader (ID: 2)
+
+=== INICIALIZANDO AÇÕES DO MERCADO ===
+✓ PETR4 (Petróleo) - R$ 25.50
+✓ VALE3 (Mineração) - R$ 68.30
+✓ ITUB4 (Bancos) - R$ 32.15
+✓ ABEV3 (Bebidas) - R$ 14.20
+✓ BBAS3 (Bancos) - R$ 45.80
+✓ BBDC4 (Bancos) - R$ 15.80
+✓ WEGE3 (Industrial) - R$ 45.90
+✓ RENT3 (Aluguel) - R$ 55.40
+✓ LREN3 (Varejo) - R$ 18.75
+✓ MGLU3 (Varejo) - R$ 3.25
+✓ JBSS3 (Alimentos) - R$ 22.10
+✓ SUZB3 (Papel) - R$ 35.60
+✓ GGBR4 (Siderurgia) - R$ 28.45
+=== 13 AÇÕES INICIALIZADAS ===
+
+[Tue Aug  5 23:06:27 2025] Traders inicializados com sucesso
+[Tue Aug  5 23:06:27 2025] Executor inicializado com sucesso
+[Tue Aug  5 23:06:27 2025] Memória compartilhada criada e inicializada
+=== INICIANDO PROCESSOS COM PIPES ===
+=== CRIANDO PIPES DO SISTEMA ===
+Criando pipe Traders -> Executor...
+✓ Pipe Traders -> Executor criado (RD: 3, WR: 4)
+Criando pipe Executor -> Price Updater...
+✓ Pipe Executor -> Price Updater criado (RD: 5, WR: 6)
+Criando pipe Price Updater -> Arbitrage Monitor...
+✓ Pipe Price Updater -> Arbitrage Monitor criado (RD: 7, WR: 8)
+Criando pipe Arbitrage Monitor -> Traders...
+✓ Pipe Arbitrage Monitor -> Traders criado (RD: 9, WR: 10)
+Criando pipe de controle...
+✓ Pipe de controle criado (RD: 11, WR: 12)
+=== 5 PIPES CRIADOS COM SUCESSO ===
+
+=== INICIALIZANDO AÇÕES DO MERCADO ===
+✓ PETR4 (Petróleo) - R$ 25.50
+✓ VALE3 (Mineração) - R$ 68.30
+✓ ITUB4 (Bancos) - R$ 32.15
+✓ ABEV3 (Bebidas) - R$ 14.20
+✓ BBAS3 (Bancos) - R$ 45.80
+✓ BBDC4 (Bancos) - R$ 15.80
+✓ WEGE3 (Industrial) - R$ 45.90
+✓ RENT3 (Aluguel) - R$ 55.40
+✓ LREN3 (Varejo) - R$ 18.75
+✓ MGLU3 (Varejo) - R$ 3.25
+✓ JBSS3 (Alimentos) - R$ 22.10
+✓ SUZB3 (Papel) - R$ 35.60
+✓ GGBR4 (Siderurgia) - R$ 28.45
+=== 13 AÇÕES INICIALIZADAS ===
+
+[Tue Aug  5 23:06:27 2025] Traders inicializados com sucesso
+[Tue Aug  5 23:06:27 2025] Executor inicializado com sucesso
+[Tue Aug  5 23:06:27 2025] Memória compartilhada criada e inicializada
+✓ Processo Price Updater iniciado (PID: 23400)
+✓ Processo Executor iniciado (PID: 23401)
+Processo de monitoramento de arbitragem iniciado (PID: 23402)
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 1 com diferença de 91.26%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 2 com diferença de 23.07%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 3 com diferença de 56.93%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 4 com diferença de 56.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 5 com diferença de 46.97%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 6 com diferença de 57.14%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 7 com diferença de 73.92%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 8 com diferença de 30.51%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 9 com diferença de 154.78%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 10 com diferença de 14.29%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 11 com diferença de 33.06%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 12 com diferença de 10.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 2 com diferença de 71.98%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 3 com diferença de 131.15%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 4 com diferença de 39.44%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 5 com diferença de 124.85%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 6 com diferença de 39.23%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 7 com diferença de 20.86%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 8 com diferença de 113.84%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 9 com diferença de 181.83%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 10 com diferença de 102.21%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 11 com diferença de 62.95%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 12 com diferença de 82.38%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 3 com diferença de 77.45%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 4 com diferença de 35.02%
+OPOR=== SISTEMA DE TRADING - VERSÃO PROCESSOS ===
+Iniciando sistema...
+
+=== INICIALIZANDO MÉTRICAS DE PERFORMANCE ===
+✓ Métricas de performance inicializadas
+=== INICIALIZANDO PERFIS DE TRADER ===
+✓ Perfis de trader inicializados:
+  - Conservador (ID: 0)
+  - Agressivo (ID: 1)
+  - Day Trader (ID: 2)
+
+=== INICIALIZANDO AÇÕES DO MERCADO ===
+✓ PETR4 (Petróleo) - R$ 25.50
+✓ VALE3 (Mineração) - R$ 68.30
+✓ ITUB4 (Bancos) - R$ 32.15
+✓ ABEV3 (Bebidas) - R$ 14.20
+✓ BBAS3 (Bancos) - R$ 45.80
+✓ BBDC4 (Bancos) - R$ 15.80
+✓ WEGE3 (Industrial) - R$ 45.90
+✓ RENT3 (Aluguel) - R$ 55.40
+✓ LREN3 (Varejo) - R$ 18.75
+✓ MGLU3 (Varejo) - R$ 3.25
+✓ JBSS3 (Alimentos) - R$ 22.10
+✓ SUZB3 (Papel) - R$ 35.60
+✓ GGBR4 (Siderurgia) - R$ 28.45
+=== 13 AÇÕES INICIALIZADAS ===
+
+[Tue Aug  5 23:06:27 2025] Traders inicializados com sucesso
+[Tue Aug  5 23:06:27 2025] Executor inicializado com sucesso
+[Tue Aug  5 23:06:27 2025] Memória compartilhada criada e inicializada
+=== INICIANDO PROCESSOS COM PIPES ===
+=== CRIANDO PIPES DO SISTEMA ===
+Criando pipe Traders -> Executor...
+✓ Pipe Traders -> Executor criado (RD: 3, WR: 4)
+Criando pipe Executor -> Price Updater...
+✓ Pipe Executor -> Price Updater criado (RD: 5, WR: 6)
+Criando pipe Price Updater -> Arbitrage Monitor...
+✓ Pipe Price Updater -> Arbitrage Monitor criado (RD: 7, WR: 8)
+Criando pipe Arbitrage Monitor -> Traders...
+✓ Pipe Arbitrage Monitor -> Traders criado (RD: 9, WR: 10)
+Criando pipe de controle...
+✓ Pipe de controle criado (RD: 11, WR: 12)
+=== 5 PIPES CRIADOS COM SUCESSO ===
+
+=== INICIALIZANDO AÇÕES DO MERCADO ===
+✓ PETR4 (Petróleo) - R$ 25.50
+✓ VALE3 (Mineração) - R$ 68.30
+✓ ITUB4 (Bancos) - R$ 32.15
+✓ ABEV3 (Bebidas) - R$ 14.20
+✓ BBAS3 (Bancos) - R$ 45.80
+✓ BBDC4 (Bancos) - R$ 15.80
+✓ WEGE3 (Industrial) - R$ 45.90
+✓ RENT3 (Aluguel) - R$ 55.40
+✓ LREN3 (Varejo) - R$ 18.75
+✓ MGLU3 (Varejo) - R$ 3.25
+✓ JBSS3 (Alimentos) - R$ 22.10
+✓ SUZB3 (Papel) - R$ 35.60
+✓ GGBR4 (Siderurgia) - R$ 28.45
+=== 13 AÇÕES INICIALIZADAS ===
+
+[Tue Aug  5 23:06:27 2025] Traders inicializados com sucesso
+[Tue Aug  5 23:06:27 2025] Executor inicializado com sucesso
+[Tue Aug  5 23:06:27 2025] Memória compartilhada criada e inicializada
+✓ Processo Price Updater iniciado (PID: 23400)
+=== PROCESSO EXECUTOR MELHORADO INICIADO (PID: 23401) ===
+TUNIDADE DE ARBITRAGEM: Ações 2 e 5 com diferença de 68.20%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 6 com diferença de 35.23%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 7 com diferença de 53.11%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 8 com diferença de 52.65%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 9 com diferença de 163.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 10 com diferença de 37.05%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 11 com diferença de 10.18%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 12 com diferença de 12.21%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 4 com diferença de 105.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 5 com diferença de 10.67%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 6 com diferença de 105.49%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 7 com diferença de 118.39%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 8 com diferença de 27.62%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 9 com diferença de 125.50%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 10 com diferença de 43.53%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 11 com diferença de 85.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 12 com diferença de 66.82%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 5 com diferença de 97.40%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 7 com diferença de 18.97%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 8 com diferença de 83.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 9 com diferença de 173.50%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 10 com diferença de 69.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 11 com diferença de 25.06%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 12 com diferença de 46.73%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 6 com diferença de 97.57%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 7 com diferença de 111.24%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 8 com diferença de 17.08%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 9 com diferença de 131.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 10 com diferença de 33.25%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 11 com diferença de 77.04%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 12 com diferença de 57.18%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 7 com diferença de 18.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 8 com diferença de 83.99%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 9 com diferença de 173.55%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 10 com diferença de 70.00%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 11 com diferença de 25.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 12 com diferença de 46.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 8 com diferença de 98.85%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 9 com diferença de 177.83%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 10 com diferença de 85.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 11 com diferença de 43.52%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 12 com diferença de 64.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 9 com diferença de 140.91%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 10 com diferença de 16.40%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 11 com diferença de 62.01%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 12 com diferença de 41.10%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 10 com diferença de 148.72%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 11 com diferença de 166.54%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 12 com diferença de 158.99%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 11 com diferença de 46.79%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 12 com diferença de 25.12%
+OPORTUNIDADE DE ARBITRAGEM: Ações 11 e 12 com diferença de 22.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 1 com diferença de 91.26%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 2 com diferença de 23.07%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 3 com diferença de 56.93%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 4 com diferença de 56.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 5 com diferença de 46.97%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 6 com diferença de 57.14%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 7 com diferença de 73.92%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 8 com diferença de 30.51%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 9 com diferença de 154.78%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 10 com diferença de 14.29%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 11 com diferença de 33.06%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 12 com diferença de 10.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 2 com diferença de 71.98%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 3 com diferença de 131.15%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 4 com diferença de 39.44%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 5 com diferença de 124.85%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 6 com diferença de 39.23%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 7 com diferença de 20.86%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 8 com diferença de 113.84%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 9 com diferença de 181.83%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 10 com diferença de 102.21%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 11 com diferença de 62.95%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 12 com diferença de 82.38%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 3 com diferença de 77.45%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 4 com diferença de 35.02%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 5 com diferença de 68.20%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 6 com diferença de 35.23%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 7 com diferença de 53.11%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 8 com diferença de 52.65%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 9 com diferença de 163.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 10 com diferença de 37.05%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 11 com diferença de 10.18%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 12 com diferença de 12.21%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 4 com diferença de 105.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 5 com diferença de 10.67%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 6 com diferença de 105.49%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 7 com diferença de 118.39%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 8 com diferença de 27.62%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 9 com diferença de 125.50%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 10 com diferença de 43.53%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 11 com diferença de 85.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 12 com diferença de 66.82%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 5 com diferença de 97.40%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 7 com diferença de 18.97%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 8 com diferença de 83.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 9 com diferença de 173.50%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 10 com diferença de 69.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 11 com diferença de 25.06%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 12 com diferença de 46.73%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 6 com diferença de 97.57%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 7 com diferença de 111.24%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 8 com diferença de 17.08%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 9 com diferença de 131.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 10 com diferença de 33.25%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 11 com diferença de 77.04%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 12 com diferença de 57.18%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 7 com diferença de 18.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 8 com diferença de 83.99%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 9 com diferença de 173.55%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 10 com diferença de 70.00%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 11 com diferença de 25.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 12 com diferença de 46.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 8 com diferença de 98.85%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 9 com diferença de 177.83%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 10 com diferença de 85.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 11 com diferença de 43.52%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 12 com diferença de 64.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 9 com diferença de 140.91%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 10 com diferença de 16.40%
+OPO=== SISTEMA DE TRADING - VERSÃO PROCESSOS ===
+Iniciando sistema...
+
+=== INICIALIZANDO MÉTRICAS DE PERFORMANCE ===
+✓ Métricas de performance inicializadas
+=== INICIALIZANDO PERFIS DE TRADER ===
+✓ Perfis de trader inicializados:
+  - Conservador (ID: 0)
+  - Agressivo (ID: 1)
+  - Day Trader (ID: 2)
+
+=== INICIALIZANDO AÇÕES DO MERCADO ===
+✓ PETR4 (Petróleo) - R$ 25.50
+✓ VALE3 (Mineração) - R$ 68.30
+✓ ITUB4 (Bancos) - R$ 32.15
+✓ ABEV3 (Bebidas) - R$ 14.20
+✓ BBAS3 (Bancos) - R$ 45.80
+✓ BBDC4 (Bancos) - R$ 15.80
+✓ WEGE3 (Industrial) - R$ 45.90
+✓ RENT3 (Aluguel) - R$ 55.40
+✓ LREN3 (Varejo) - R$ 18.75
+✓ MGLU3 (Varejo) - R$ 3.25
+✓ JBSS3 (Alimentos) - R$ 22.10
+✓ SUZB3 (Papel) - R$ 35.60
+✓ GGBR4 (Siderurgia) - R$ 28.45
+=== 13 AÇÕES INICIALIZADAS ===
+
+[Tue Aug  5 23:06:27 2025] Traders inicializados com sucesso
+[Tue Aug  5 23:06:27 2025] Executor inicializado com sucesso
+[Tue Aug  5 23:06:27 2025] Memória compartilhada criada e inicializada
+=== INICIANDO PROCESSOS COM PIPES ===
+=== CRIANDO PIPES DO SISTEMA ===
+Criando pipe Traders -> Executor...
+✓ Pipe Traders -> Executor criado (RD: 3, WR: 4)
+Criando pipe Executor -> Price Updater...
+✓ Pipe Executor -> Price Updater criado (RD: 5, WR: 6)
+Criando pipe Price Updater -> Arbitrage Monitor...
+✓ Pipe Price Updater -> Arbitrage Monitor criado (RD: 7, WR: 8)
+Criando pipe Arbitrage Monitor -> Traders...
+✓ Pipe Arbitrage Monitor -> Traders criado (RD: 9, WR: 10)
+Criando pipe de controle...
+✓ Pipe de controle criado (RD: 11, WR: 12)
+=== 5 PIPES CRIADOS COM SUCESSO ===
+
+=== INICIALIZANDO AÇÕES DO MERCADO ===
+✓ PETR4 (Petróleo) - R$ 25.50
+✓ VALE3 (Mineração) - R$ 68.30
+✓ ITUB4 (Bancos) - R$ 32.15
+✓ ABEV3 (Bebidas) - R$ 14.20
+✓ BBAS3 (Bancos) - R$ 45.80
+✓ BBDC4 (Bancos) - R$ 15.80
+✓ WEGE3 (Industrial) - R$ 45.90
+✓ RENT3 (Aluguel) - R$ 55.40
+✓ LREN3 (Varejo) - R$ 18.75
+✓ MGLU3 (Varejo) - R$ 3.25
+✓ JBSS3 (Alimentos) - R$ 22.10
+✓ SUZB3 (Papel) - R$ 35.60
+✓ GGBR4 (Siderurgia) - R$ 28.45
+=== 13 AÇÕES INICIALIZADAS ===
+
+[Tue Aug  5 23:06:27 2025] Traders inicializados com sucesso
+[Tue Aug  5 23:06:27 2025] Executor inicializado com sucesso
+[Tue Aug  5 23:06:27 2025] Memória compartilhada criada e inicializada
+✓ Processo Price Updater iniciado (PID: 23400)
+✓ Processo Executor iniciado (PID: 23401)
+✓ Processo Arbitrage Monitor iniciado (PID: 23402)
+✓ Processo Trader 0 iniciado (PID: 23403)
+✓ Processo Trader 1 iniciado (PID: 23404)
+✓ Processo Trader 2 iniciado (PID: 23405)
+✓ Processo Trader 3 iniciado (PID: 23406)
+✓ Processo Trader 4 iniciado (PID: 23407)
+=== PROCESSO TRADER 5 INICIADO (PID: 23408, Perfil: 2) ===
+Trader 5 iniciado com perfil 'Day Trader'
+Configurações: intervalo 1-3s, max 100 ordens, tempo limite 300s
+NOVA ORDEM: Trader 5 compra 212 ações de WEGE3 a R$ 45.90
+[23:06:27] TRADER 5: COMPRA 212 ações a R$ 45.90 (Probabilidade de compra)
+Trader 5: Ordem criada (total: 1/100)
+NOVA ORDEM: Trader 5 compra 214 ações de BBDC4 a R$ 15.80
+[23:06:28] TRADER 5: COMPRA 214 ações a R$ 15.80 (Probabilidade de compra)
+Trader 5: Ordem criada (total: 2/100)
+NOVA ORDEM: Trader 5 compra 197 ações de LREN3 a R$ 18.75
+[23:06:29] TRADER 5: COMPRA 197 ações a R$ 18.75 (Probabilidade de compra)
+Trader 5: Ordem criada (total: 3/100)
+NOVA ORDEM: Trader 5 compra 226 ações de LREN3 a R$ 18.75
+[23:06:30] TRADER 5: COMPRA 226 ações a R$ 18.75 (Probabilidade de compra)
+Trader 5: Ordem criada (total: 4/100)
+NOVA ORDEM: Trader 5 compra 208 ações de BBDC4 a R$ 15.80
+[23:06:31] TRADER 5: COMPRA 208 ações a R$ 15.80 (Probabilidade de compra)
+Trader 5: Ordem criada (total: 5/100)
+NOVA ORDEM: Trader 5 compra 164 ações de RENT3 a R$ 55.40
+[23:06:32] TRADER 5: COMPRA 164 ações a R$ 55.40 (Probabilidade de compra)
+Trader 5: Ordem criada (total: 6/100)
+NOVA ORDEM: Trader 5 compra 178 ações de WEGE3 a R$ 45.90
+[23:06:34] TRADER 5: COMPRA 178 ações a R$ 45.90 (Probabilidade de compra)
+Trader 5: Ordem criada (total: 7/100)
+NOVA ORDEM: Trader 5 compra 200 ações de RENT3 a R$ 55.40
+[23:06:35] TRADER 5: COMPRARTUNIDADE DE ARBITRAGEM: Ações 8 e 11 com diferença de 62.01%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 12 com diferença de 41.10%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 10 com diferença de 148.72%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 11 com diferença de 166.54%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 12 com diferença de 158.99%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 11 com diferença de 46.79%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 12 com diferença de 25.12%
+OPORTUNIDADE DE ARBITRAGEM: Ações 11 e 12 com diferença de 22.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 1 com diferença de 91.26%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 2 com diferença de 23.07%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 3 com diferença de 56.93%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 4 com diferença de 56.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 5 com diferença de 46.97%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 6 com diferença de 57.14%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 7 com diferença de 73.92%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 8 com diferença de 30.51%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 9 com diferença de 154.78%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 10 com diferença de 14.29%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 11 com diferença de 33.06%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 12 com diferença de 10.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 2 com diferença de 71.98%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 3 com diferença de 131.15%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 4 com diferença de 39.44%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 5 com diferença de 124.85%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 6 com diferença de 39.23%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 7 com diferença de 20.86%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 8 com diferença de 113.84%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 9 com diferença de 181.83%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 10 com diferença de 102.21%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 11 com diferença de 62.95%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 12 com diferença de 82.38%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 3 com diferença de 77.45%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 4 com diferença de 35.02%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 5 com diferença de 68.20%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 6 com diferença de 35.23%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 7 com diferença de 53.11%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 8 com diferença de 52.65%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 9 com diferença de 163.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 10 com diferença de 37.05%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 11 com diferença de 10.18%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 12 com diferença de 12.21%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 4 com diferença de 105.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 5 com diferença de 10.67%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 6 com diferença de 105.49%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 7 com diferença de 118.39%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 8 com diferença de 27.62%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 9 com diferença de 125.50%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 10 com diferença de 43.53%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 11 com diferença de 85.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 12 com diferença de 66.82%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 5 com diferença de 97.40%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 7 com diferença de 18.97%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 8 com diferença de 83.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 9 com diferença de 173.50%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 10 com diferença de 69.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 11 com diferença de 25.06%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 12 com diferença de 46.73%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 6 com diferença de 97.57%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 7 com diferença de 111.24%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 8 com diferença de 17.08%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 9 com diferença de 131.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 10 com diferença de 33.25%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 11 com diferença de 77.04%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 12 com diferença de 57.18%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 7 com diferença de 18.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 8 com diferença de 83.99%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 9 com diferença de 173.55%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 10 com diferença de 70.00%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 11 com diferença de 25.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 12 com diferença de 46.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 8 com diferença de 98.85%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 9 com diferença de 177.83%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 10 com diferença de 85.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 11 com diferença de 43.52%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 12 com diferença de 64.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 9 com diferença de 140.91%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 10 com diferença de 16.40%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 11 com diferença de 62.01%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 12 com diferença de 41.10%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 10 com diferença de 148.72%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 11 com diferença de 166.54%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 12 com diferença de 158.99%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 11 com diferença de 46.79%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 12 com diferença de 25.12%
+OPORTUNIDADE DE ARBITRAGEM: Ações 11 e 12 com diferença de 22.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 1 com diferença de 91.26%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 2 com diferença de 23.07%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 3 com diferença de 56.93%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 4 com diferença de 56.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 5 com diferença de 46.97%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 6 com diferença de 57.14%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 7 com diferença de 73.92%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 8 com diferença de 30.51%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 9 com diferença de 154.78%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 10 com diferença de 14.29%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 11 com diferença de 33.06%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 12 com diferença de 10.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 2 com diferença de 71.98%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 3 com diferença de 131.15%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 4 com diferença de 39.44%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 5 com diferença de 124.85%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 6 com diferença de 39.23%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 7 com diferença de 20.86%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 8 com diferença de 113.84%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 9 com diferença de 181.83%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 10 com diferença de 102.21%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 11 com diferença de 62.95%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 12 com diferença de 82.38%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 3 com diferença de 77.45%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 4 com diferença de 35.02%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 5 com diferença de 68.20%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 6 com diferença de 35.23%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 7 com diferença de 53.11%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 8 com diferença de 52.65%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 9 com diferença de 163.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 10 com diferença de 37.05%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 11 com diferença de 10.18%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 12 com diferença de 12.21%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 4 com diferença de 105.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 5 com diferença de 10.67%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 6 com diferença de 105.49%
+=== SISTEMA DE TRADING - VERSÃO PROCESSOS ===
+Iniciando sistema...
+
+=== INICIALIZANDO MÉTRICAS DE PERFORMANCE ===
+✓ Métricas de performance inicializadas
+=== INICIALIZANDO PERFIS DE TRADER ===
+✓ Perfis de trader inicializados:
+  - Conservador (ID: 0)
+  - Agressivo (ID: 1)
+  - Day Trader (ID: 2)
+
+=== INICIALIZANDO AÇÕES DO MERCADO ===
+✓ PETR4 (Petróleo) - R$ 25.50
+✓ VALE3 (Mineração) - R$ 68.30
+✓ ITUB4 (Bancos) - R$ 32.15
+✓ ABEV3 (Bebidas) - R$ 14.20
+✓ BBAS3 (Bancos) - R$ 45.80
+✓ BBDC4 (Bancos) - R$ 15.80
+✓ WEGE3 (Industrial) - R$ 45.90
+✓ RENT3 (Aluguel) - R$ 55.40
+✓ LREN3 (Varejo) - R$ 18.75
+✓ MGLU3 (Varejo) - R$ 3.25
+✓ JBSS3 (Alimentos) - R$ 22.10
+✓ SUZB3 (Papel) - R$ 35.60
+✓ GGBR4 (Siderurgia) - R$ 28.45
+=== 13 AÇÕES INICIALIZADAS ===
+
+[Tue Aug  5 23:06:27 2025] Traders inicializados com sucesso
+[Tue Aug  5 23:06:27 2025] Executor inicializado com sucesso
+[Tue Aug  5 23:06:27 2025] Memória compartilhada criada e inicializada
+=== INICIANDO PROCESSOS COM PIPES ===
+=== CRIANDO PIPES DO SISTEMA ===
+Criando pipe Traders -> Executor...
+✓ Pipe Traders -> Executor criado (RD: 3, WR: 4)
+Criando pipe Executor -> Price Updater...
+✓ Pipe Executor -> Price Updater criado (RD: 5, WR: 6)
+Criando pipe Price Updater -> Arbitrage Monitor...
+✓ Pipe Price Updater -> Arbitrage Monitor criado (RD: 7, WR: 8)
+Criando pipe Arbitrage Monitor -> Traders...
+✓ Pipe Arbitrage Monitor -> Traders criado (RD: 9, WR: 10)
+Criando pipe de controle...
+✓ Pipe de controle criado (RD: 11, WR: 12)
+=== 5 PIPES CRIADOS COM SUCESSO ===
+
+=== INICIALIZANDO AÇÕES DO MERCADO ===
+✓ PETR4 (Petróleo) - R$ 25.50
+✓ VALE3 (Mineração) - R$ 68.30
+✓ ITUB4 (Bancos) - R$ 32.15
+✓ ABEV3 (Bebidas) - R$ 14.20
+✓ BBAS3 (Bancos) - R$ 45.80
+✓ BBDC4 (Bancos) - R$ 15.80
+✓ WEGE3 (Industrial) - R$ 45.90
+✓ RENT3 (Aluguel) - R$ 55.40
+✓ LREN3 (Varejo) - R$ 18.75
+✓ MGLU3 (Varejo) - R$ 3.25
+✓ JBSS3 (Alimentos) - R$ 22.10
+✓ SUZB3 (Papel) - R$ 35.60
+✓ GGBR4 (Siderurgia) - R$ 28.45
+=== 13 AÇÕES INICIALIZADAS ===
+
+[Tue Aug  5 23:06:27 2025] Traders inicializados com sucesso
+[Tue Aug  5 23:06:27 2025] Executor inicializado com sucesso
+[Tue Aug  5 23:06:27 2025] Memória compartilhada criada e inicializada
+✓ Processo Price Updater iniciado (PID: 23400)
+✓ Processo Executor iniciado (PID: 23401)
+✓ Processo Arbitrage Monitor iniciado (PID: 23402)
+✓ Processo Trader 0 iniciado (PID: 23403)
+✓ Processo Trader 1 iniciado (PID: 23404)
+✓ Processo Trader 2 iniciado (PID: 23405)
+✓ Processo Trader 3 iniciado (PID: 23406)
+✓ Processo Trader 4 iniciado (PID: 23407)
+✓ Processo Trader 5 iniciado (PID: 23408)
+=== TODOS OS PROCESSOS INICIADOS COM PIPES ===
+
+[Tue Aug  5 23:06:27 2025] Todos os processos iniciados com pipes
+Sistema iniciado com sucesso!
+Pressione Ctrl+C para parar o sistema
+
+[2J[H=== SISTEMA DE TRADING - VERSÃO PROCESSOS ===
+Tempo de execução: 20 segundos
+Sistema ativo: SIM
+
+
+=== ESTADO DAS AÇÕES ===
+PETR4:
+  Preço atual: R$ 25.50
+  Variação: 0.00%
+  Volume negociado: 0
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+VALE3:
+  Preço atual: R$ 68.30
+  Variação: 0.00%
+  Volume negociado: 0
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+ITUB4:
+  Preço atual: R$ 32.15
+  Variação: 0.00%
+  Volume negociado: 0
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+ABEV3:
+  Preço atual: R$ 14.20
+  Variação: 0.00%
+  Volume negociado: 0
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+BBAS3:
+  Preço atual: R$ 45.80
+  Variação: 0.00%
+  Volume negociado: 0
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+BBDC4:
+  Preço atual: R$ 15.80
+  Variação: 0.00%
+  Volume negociado: 0
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+WEGE3:
+  Preço atual: R$ 45.90
+  Variação: 0.00%
+  Volume negociado: 0
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+RENT3:
+  Preço atual: R$ 55.40
+  Variação: 0.00%
+  Volume negociado: 0
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+LREN3:
+  Preço atual: R$ 18.75
+  Variação: 0.00%
+  Volume negociado: 0
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+MGLU3:
+  Preço atuaOPORTUNIDADE DE ARBITRAGEM: Ações 3 e 7 com diferença de 118.39%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 8 com diferença de 27.62%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 9 com diferença de 125.50%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 10 com diferença de 43.53%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 11 com diferença de 85.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 12 com diferença de 66.82%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 5 com diferença de 97.40%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 7 com diferença de 18.97%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 8 com diferença de 83.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 9 com diferença de 173.50%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 10 com diferença de 69.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 11 com diferença de 25.06%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 12 com diferença de 46.73%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 6 com diferença de 97.57%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 7 com diferença de 111.24%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 8 com diferença de 17.08%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 9 com diferença de 131.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 10 com diferença de 33.25%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 11 com diferença de 77.04%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 12 com diferença de 57.18%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 7 com diferença de 18.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 8 com diferença de 83.99%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 9 com diferença de 173.55%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 10 com diferença de 70.00%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 11 com diferença de 25.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 12 com diferença de 46.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 8 com diferença de 98.85%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 9 com diferença de 177.83%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 10 com diferença de 85.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 11 com diferença de 43.52%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 12 com diferença de 64.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 9 com diferença de 140.91%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 10 com diferença de 16.40%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 11 com diferença de 62.01%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 12 com diferença de 41.10%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 10 com diferença de 148.72%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 11 com diferença de 166.54%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 12 com diferença de 158.99%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 11 com diferença de 46.79%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 12 com diferença de 25.12%
+OPORTUNIDADE DE ARBITRAGEM: Ações 11 e 12 com diferença de 22.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 1 com diferença de 91.26%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 2 com diferença de 23.07%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 3 com diferença de 56.93%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 4 com diferença de 56.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 5 com diferença de 46.97%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 6 com diferença de 57.14%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 7 com diferença de 73.92%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 8 com diferença de 30.51%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 9 com diferença de 154.78%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 10 com diferença de 14.29%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 11 com diferença de 33.06%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 12 com diferença de 10.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 2 com diferença de 71.98%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 3 com diferença de 131.15%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 4 com diferença de 39.44%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 5 com diferença de 124.85%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 6 com diferença de 39.23%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 7 com diferença de 20.86%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 8 com diferença de 113.84%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 9 com diferença de 181.83%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 10 com diferença de 102.21%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 11 com diferença de 62.95%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 12 com diferença de 82.38%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 3 com diferença de 77.45%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 4 com diferença de 35.02%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 5 com diferença de 68.20%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 6 com diferença de 35.23%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 7 com diferença de 53.11%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 8 com diferença de 52.65%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 9 com diferença de 163.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 10 com diferença de 37.05%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 11 com diferença de 10.18%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 12 com diferença de 12.21%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 4 com diferença de 105.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 5 com diferença de 10.67%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 6 com diferença de 105.49%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 7 com diferença de 118.39%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 8 com diferença de 27.62%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 9 com diferença de 125.50%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 10 com diferença de 43.53%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 11 com diferença de 85.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 12 com diferença de 66.82%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 5 com diferença de 97.40%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 7 com diferença de 18.97%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 8 com diferença de 83.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 9 com diferença de 173.50%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 10 com diferença de 69.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 11 com diferença de 25.06%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 12 com diferença de 46.73%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 6 com diferença de 97.57%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 7 com diferença de 111.24%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 8 com diferença de 17.08%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 9 com diferença de 131.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 10 com diferença de 33.25%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 11 com diferença de 77.04%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 12 com diferença de 57.18%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 7 com diferença de 18.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 8 com diferença de 83.99%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 9 com diferença de 173.55%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 10 com diferença de 70.00%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 11 com diferença de 25.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 12 com diferença de 46.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 8 com diferença de 98.85%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 9 com diferença de 177.83%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 10 com diferença de 85.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 11 com diferença de 43.52%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 12 com diferença de 64.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 9 com diferença de 140.91%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 10 com diferença de 16.40%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 11 com diferença de 62.01%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 12 com diferença de 41.10%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 10 com diferença de 148.72%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 11 com diferença de 166.54%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 12 com diferença de 158.99%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 11 com diferença de 46.79%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 12 com diferença de 25.12%
+OPORTUNIDADE DE ARBITRAGEM: Ações 11 e 12 com diferença de 22.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 1 com diferença de 91.26%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 2 com diferença de 23.07%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 3 com diferença de 56.93%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 4 com diferença de 56.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 5 com diferença de 46.97%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 6 com diferença de 57.14%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 7 com diferença de 73.92%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 8 com diferença de 30.51%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 9 com diferença de 154.78%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 10 com diferença de 14.29%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 11 com diferença de 33.06%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 12 com diferença de 10.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 2 com diferença de 71.98%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 3 com diferença de 131.15%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 4 com diferença de 39.44%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 5 com diferença de 124.85%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 6 com diferença de 39.23%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 7 com diferença de 20.86%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 8 com diferença de 113.84%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 9 com diferença de 181.83%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 10 com diferença de 102.21%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 11 com diferença de 62.95%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 12 com diferença de 82.38%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 3 com diferença de 77.45%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 4 com diferença de 35.02%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 5 com diferença de 68.20%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 6 com diferença de 35.23%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 7 com diferença de 53.11%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 8 com diferença de 52.65%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 9 com diferença de 163.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 10 com diferença de 37.05%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 11 com diferença de 10.18%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 12 com diferença de 12.21%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 4 com diferença de 105.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 5 com diferença de 10.67%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 6 com diferença de 105.49%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 7 com diferença de 118.39%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 8 com diferença de 27.62%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 9 com diferença de 125.50%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 10 com diferença de 43.53%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 11 com diferença de 85.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 12 com diferença de 66.82%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 5 com diferença de 97.40%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 7 com diferença de 18.97%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 8 com diferença de 83.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 9 com diferença de 173.50%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 10 com diferença de 69.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 11 com diferença de 25.06%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 12 com diferença de 46.73%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 6 com diferença de 97.57%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 7 com diferença de 111.24%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 8 com diferença de 17.08%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 9 com diferença de 131.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 10 com diferença de 33.25%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 11 com diferença de 77.04%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 12 com diferença de 57.18%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 7 com diferença de 18.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 8 com diferença de 83.99%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 9 com diferença de 173.55%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 10 com diferença de 70.00%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 11 com diferença de 25.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 12 com diferença de 46.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 8 com diferença de 98.85%
+OPORTUNIDADE DE ARBITRAGEM: Aç=== SISTEMA DE TRADING - VERSÃO PROCESSOS ===
+Iniciando sistema...
+
+=== INICIALIZANDO MÉTRICAS DE PERFORMANCE ===
+✓ Métricas de performance inicializadas
+=== INICIALIZANDO PERFIS DE TRADER ===
+✓ Perfis de trader inicializados:
+  - Conservador (ID: 0)
+  - Agressivo (ID: 1)
+  - Day Trader (ID: 2)
+
+=== INICIALIZANDO AÇÕES DO MERCADO ===
+✓ PETR4 (Petróleo) - R$ 25.50
+✓ VALE3 (Mineração) - R$ 68.30
+✓ ITUB4 (Bancos) - R$ 32.15
+✓ ABEV3 (Bebidas) - R$ 14.20
+✓ BBAS3 (Bancos) - R$ 45.80
+✓ BBDC4 (Bancos) - R$ 15.80
+✓ WEGE3 (Industrial) - R$ 45.90
+✓ RENT3 (Aluguel) - R$ 55.40
+✓ LREN3 (Varejo) - R$ 18.75
+✓ MGLU3 (Varejo) - R$ 3.25
+✓ JBSS3 (Alimentos) - R$ 22.10
+✓ SUZB3 (Papel) - R$ 35.60
+✓ GGBR4 (Siderurgia) - R$ 28.45
+=== 13 AÇÕES INICIALIZADAS ===
+
+[Tue Aug  5 23:06:27 2025] Traders inicializados com sucesso
+[Tue Aug  5 23:06:27 2025] Executor inicializado com sucesso
+[Tue Aug  5 23:06:27 2025] Memória compartilhada criada e inicializada
+=== INICIANDO PROCESSOS COM PIPES ===
+=== CRIANDO PIPES DO SISTEMA ===
+Criando pipe Traders -> Executor...
+✓ Pipe Traders -> Executor criado (RD: 3, WR: 4)
+Criando pipe Executor -> Price Updater...
+✓ Pipe Executor -> Price Updater criado (RD: 5, WR: 6)
+Criando pipe Price Updater -> Arbitrage Monitor...
+✓ Pipe Price Updater -> Arbitrage Monitor criado (RD: 7, WR: 8)
+Criando pipe Arbitrage Monitor -> Traders...
+✓ Pipe Arbitrage Monitor -> Traders criado (RD: 9, WR: 10)
+Criando pipe de controle...
+✓ Pipe de controle criado (RD: 11, WR: 12)
+=== 5 PIPES CRIADOS COM SUCESSO ===
+
+=== INICIALIZANDO AÇÕES DO MERCADO ===
+✓ PETR4 (Petróleo) - R$ 25.50
+✓ VALE3 (Mineração) - R$ 68.30
+✓ ITUB4 (Bancos) - R$ 32.15
+✓ ABEV3 (Bebidas) - R$ 14.20
+✓ BBAS3 (Bancos) - R$ 45.80
+✓ BBDC4 (Bancos) - R$ 15.80
+✓ WEGE3 (Industrial) - R$ 45.90
+✓ RENT3 (Aluguel) - R$ 55.40
+✓ LREN3 (Varejo) - R$ 18.75
+✓ MGLU3 (Varejo) - R$ 3.25
+✓ JBSS3 (Alimentos) - R$ 22.10
+✓ SUZB3 (Papel) - R$ 35.60
+✓ GGBR4 (Siderurgia) - R$ 28.45
+=== 13 AÇÕES INICIALIZADAS ===
+
+[Tue Aug  5 23:06:27 2025] Traders inicializados com sucesso
+[Tue Aug  5 23:06:27 2025] Executor inicializado com sucesso
+[Tue Aug  5 23:06:27 2025] Memória compartilhada criada e inicializada
+✓ Processo Price Updater iniciado (PID: 23400)
+✓ Processo Executor iniciado (PID: 23401)
+✓ Processo Arbitrage Monitor iniciado (PID: 23402)
+✓ Processo Trader 0 iniciado (PID: 23403)
+✓ Processo Trader 1 iniciado (PID: 23404)
+✓ Processo Trader 2 iniciado (PID: 23405)
+=== PROCESSO TRADER 3 INICIADO (PID: 23406, Perfil: 0) ===
+Trader 3 iniciado com perfil 'Conservador'
+Configurações: intervalo 3-8s, max 20 ordens, tempo limite 300s
+NOVA ORDEM: Trader 3 compra 106 ações de VALE3 a R$ 68.30
+[23:06:27] TRADER 3: COMPRA 106 ações a R$ 68.30 (Probabilidade de compra)
+Trader 3: Ordem criada (total: 1/20)
+NOVA ORDEM: Trader 3 compra 114 ações de PETR4 a R$ 25.50
+[23:06:30] TRADER 3: COMPRA 114 ações a R$ 25.50 (Probabilidade de compra)
+Trader 3: Ordem criada (total: 2/20)
+NOVA ORDEM: Trader 3 compra 82 ações de PETR4 a R$ 25.50
+[23:06:33] TRADER 3: COMPRA 82 ações a R$ 25.50 (Probabilidade de compra)
+Trader 3: Ordem criada (total: 3/20)
+NOVA ORDEM: Trader 3 compra 106 ações de VALE3 a R$ 68.30
+[23:06:38] TRADER 3: COMPRA 106 ações a R$ 68.30 (Probabilidade de compra)
+Trader 3: Ordem criada (total: 4/20)
+NOVA ORDEM: Trader 3 compra 116 ações de PETR4 a R$ 25.50
+[23:06:41] TRADER 3: COMPRA 116 ações a R$ 25.50 (Probabilidade de compra)
+Trader 3: Ordem criada (total: 5/20)
+NOVA ORDEM: Trader 3 compra 104 ações de VALE3 a R$ 68.30
+[23:06:45] TRADER 3: COMPRA 104 ações a R$ 68.30 (Probabilidade de compra)
+Trader 3: Ordem criada (total: 6/20)
+NOVA ORDEM: Trader 3 compra 110 ações de PETR4 a R$ 25.50
+[23:06:49] TRADER 3: COMPRA 110 ações a R$ 25.50 (Probabilidade de compra)
+Trader 3: Ordem criada (total: 7/20)
+NOVA ORDEM: Trader 3 compra 98 ações de VALE3 a R$ 68.30
+[23:06:52] TRADER 3: COMPRA 98 ações a R$ 68.30 (Probabilidade de compra)
+Trader 3: Ordem criada (total: 8/20)
+NOVA ORDEM: 

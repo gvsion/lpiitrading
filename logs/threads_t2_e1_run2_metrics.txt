@@ -1,0 +1,9 @@
+test_name=threads_t2_e1_run2
+creation_time=30
+orders_processed=358
+orders_accepted=358
+orders_rejected=0
+throughput=11.93
+avg_latency=0
+max_memory=0
+execution_time=30

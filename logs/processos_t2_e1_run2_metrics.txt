@@ -1,0 +1,9 @@
+test_name=processos_t2_e1_run2
+creation_time=30
+orders_processed=63
+orders_accepted=63
+orders_rejected=0
+throughput=2.10
+avg_latency=0
+max_memory=0
+execution_time=30

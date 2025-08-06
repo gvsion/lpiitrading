@@ -1,0 +1,2055 @@
+=== SISTEMA DE TRADING - VERSÃO THREADS ===
+Escolha uma opção:
+1. Executar sistema normal
+2. Executar demo de race conditions
+Digite sua escolha (1 ou 2): Iniciando sistema normal...
+
+=== INICIALIZANDO AÇÕES DO MERCADO ===
+✓ PETR4 (Petróleo) - R$ 25.50
+✓ VALE3 (Mineração) - R$ 68.30
+✓ ITUB4 (Bancos) - R$ 32.15
+✓ ABEV3 (Bebidas) - R$ 14.20
+✓ BBAS3 (Bancos) - R$ 45.80
+✓ BBDC4 (Bancos) - R$ 15.80
+✓ WEGE3 (Industrial) - R$ 45.90
+✓ RENT3 (Aluguel) - R$ 55.40
+✓ LREN3 (Varejo) - R$ 18.75
+✓ MGLU3 (Varejo) - R$ 3.25
+✓ JBSS3 (Alimentos) - R$ 22.10
+✓ SUZB3 (Papel) - R$ 35.60
+✓ GGBR4 (Siderurgia) - R$ 28.45
+=== 13 AÇÕES INICIALIZADAS ===
+
+[Tue Aug  5 23:05:53 2025] Traders inicializados com sucesso
+[Tue Aug  5 23:05:53 2025] Executor inicializado com sucesso
+[Tue Aug  5 23:05:53 2025] Sistema de trading inicializado com sucesso
+=== INICIANDO THREADS ===
+=== INICIALIZANDO ESTRUTURAS GLOBAIS PARA THREADS ===
+✓ Fila de ordens inicializada (capacidade: 1000)
+✓ Estado do mercado inicializado
+✓ Mutexes e condition variables criados
+=== INICIALIZANDO MÉTRICAS DE PERFORMANCE ===
+✓ Métricas de performance inicializadas
+=== INICIALIZANDO PERFIS DE TRADER ===
+✓ Perfis de trader inicializados:
+  - Conservador (ID: 0)
+  - Agressivo (ID: 1)
+  - Day Trader (ID: 2)
+
+✓ Thread trader 0 criada com sucesso
+=== THREAD TRADER 0 INICIADA (Perfil: 0) ===
+Trader 0 iniciado com perfil 'Conservador'
+Configurações: intervalo 3-8s, max 20 ordens, tempo limite 300s
+NOVA ORDEM: Trader 0 vende 149 ações de PETR4 a R$ 25.37
+✓ Thread trader 1 criada com sucesso
+✓ Thread trader 2 criada com sucesso
+=== THREAD TRADER 1 INICIADA (Perfil: 1) ===
+Trader 1 iniciado com perfil 'Agressivo'
+Configurações: intervalo 1-4s, max 50 ordens, tempo limite 300s
+NOVA ORDEM: Trader 1 compra 459 ações de BBAS3 a R$ 45.80
+=== THREAD TRADER 2 INICIADA (Perfil: 2) ===
+Trader 2 iniciado com perfil 'Day Trader'
+Configurações: intervalo 1-3s, max 100 ordens, tempo limite 300s
+[23:05:53] TRADER 0: VENDA 149 ações a R$ 25.37 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 0, Ação 0, Tipo: V, Preço: 25.37, Qtd: 149)
+Trader 0: Ordem criada (total: 1/20)
+NOVA ORDEM: Trader 2 compra 226 ações de BBDC4 a R$ 15.80
+✓ Thread trader 3 criada com sucesso
+=== THREAD TRADER 3 INICIADA (Perfil: 0) ===
+Trader 3 iniciado com perfil 'Conservador'
+Configurações: intervalo 3-8s, max 20 ordens, tempo limite 300s
+NOVA ORDEM: Trader 3 compra 107 ações de PETR4 a R$ 25.51
+[23:05:53] TRADER 1: COMPRA 459 ações a R$ 45.80 (Probabilidade de compra)
+NOVA ORDEM: Trader 1 compra 625 ações de VALE3 a R$ 68.01
+✓ Thread trader 4 criada com sucesso
+=== THREAD TRADER 4 INICIADA (Perfil: 1) ===
+Trader 4 iniciado com perfil 'Agressivo'
+Configurações: intervalo 1-4s, max 50 ordens, tempo limite 300s
+NOVA ORDEM: Trader 4 compra 699 ações de PETR4 a R$ 25.47
+[23:05:53] TRADER 2: COMPRA 226 ações a R$ 15.80 (Probabilidade de compra)
+NOVA ORDEM: Trader 2 vende 209 ações de VALE3 a R$ 68.05
+✓ Thread trader 5 criada com sucesso
+[23:05:53] TRADER 2: VENDA 209 ações a R$ 68.05 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 2, Ação 1, Tipo: V, Preço: 68.05, Qtd: 209)
+Trader 2: Ordem criada (total: 1/100)
+=== THREAD TRADER 5 INICIADA (Perfil: 2) ===
+Trader 5 iniciado com perfil 'Day Trader'
+Configurações: intervalo 1-3s, max 100 ordens, tempo limite 300s
+NOVA ORDEM: Trader 5 vende 263 ações de PETR4 a R$ 25.58
+[23:05:53] TRADER 3: COMPRA 107 ações a R$ 25.51 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 3, Ação 0, Tipo: C, Preço: 25.51, Qtd: 107)
+[23:05:53] TRADER 1: COMPRA 625 ações a R$ 68.01 (Probabilidade de compra)
+=== THREAD EXECUTOR INICIADA ===
+EXECUTOR: Processando ordem do Trader 0
+Trader 3: Ordem criada (total: 1/20)
+✓ Thread executor criada com sucesso
+✓ Ordem adicionada na fila (Trader 1, Ação 1, Tipo: C, Preço: 68.01, Qtd: 625)
+Trader 1: Ordem criada (total: 1/50)
+[23:05:53] TRADER 4: COMPRA 699 ações a R$ 25.47 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 4, Ação 0, Tipo: C, Preço: 25.47, Qtd: 699)
+Trader 4: Ordem criada (total: 1/50)
+✓ Thread price updater criada com sucesso
+=== THREAD PRICE UPDATER INICIADA ===
+[23:05:53] TRADER 5: VENDA 263 ações a R$ 25.58 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 5, Ação 0, Tipo: V, Preço: 25.58, Qtd: 263)
+Trader 5: Ordem criada (total: 1/100)
+✓ Thread arbitrage monitor criada com sucesso
+=== THREAD ARBITRAGE MONITOR INICIADA ===
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 1 com diferença de 91.26%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 2 com diferença de 23.07%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 3 com diferença de 56.93%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 4 com diferença de 56.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 5 com diferença de 46.97%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 6 com diferença de 57.14%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 7 com diferença de 73.92%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 8 com diferença de 30.51%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 9 com diferença de 154.78%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 10 com diferença de 14.29%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 11 com diferença de 33.06%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 12 com diferença de 10.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 2 com diferença de 71.98%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 3 com diferença de 131.15%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 4 com diferença de 39.44%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 5 com diferença de 124.85%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 6 com diferença de 39.23%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 7 com diferença de 20.86%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 8 com diferença de 113.84%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 9 com diferença de 181.83%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 10 com diferença de 102.21%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 11 com diferença de 62.95%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 12 com diferença de 82.38%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 3 com diferença de 77.45%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 4 com diferença de 35.02%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 5 com diferença de 68.20%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 6 com diferença de 35.23%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 7 com diferença de 53.11%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 8 com diferença de 52.65%
+✅ Thread detector de arbitragem criada com sucesso
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 9 com diferença de 163.28%
+=== TODAS AS THREADS INICIADAS ===
+Sistema iniciado com sucesso!
+Pressione Ctrl+C para parar o sistema
+
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 10 com diferença de 37.05%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 11 com diferença de 10.18%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 12 com diferença de 12.21%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 4 com diferença de 105.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 5 com diferença de 10.67%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 6 com diferença de 105.49%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 7 com diferença de 118.39%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 8 com diferença de 27.62%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 9 com diferença de 125.50%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 10 com diferença de 43.53%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 11 com diferença de 85.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 12 com diferença de 66.82%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 5 com diferença de 97.40%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 7 com diferença de 18.97%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 8 com diferença de 83.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 9 com diferença de 173.50%
+🚀 THREAD DETECTOR DE ARBITRAGEM INICIADA
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 10 com diferença de 69.81%
+Monitorando 8 pares de ações relacionadas...
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 11 com diferença de 25.06%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 12 com diferença de 46.73%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 6 com diferença de 97.57%
+=== INICIALIZANDO DETECTOR DE ARBITRAGEM ===
+✓ Estatísticas de arbitragem inicializadas
+✓ Critério de spread mínimo: 2%
+✓ Monitoramento de 8 pares de ações relacionadas
+
+--- CICLO DE ARBITRAGEM 1 ---
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: PETR4 a R$ 25.50
+   Venda: VALE3 a R$ 68.30
+   Spread: 91.26%
+   Lucro potencial: R$ 42800.00
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: ITUB4 a R$ 32.15
+   Venda: BBAS3 a R$ 45.80
+   Spread: 35.02%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 7 com diferença de 111.24%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 8 com diferença de 17.08%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 9 com diferença de 131.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 10 com diferença de 33.25%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 11 com diferença de 77.04%
+   Lucro potencial: R$ 13650.00
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 12 com diferença de 57.18%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 7 com diferença de 18.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 8 com diferença de 83.99%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 9 com diferença de 173.55%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 10 com diferença de 70.00%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 11 com diferença de 25.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 12 com diferença de 46.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 8 com diferença de 98.85%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 9 com diferença de 177.83%
+PRICE UPDATER: Arquivo de histórico inicializado: historico_precos.txt
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 10 com diferença de 85.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 11 com diferença de 43.52%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 12 com diferença de 64.28%
+   Volume: 1000 ações
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 9 com diferença de 140.91%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 10 com diferença de 16.40%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 11 com diferença de 62.01%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 12 com diferença de 41.10%
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 10 com diferença de 148.72%
+   Compra: BBDC4 a R$ 15.80
+   Venda: ITUB4 a R$ 32.15
+   Spread: 68.20%
+   Lucro potencial: R$ 16350.00
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: BBDC4 a R$ 15.80
+   Venda: BBAS3 a R$ 45.80
+   Spread: 97.40%
+   Lucro potencial: R$ 30000.00
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: ABEV3 a R$ 14.20
+   Venda: JBSS3 a R$ 22.10
+   Spread: 43.53%
+   Lucro potencial: R$ 7900.00
+   Volume: 1000 ações
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 11 com diferença de 166.54%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 12 com diferença de 158.99%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 11 com diferença de 46.79%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 12 com diferença de 25.12%
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: MGLU3 a R$ 3.25
+OPORTUNIDADE DE ARBITRAGEM: Ações 11 e 12 com diferença de 22.33%
+   Venda: LREN3 a R$ 18.75
+   Spread: 140.91%
+   Lucro potencial: R$ 15500.00
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: WEGE3 a R$ 45.90
+EVENTO: Notícia positiva para RENT3 (+10.50%)
+   Venda: RENT3 a R$ 55.40
+   Spread: 18.76%
+   Lucro potencial: R$ 9500.00
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: GGBR4 a R$ 28.45
+   Venda: SUZB3 a R$ 35.60
+   Spread: 22.33%
+   Lucro potencial: R$ 7150.00
+   Volume: 1000 ações
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de PETR4 a R$ 25.50
+   Vendendo 1000 ações de VALE3 a R$ 68.30
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 42757.20 (após custos)
+   Novos preços: 25.53 / 68.23
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de ITUB4 a R$ 32.15
+   Vendendo 1000 ações de BBAS3 a R$ 45.80
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 13636.35 (após custos)
+   Novos preços: 32.18 / 45.75
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de BBDC4 a R$ 15.80
+   Vendendo 1000 ações de ITUB4 a R$ 32.15
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 16333.65 (após custos)
+   Novos preços: 15.82 / 32.12
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de BBDC4 a R$ 15.80
+   Vendendo 1000 ações de BBAS3 a R$ 45.80
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 29970.00 (após custos)
+   Novos preços: 15.82 / 45.75
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de ABEV3 a R$ 14.20
+   Vendendo 1000 ações de JBSS3 a R$ 22.10
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 7892.10 (após custos)
+   Novos preços: 14.21 / 22.08
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de MGLU3 a R$ 3.25
+   Vendendo 1000 ações de LREN3 a R$ 18.75
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 15484.50 (após custos)
+   Novos preços: 3.25 / 18.73
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de WEGE3 a R$ 45.90
+   Vendendo 1000 ações de RENT3 a R$ 55.40
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 9490.50 (após custos)
+   Novos preços: 45.95 / 55.34
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de GGBR4 a R$ 28.45
+   Vendendo 1000 ações de SUZB3 a R$ 35.60
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 7142.85 (após custos)
+   Novos preços: 28.48 / 35.56
+EXECUTOR: Ordem rejeitada - Ações insuficientes (0 < 149)
+[23:05:54] EXECUTOR: REJEITOU ordem do Trader 0 (VENDA 149 ações a R$ 25.37) em 194ms
+EXECUTOR: Processando ordem do Trader 2
+EXECUTOR: Ordem rejeitada - Ações insuficientes (0 < 209)
+[23:05:54] EXECUTOR: REJEITOU ordem do Trader 2 (VENDA 209 ações a R$ 68.05) em 142ms
+EXECUTOR: Processando ordem do Trader 3
+[23:05:54] EXECUTOR: ACEITOU ordem do Trader 3 (COMPRA 107 ações a R$ 25.51) em 185ms
+EXECUTADA: Trader 3 comprou 107 ações de PETR4 a R$ 25.51
+EXECUTOR: Processando ordem do Trader 1
+[23:05:54] EXECUTOR: ACEITOU ordem do Trader 1 (COMPRA 625 ações a R$ 68.01) em 75ms
+EXECUTADA: Trader 1 comprou 625 ações de VALE3 a R$ 68.01
+EXECUTOR: Processando ordem do Trader 4
+NOVA ORDEM: Trader 1 compra 269 ações de PETR4 a R$ 25.62
+[23:05:54] TRADER 1: COMPRA 269 ações a R$ 25.62 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 1, Ação 0, Tipo: C, Preço: 25.62, Qtd: 269)
+Trader 1: Ordem criada (total: 2/50)
+[23:05:55] EXECUTOR: ACEITOU ordem do Trader 4 (COMPRA 699 ações a R$ 25.47) em 169ms
+EXECUTADA: Trader 4 comprou 699 ações de PETR4 a R$ 25.47
+EXECUTOR: Processando ordem do Trader 5
+EXECUTOR: Ordem rejeitada - Ações insuficientes (0 < 263)
+[23:05:55] EXECUTOR: REJEITOU ordem do Trader 5 (VENDA 263 ações a R$ 25.58) em 120ms
+EXECUTOR: Processando ordem do Trader 1
+[23:05:55] EXECUTOR: ACEITOU ordem do Trader 1 (COMPRA 269 ações a R$ 25.62) em 118ms
+EXECUTADA: Trader 1 comprou 269 ações de PETR4 a R$ 25.62
+NOVA ORDEM: Trader 2 vende 168 ações de PETR4 a R$ 25.64
+[23:05:55] TRADER 2: VENDA 168 ações a R$ 25.64 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 2, Ação 0, Tipo: V, Preço: 25.64, Qtd: 168)
+Trader 2: Ordem criada (total: 2/100)
+EXECUTOR: Processando ordem do Trader 2
+NOVA ORDEM: Trader 4 compra 529 ações de BBAS3 a R$ 45.75
+[23:05:55] TRADER 4: COMPRA 529 ações a R$ 45.75 (Probabilidade de compra)
+NOVA ORDEM: Trader 4 vende 723 ações de VALE3 a R$ 68.39
+[23:05:55] TRADER 4: VENDA 723 ações a R$ 68.39 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 4, Ação 1, Tipo: V, Preço: 68.39, Qtd: 723)
+Trader 4: Ordem criada (total: 2/50)
+EXECUTOR: Ordem rejeitada - Ações insuficientes (0 < 168)
+[23:05:55] EXECUTOR: REJEITOU ordem do Trader 2 (VENDA 168 ações a R$ 25.64) em 55ms
+EXECUTOR: Processando ordem do Trader 4
+EXECUTOR: Ordem rejeitada - Ações insuficientes (0 < 723)
+[23:05:56] EXECUTOR: REJEITOU ordem do Trader 4 (VENDA 723 ações a R$ 68.39) em 97ms
+[23:05:56] PRICE UPDATER: Ação 0 - R$ 25.53 → R$ 25.73 (0.82%) - Variação de mercado
+[23:05:56] PRICE UPDATER: Ação 1 - R$ 68.23 → R$ 67.87 (-0.53%) - Variação de mercado
+[23:05:56] PRICE UPDATER: Ação 2 - R$ 32.12 → R$ 32.26 (0.43%) - Variação de mercado
+[23:05:56] PRICE UPDATER: Ação 3 - R$ 14.21 → R$ 14.35 (0.93%) - Variação de mercado
+[23:05:56] PRICE UPDATER: Ação 4 - R$ 45.75 → R$ 45.75 (-0.02%) - Variação de mercado
+[23:05:56] PRICE UPDATER: Ação 5 - R$ 15.82 → R$ 15.79 (-0.14%) - Variação de mercado
+[23:05:56] PRICE UPDATER: Ação 6 - R$ 45.95 → R$ 46.05 (0.22%) - Variação de mercado
+[23:05:56] PRICE UPDATER: Ação 7 - R$ 55.34 → R$ 55.03 (-0.56%) - Variação de mercado
+[23:05:56] PRICE UPDATER: Ação 8 - R$ 18.73 → R$ 18.81 (0.44%) - Variação de mercado
+[23:05:56] PRICE UPDATER: Ação 9 - R$ 3.25 → R$ 3.25 (0.04%) - Variação de mercado
+[23:05:56] PRICE UPDATER: Ação 10 - R$ 22.08 → R$ 21.90 (-0.81%) - Variação de mercado
+[23:05:56] PRICE UPDATER: Ação 11 - R$ 35.56 → R$ 35.43 (-0.38%) - Variação de mercado
+[23:05:56] PRICE UPDATER: Ação 12 - R$ 28.48 → R$ 28.44 (-0.13%) - Variação de mercado
+NOVA ORDEM: Trader 3 compra 76 ações de PETR4 a R$ 25.77
+[23:05:56] TRADER 3: COMPRA 76 ações a R$ 25.77 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 3, Ação 0, Tipo: C, Preço: 25.77, Qtd: 76)
+Trader 3: Ordem criada (total: 2/20)
+EXECUTOR: Processando ordem do Trader 3
+NOVA ORDEM: Trader 5 vende 181 ações de PETR4 a R$ 25.70
+NOVA ORDEM: Trader 2 compra 209 ações de BBDC4 a R$ 15.79
+[23:05:56] TRADER 5: VENDA 181 ações a R$ 25.70 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 5, Ação 0, Tipo: V, Preço: 25.70, Qtd: 181)
+Trader 5: Ordem criada (total: 2/100)
+[23:05:56] TRADER 2: COMPRA 209 ações a R$ 15.79 (Probabilidade de compra)
+NOVA ORDEM: Trader 2 compra 252 ações de VALE3 a R$ 67.76
+NOVA ORDEM: Trader 4 compra 620 ações de PETR4 a R$ 25.64
+[23:05:56] TRADER 2: COMPRA 252 ações a R$ 67.76 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 2, Ação 1, Tipo: C, Preço: 67.76, Qtd: 252)
+Trader 2: Ordem criada (total: 3/100)
+[23:05:56] TRADER 4: COMPRA 620 ações a R$ 25.64 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 4, Ação 0, Tipo: C, Preço: 25.64, Qtd: 620)
+Trader 4: Ordem criada (total: 3/50)
+
+--- CICLO DE ARBITRAGEM 2 ---
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: PETR4 a R$ 25.73
+   Venda: VALE3 a R$ 67.87
+   Spread: 90.03%
+   Lucro potencial: R$ 42135.26
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: ITUB4 a R$ 32.26
+   Venda: BBAS3 a R$ 45.75
+   Spread: 34.59%
+   Lucro potencial: R$ 13489.09
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: BBDC4 a R$ 15.79
+   Venda: ITUB4 a R$ 32.26
+   Spread: 68.52%
+   Lucro potencial: R$ 16462.30
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: BBDC4 a R$ 15.79
+   Venda: BBAS3 a R$ 45.75
+   Spread: 97.34%
+   Lucro potencial: R$ 29951.39
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: ABEV3 a R$ 14.35
+   Venda: JBSS3 a R$ 21.90
+   Spread: 41.68%
+   Lucro potencial: R$ 7552.68
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: MGLU3 a R$ 3.25
+   Venda: LREN3 a R$ 18.81
+   Spread: 141.01%
+   Lucro potencial: R$ 15559.12
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: WEGE3 a R$ 46.05
+   Venda: RENT3 a R$ 55.03
+   Spread: 17.78%
+   Lucro potencial: R$ 8987.69
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: GGBR4 a R$ 28.44
+   Venda: SUZB3 a R$ 35.43
+   Spread: 21.88%
+   Lucro potencial: R$ 6987.83
+   Volume: 1000 ações
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de PETR4 a R$ 25.73
+   Vendendo 1000 ações de VALE3 a R$ 67.87
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 42093.13 (após custos)
+   Novos preços: 25.76 / 67.80
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de ITUB4 a R$ 32.26
+   Vendendo 1000 ações de BBAS3 a R$ 45.75
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 13475.60 (após custos)
+   Novos preços: 32.29 / 45.70
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de BBDC4 a R$ 15.79
+   Vendendo 1000 ações de ITUB4 a R$ 32.26
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 16445.84 (após custos)
+   Novos preços: 15.81 / 32.22
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de BBDC4 a R$ 15.79
+   Vendendo 1000 ações de BBAS3 a R$ 45.75
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 29921.44 (após custos)
+   Novos preços: 15.81 / 45.70
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de ABEV3 a R$ 14.35
+   Vendendo 1000 ações de JBSS3 a R$ 21.90
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 7545.12 (após custos)
+   Novos preços: 14.36 / 21.88
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de MGLU3 a R$ 3.25
+   Vendendo 1000 ações de LREN3 a R$ 18.81
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 15543.56 (após custos)
+   Novos preços: 3.26 / 18.79
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de WEGE3 a R$ 46.05
+   Vendendo 1000 ações de RENT3 a R$ 55.03
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 8978.70 (após custos)
+   Novos preços: 46.09 / 54.98
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de GGBR4 a R$ 28.44
+   Vendendo 1000 ações de SUZB3 a R$ 35.43
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 6980.84 (após custos)
+   Novos preços: 28.47 / 35.39
+[23:05:56] EXECUTOR: ACEITOU ordem do Trader 3 (COMPRA 76 ações a R$ 25.77) em 62ms
+EXECUTADA: Trader 3 comprou 76 ações de PETR4 a R$ 25.77
+EXECUTOR: Processando ordem do Trader 5
+EXECUTOR: Ordem rejeitada - Ações insuficientes (0 < 181)
+[23:05:57] EXECUTOR: REJEITOU ordem do Trader 5 (VENDA 181 ações a R$ 25.70) em 67ms
+EXECUTOR: Processando ordem do Trader 2
+[23:05:57] EXECUTOR: ACEITOU ordem do Trader 2 (COMPRA 252 ações a R$ 67.76) em 188ms
+EXECUTADA: Trader 2 comprou 252 ações de VALE3 a R$ 67.76
+EXECUTOR: Processando ordem do Trader 4
+[23:05:57] EXECUTOR: ACEITOU ordem do Trader 4 (COMPRA 620 ações a R$ 25.64) em 190ms
+EXECUTADA: Trader 4 comprou 620 ações de PETR4 a R$ 25.64
+NOVA ORDEM: Trader 5 compra 209 ações de WEGE3 a R$ 46.09
+[23:05:57] TRADER 5: COMPRA 209 ações a R$ 46.09 (Probabilidade de compra)
+NOVA ORDEM: Trader 5 vende 195 ações de VALE3 a R$ 67.66
+[23:05:57] TRADER 5: VENDA 195 ações a R$ 67.66 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 5, Ação 1, Tipo: V, Preço: 67.66, Qtd: 195)
+Trader 5: Ordem criada (total: 3/100)
+EXECUTOR: Processando ordem do Trader 5
+EXECUTOR: Ordem rejeitada - Ações insuficientes (0 < 195)
+[23:05:57] EXECUTOR: REJEITOU ordem do Trader 5 (VENDA 195 ações a R$ 67.66) em 116ms
+NOVA ORDEM: Trader 1 compra 485 ações de ITUB4 a R$ 32.22
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 1 com diferença de 89.87%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 2 com diferença de 22.29%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 3 com diferença de 56.83%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 4 com diferença de 55.80%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 5 com diferença de 47.88%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 6 com diferença de 56.59%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 7 com diferença de 72.38%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 8 com diferença de 31.27%
+[23:05:58] TRADER 1: COMPRA 485 ações a R$ 32.22 (Probabilidade de compra)
+NOVA ORDEM: Trader 1 vende 276 ações de VALE3 a R$ 67.55
+[23:05:58] TRADER 1: VENDA 276 ações a R$ 67.55 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 1, Ação 1, Tipo: V, Preço: 67.55, Qtd: 276)
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 9 com diferença de 155.09%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 10 com diferença de 16.30%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 11 com diferença de 31.50%
+Trader 1: Ordem criada (total: 3/50)
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 12 com diferença de 9.99%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 2 com diferença de 71.14%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 3 com diferença de 130.09%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 4 com diferença de 38.95%
+EXECUTOR: Processando ordem do Trader 1
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 5 com diferença de 124.37%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 6 com diferença de 38.12%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 7 com diferença de 20.89%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 8 com diferença de 113.18%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 9 com diferença de 181.66%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 10 com diferença de 102.42%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 11 com diferença de 62.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 12 com diferença de 81.71%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 3 com diferença de 76.69%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 4 com diferença de 34.59%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 5 com diferença de 68.35%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 6 com diferença de 35.42%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 7 com diferença de 52.19%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 8 com diferença de 52.64%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 9 com diferença de 163.27%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 10 com diferença de 38.25%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 11 com diferença de 9.38%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 12 com diferença de 12.37%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 4 com diferença de 104.36%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 5 com diferença de 9.60%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 6 com diferença de 104.98%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 7 com diferença de 117.16%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 8 com diferença de 26.75%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 9 com diferença de 126.04%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 10 com diferença de 41.48%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 11 com diferença de 84.55%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 12 com diferença de 65.88%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 5 com diferença de 97.19%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 7 com diferença de 18.44%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 8 com diferença de 83.43%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 9 com diferença de 173.38%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 10 com diferença de 70.50%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 11 com diferença de 25.42%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 12 com diferença de 46.46%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 6 com diferença de 97.84%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 7 com diferença de 110.67%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 8 com diferença de 17.25%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 9 com diferença de 131.66%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 10 com diferença de 32.20%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 11 com diferença de 76.50%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 12 com diferença de 57.18%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 7 com diferença de 17.58%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 8 com diferença de 84.14%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 9 com diferença de 173.59%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 10 com diferença de 71.25%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 11 com diferença de 26.26%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 12 com diferença de 47.27%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 8 com diferença de 98.10%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 9 com diferença de 177.62%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 10 com diferença de 86.14%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 11 com diferença de 43.34%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 12 com diferença de 63.53%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 9 com diferença de 140.91%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 10 com diferença de 15.16%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 11 com diferença de 61.26%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 12 com diferença de 40.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 10 com diferença de 148.16%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 11 com diferença de 166.29%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 12 com diferença de 158.93%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 11 com diferença de 47.20%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 12 com diferença de 26.19%
+OPORTUNIDADE DE ARBITRAGEM: Ações 11 e 12 com diferença de 21.68%
+ALERTA [MÉDIA]: Volume de negociação muito alto - 3904.00
+[23:05:59] EXECUTOR: ACEITOU ordem do Trader 1 (VENDA 276 ações a R$ 67.55) em 119ms
+EXECUTADA: Trader 1 vendeu 276 ações de VALE3 a R$ 67.55
+[23:05:59] PRICE UPDATER: Ação 0 - R$ 25.76 → R$ 25.88 (0.47%) - Variação de mercado
+[23:05:59] PRICE UPDATER: Ação 1 - R$ 67.80 → R$ 67.50 (-0.44%) - Variação de mercado
+[23:05:59] PRICE UPDATER: Ação 2 - R$ 32.22 → R$ 32.49 (0.82%) - Variação de mercado
+[23:05:59] PRICE UPDATER: Ação 3 - R$ 14.36 → R$ 14.35 (-0.04%) - Variação de mercado
+[23:05:59] PRICE UPDATER: Ação 4 - R$ 45.70 → R$ 45.43 (-0.60%) - Variação de mercado
+[23:05:59] PRICE UPDATER: Ação 5 - R$ 15.81 → R$ 15.93 (0.78%) - Variação de mercado
+[23:05:59] PRICE UPDATER: Ação 6 - R$ 46.09 → R$ 46.01 (-0.17%) - Variação de mercado
+[23:05:59] PRICE UPDATER: Ação 7 - R$ 54.98 → R$ 55.08 (0.18%) - Variação de mercado
+[23:05:59] PRICE UPDATER: Ação 8 - R$ 18.79 → R$ 18.61 (-0.98%) - Variação de mercado
+[23:05:59] PRICE UPDATER: Ação 9 - R$ 3.26 → R$ 3.24 (-0.66%) - Variação de mercado
+[23:05:59] PRICE UPDATER: Ação 10 - R$ 21.88 → R$ 21.98 (0.49%) - Variação de mercado
+[23:05:59] PRICE UPDATER: Ação 11 - R$ 35.39 → R$ 35.61 (0.60%) - Variação de mercado
+[23:05:59] PRICE UPDATER: Ação 12 - R$ 28.47 → R$ 28.34 (-0.44%) - Variação de mercado
+NOVA ORDEM: Trader 3 compra 92 ações de VALE3 a R$ 67.50
+NOVA ORDEM: Trader 2 compra 182 ações de WEGE3 a R$ 46.01
+
+--- CICLO DE ARBITRAGEM 3 ---
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: PETR4 a R$ 25.88
+   Venda: VALE3 a R$ 67.50
+   Spread: 89.14%
+   Lucro potencial: R$ 41622.25
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: ITUB4 a R$ 32.49
+[23:05:59] TRADER 3: COMPRA 92 ações a R$ 67.50 (Probabilidade de compra)
+NOVA ORDEM: Trader 3 vende 63 ações de VALE3 a R$ 67.51
+   Venda: BBAS3 a R$ 45.43
+   Spread: 33.21%
+   Lucro potencial: R$ 12937.17
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: BBDC4 a R$ 15.93
+   Venda: ITUB4 a R$ 32.49
+   Spread: 68.38%
+   Lucro potencial: R$ 16555.17
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: BBDC4 a R$ 15.93
+   Venda: BBAS3 a R$ 45.43
+[23:05:59] TRADER 2: COMPRA 182 ações a R$ 46.01 (Probabilidade de compra)
+[23:05:59] TRADER 3: VENDA 63 ações a R$ 67.51 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 3, Ação 1, Tipo: V, Preço: 67.51, Qtd: 63)
+NOVA ORDEM: Trader 2 compra 253 ações de VALE3 a R$ 67.44
+Trader 3: Ordem criada (total: 3/20)
+   Spread: 96.13%
+   Lucro potencial: R$ 29492.34
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: ABEV3 a R$ 14.35
+   Venda: JBSS3 a R$ 21.98
+   Spread: 41.99%
+   Lucro potencial: R$ 7629.37
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: MGLU3 a R$ 3.24
+   Venda: LREN3 a R$ 18.61
+   Spread: 140.75%
+   Lucro potencial: R$ 15374.36
+[23:05:59] TRADER 2: COMPRA 253 ações a R$ 67.44 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 2, Ação 1, Tipo: C, Preço: 67.44, Qtd: 253)
+Trader 2: Ordem criada (total: 4/100)
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: WEGE3 a R$ 46.01
+   Venda: RENT3 a R$ 55.08
+   Spread: 17.93%
+   Lucro potencial: R$ 9063.93
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: GGBR4 a R$ 28.34
+   Venda: SUZB3 a R$ 35.61
+   Spread: 22.71%
+   Lucro potencial: R$ 7261.59
+   Volume: 1000 ações
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de PETR4 a R$ 25.88
+   Vendendo 1000 ações de VALE3 a R$ 67.50
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 41580.63 (após custos)
+   Novos preços: 25.91 / 67.44
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de ITUB4 a R$ 32.49
+   Vendendo 1000 ações de BBAS3 a R$ 45.43
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 12924.24 (após custos)
+   Novos preços: 32.52 / 45.38
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de BBDC4 a R$ 15.93
+   Vendendo 1000 ações de ITUB4 a R$ 32.49
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 16538.61 (após custos)
+   Novos preços: 15.95 / 32.46
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de BBDC4 a R$ 15.93
+   Vendendo 1000 ações de BBAS3 a R$ 45.43
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 29462.85 (após custos)
+   Novos preços: 15.95 / 45.38
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de ABEV3 a R$ 14.35
+   Vendendo 1000 ações de JBSS3 a R$ 21.98
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 7621.74 (após custos)
+   Novos preços: 14.37 / 21.96
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de MGLU3 a R$ 3.24
+   Vendendo 1000 ações de LREN3 a R$ 18.61
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 15358.99 (após custos)
+   Novos preços: 3.24 / 18.59
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de WEGE3 a R$ 46.01
+   Vendendo 1000 ações de RENT3 a R$ 55.08
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 9054.87 (após custos)
+   Novos preços: 46.06 / 55.02
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de GGBR4 a R$ 28.34
+   Vendendo 1000 ações de SUZB3 a R$ 35.61
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 7254.33 (após custos)
+   Novos preços: 28.37 / 35.57
+
+=== OPORTUNIDADES DE ARBITRAGEM ATIVAS ===
+Nenhuma oportunidade ativa no momento.
+EXECUTOR: Processando ordem do Trader 3
+EXECUTOR: Ordem rejeitada - Ações insuficientes (0 < 63)
+[23:06:00] EXECUTOR: REJEITOU ordem do Trader 3 (VENDA 63 ações a R$ 67.51) em 129ms
+EXECUTOR: Processando ordem do Trader 2
+[23:06:00] EXECUTOR: ACEITOU ordem do Trader 2 (COMPRA 253 ações a R$ 67.44) em 168ms
+EXECUTADA: Trader 2 comprou 253 ações de VALE3 a R$ 67.44
+NOVA ORDEM: Trader 0 compra 100 ações de PETR4 a R$ 26.01
+[23:06:00] TRADER 0: COMPRA 100 ações a R$ 26.01 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 0, Ação 0, Tipo: C, Preço: 26.01, Qtd: 100)
+Trader 0: Ordem criada (total: 2/20)
+EXECUTOR: Processando ordem do Trader 0
+NOVA ORDEM: Trader 4 compra 540 ações de ABEV3 a R$ 14.37
+[23:06:00] TRADER 4: COMPRA 540 ações a R$ 14.37 (Probabilidade de compra)
+NOVA ORDEM: Trader 4 vende 289 ações de VALE3 a R$ 67.36
+[23:06:00] TRADER 4: VENDA 289 ações a R$ 67.36 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 4, Ação 1, Tipo: V, Preço: 67.36, Qtd: 289)
+Trader 4: Ordem criada (total: 4/50)
+NOVA ORDEM: Trader 5 compra 218 ações de LREN3 a R$ 18.59
+[23:06:00] TRADER 5: COMPRA 218 ações a R$ 18.59 (Probabilidade de compra)
+NOVA ORDEM: Trader 5 compra 230 ações de VALE3 a R$ 67.18
+[23:06:00] TRADER 5: COMPRA 230 ações a R$ 67.18 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 5, Ação 1, Tipo: C, Preço: 67.18, Qtd: 230)
+Trader 5: Ordem criada (total: 4/100)
+NOVA ORDEM: Trader 2 compra 221 ações de BBDC4 a R$ 15.95
+[23:06:00] TRADER 2: COMPRA 221 ações a R$ 15.95 (Probabilidade de compra)
+NOVA ORDEM: Trader 2 compra 176 ações de VALE3 a R$ 67.13
+[23:06:00] TRADER 2: COMPRA 176 ações a R$ 67.13 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 2, Ação 1, Tipo: C, Preço: 67.13, Qtd: 176)
+Trader 2: Ordem criada (total: 5/100)
+[23:06:01] EXECUTOR: ACEITOU ordem do Trader 0 (COMPRA 100 ações a R$ 26.01) em 200ms
+EXECUTADA: Trader 0 comprou 100 ações de PETR4 a R$ 26.01
+EXECUTOR: Processando ordem do Trader 4
+EXECUTOR: Ordem rejeitada - Ações insuficientes (0 < 289)
+[23:06:01] EXECUTOR: REJEITOU ordem do Trader 4 (VENDA 289 ações a R$ 67.36) em 69ms
+EXECUTOR: Processando ordem do Trader 5
+[23:06:01] EXECUTOR: ACEITOU ordem do Trader 5 (COMPRA 230 ações a R$ 67.18) em 178ms
+EXECUTADA: Trader 5 comprou 230 ações de VALE3 a R$ 67.18
+EXECUTOR: Processando ordem do Trader 2
+[23:06:01] EXECUTOR: ACEITOU ordem do Trader 2 (COMPRA 176 ações a R$ 67.13) em 103ms
+EXECUTADA: Trader 2 comprou 176 ações de VALE3 a R$ 67.13
+[23:06:02] PRICE UPDATER: Ação 0 - R$ 25.91 → R$ 25.90 (-0.01%) - Variação de mercado
+[23:06:02] PRICE UPDATER: Ação 1 - R$ 67.44 → R$ 67.52 (0.12%) - Variação de mercado
+[23:06:02] PRICE UPDATER: Ação 2 - R$ 32.46 → R$ 32.16 (-0.92%) - Variação de mercado
+[23:06:02] PRICE UPDATER: Ação 3 - R$ 14.37 → R$ 14.36 (-0.04%) - Variação de mercado
+[23:06:02] PRICE UPDATER: Ação 4 - R$ 45.38 → R$ 44.95 (-0.94%) - Variação de mercado
+[23:06:02] PRICE UPDATER: Ação 5 - R$ 15.95 → R$ 16.05 (0.61%) - Variação de mercado
+[23:06:02] PRICE UPDATER: Ação 6 - R$ 46.06 → R$ 46.38 (0.69%) - Variação de mercado
+[23:06:02] PRICE UPDATER: Ação 7 - R$ 55.02 → R$ 54.69 (-0.60%) - Variação de mercado
+[23:06:02] PRICE UPDATER: Ação 8 - R$ 18.59 → R$ 18.53 (-0.33%) - Variação de mercado
+[23:06:02] PRICE UPDATER: Ação 9 - R$ 3.24 → R$ 3.26 (0.74%) - Variação de mercado
+[23:06:02] PRICE UPDATER: Ação 10 - R$ 21.96 → R$ 22.00 (0.18%) - Variação de mercado
+[23:06:02] PRICE UPDATER: Ação 11 - R$ 35.57 → R$ 35.43 (-0.39%) - Variação de mercado
+[23:06:02] PRICE UPDATER: Ação 12 - R$ 28.37 → R$ 28.11 (-0.93%) - Variação de mercado
+NOVA ORDEM: Trader 5 compra 189 ações de PETR4 a R$ 25.94
+NOVA ORDEM: Trader 1 compra 544 ações de ITUB4 a R$ 32.16
+[23:06:02] TRADER 5: COMPRA 189 ações a R$ 25.94 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 5, Ação 0, Tipo: C, Preço: 25.94, Qtd: 189)
+Trader 5: Ordem criada (total: 5/100)
+[23:06:02] TRADER 1: COMPRA 544 ações a R$ 32.16 (Probabilidade de compra)
+NOVA ORDEM: Trader 1 vende 375 ações de VALE3 a R$ 67.50
+[23:06:02] TRADER 1: VENDA 375 ações a R$ 67.50 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 1, Ação 1, Tipo: V, Preço: 67.50, Qtd: 375)
+Trader 1: Ordem criada (total: 4/50)
+EXECUTOR: Processando ordem do Trader 5
+
+--- CICLO DE ARBITRAGEM 4 ---
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: PETR4 a R$ 25.90
+   Venda: VALE3 a R$ 67.52
+   Spread: 89.08%
+   Lucro potencial: R$ 41612.38
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: ITUB4 a R$ 32.16
+   Venda: BBAS3 a R$ 44.95
+   Spread: 33.19%
+   Lucro potencial: R$ 12796.26
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: BBDC4 a R$ 16.05
+   Venda: ITUB4 a R$ 32.16
+   Spread: 66.85%
+   Lucro potencial: R$ 16110.87
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: BBDC4 a R$ 16.05
+   Venda: BBAS3 a R$ 44.95
+   Spread: 94.78%
+   Lucro potencial: R$ 28907.13
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: ABEV3 a R$ 14.36
+   Venda: JBSS3 a R$ 22.00
+   Spread: 42.01%
+   Lucro potencial: R$ 7638.31
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: MGLU3 a R$ 3.26
+   Venda: LREN3 a R$ 18.53
+   Spread: 140.10%
+   Lucro potencial: R$ 15267.19
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: WEGE3 a R$ 46.38
+   Venda: RENT3 a R$ 54.69
+   Spread: 16.45%
+   Lucro potencial: R$ 8314.88
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: GGBR4 a R$ 28.11
+   Venda: SUZB3 a R$ 35.43
+   Spread: 23.05%
+   Lucro potencial: R$ 7322.78
+   Volume: 1000 ações
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de PETR4 a R$ 25.90
+   Vendendo 1000 ações de VALE3 a R$ 67.52
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 41570.77 (após custos)
+   Novos preços: 25.93 / 67.45
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de ITUB4 a R$ 32.16
+   Vendendo 1000 ações de BBAS3 a R$ 44.95
+NOVA ORDEM: Trader 2 compra 173 ações de WEGE3 a R$ 46.38
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 12783.46 (após custos)
+   Novos preços: 32.19 / 44.91
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de BBDC4 a R$ 16.05
+   Vendendo 1000 ações de ITUB4 a R$ 32.16
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 16094.76 (após custos)
+   Novos preços: 16.06 / 32.12
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de BBDC4 a R$ 16.05
+   Vendendo 1000 ações de BBAS3 a R$ 44.95
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 28878.22 (após custos)
+   Novos preços: 16.06 / 44.91
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de ABEV3 a R$ 14.36
+   Vendendo 1000 ações de JBSS3 a R$ 22.00
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 7630.68 (após custos)
+   Novos preços: 14.38 / 21.98
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de MGLU3 a R$ 3.26
+   Vendendo 1000 ações de LREN3 a R$ 18.53
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 15251.92 (após custos)
+   Novos preços: 3.27 / 18.51
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de WEGE3 a R$ 46.38
+   Vendendo 1000 ações de RENT3 a R$ 54.69
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 8306.56 (após custos)
+   Novos preços: 46.42 / 54.64
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de GGBR4 a R$ 28.11
+   Vendendo 1000 ações de SUZB3 a R$ 35.43
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 7315.46 (após custos)
+   Novos preços: 28.14 / 35.40
+[23:06:02] TRADER 2: COMPRA 173 ações a R$ 46.38 (Probabilidade de compra)
+NOVA ORDEM: Trader 2 vende 192 ações de VALE3 a R$ 67.42
+[23:06:02] TRADER 2: VENDA 192 ações a R$ 67.42 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 2, Ação 1, Tipo: V, Preço: 67.42, Qtd: 192)
+Trader 2: Ordem criada (total: 6/100)
+[23:06:03] EXECUTOR: ACEITOU ordem do Trader 5 (COMPRA 189 ações a R$ 25.94) em 151ms
+EXECUTADA: Trader 5 comprou 189 ações de PETR4 a R$ 25.94
+EXECUTOR: Processando ordem do Trader 1
+EXECUTOR: Ordem rejeitada - Ações insuficientes (349 < 375)
+[23:06:03] EXECUTOR: REJEITOU ordem do Trader 1 (VENDA 375 ações a R$ 67.50) em 149ms
+EXECUTOR: Processando ordem do Trader 2
+[23:06:03] EXECUTOR: ACEITOU ordem do Trader 2 (VENDA 192 ações a R$ 67.42) em 150ms
+EXECUTADA: Trader 2 vendeu 192 ações de VALE3 a R$ 67.42
+NOVA ORDEM: Trader 4 vende 739 ações de PETR4 a R$ 25.83
+[23:06:03] TRADER 4: VENDA 739 ações a R$ 25.83 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 4, Ação 0, Tipo: V, Preço: 25.83, Qtd: 739)
+Trader 4: Ordem criada (total: 5/50)
+EXECUTOR: Processando ordem do Trader 4
+NOVA ORDEM: Trader 3 compra 90 ações de PETR4 a R$ 25.93
+[23:06:03] TRADER 3: COMPRA 90 ações a R$ 25.93 (Probabilidade de compra)
+NOVA ORDEM: Trader 3 compra 53 ações de VALE3 a R$ 67.33
+[23:06:03] TRADER 3: COMPRA 53 ações a R$ 67.33 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 3, Ação 1, Tipo: C, Preço: 67.33, Qtd: 53)
+Trader 3: Ordem criada (total: 4/20)
+NOVA ORDEM: Trader 1 compra 531 ações de ABEV3 a R$ 14.38
+[23:06:03] TRADER 1: COMPRA 531 ações a R$ 14.38 (Probabilidade de compra)
+NOVA ORDEM: Trader 1 vende 497 ações de VALE3 a R$ 67.59
+[23:06:03] TRADER 1: VENDA 497 ações a R$ 67.59 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 1, Ação 1, Tipo: V, Preço: 67.59, Qtd: 497)
+Trader 1: Ordem criada (total: 5/50)
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 1 com diferença de 88.92%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 2 com diferença de 21.34%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 3 com diferença de 57.32%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 4 com diferença de 53.58%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 5 com diferença de 47.00%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 6 com diferença de 56.65%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 7 com diferença de 71.26%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 8 com diferença de 33.39%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 9 com diferença de 155.25%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 10 com diferença de 16.49%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 11 com diferença de 30.87%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 12 com diferença de 8.16%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 2 com diferença de 70.95%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 3 com diferença de 129.72%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 4 com diferença de 40.12%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 5 com diferença de 123.07%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 6 com diferença de 36.93%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 7 com diferença de 20.99%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 8 com diferença de 113.86%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 9 com diferença de 181.52%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 10 com diferença de 101.69%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 11 com diferença de 62.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 12 com diferença de 82.26%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 3 com diferença de 76.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 4 com diferença de 33.19%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 5 com diferença de 66.67%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 6 com diferença de 36.41%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 7 com diferença de 51.90%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 8 com diferença de 53.77%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 9 com diferença de 163.08%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 10 com diferença de 37.50%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 11 com diferença de 9.69%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 12 com diferença de 13.23%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 4 com diferença de 102.99%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 5 com diferença de 11.06%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 6 com diferença de 105.41%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 7 com diferença de 116.67%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 8 com diferença de 25.14%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 9 com diferença de 125.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 10 com diferença de 41.82%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 11 com diferença de 84.45%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 12 com diferença de 64.73%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 5 com diferença de 94.62%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 6 com diferença de 3.32%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 7 com diferença de 19.55%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 8 com diferença de 83.24%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 9 com diferença de 172.88%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 10 com diferença de 68.56%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 11 com diferença de 23.69%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 12 com diferença de 45.92%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 6 com diferença de 97.18%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 7 com diferença de 109.13%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 8 com diferença de 14.17%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 9 com diferença de 132.40%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 10 com diferença de 31.11%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 11 com diferença de 75.15%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 12 com diferença de 54.64%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 7 com diferença de 16.25%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 8 com diferença de 85.97%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 9 com diferença de 173.70%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 10 com diferença de 71.47%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 11 com diferença de 26.96%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 12 com diferença de 49.05%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 8 com diferença de 98.77%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 9 com diferença de 177.43%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 10 com diferença de 85.25%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 11 com diferença de 42.74%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 12 com diferença de 64.03%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 9 com diferença de 140.00%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 10 com diferença de 17.13%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 11 com diferença de 62.64%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 12 com diferença de 41.27%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 10 com diferença de 148.24%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 11 com diferença de 166.20%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 12 com diferença de 158.39%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 11 com diferença de 46.77%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 12 com diferença de 24.57%
+OPORTUNIDADE DE ARBITRAGEM: Ações 11 e 12 com diferença de 22.85%
+ALERTA [MÉDIA]: Volume de negociação muito alto - 7904.00
+EXECUTOR: Ordem rejeitada - Decisão aleatória do sistema
+[23:06:03] EXECUTOR: REJEITOU ordem do Trader 4 (VENDA 739 ações a R$ 25.83) em 111ms
+EXECUTOR: Processando ordem do Trader 3
+[23:06:04] EXECUTOR: ACEITOU ordem do Trader 3 (COMPRA 53 ações a R$ 67.33) em 187ms
+EXECUTADA: Trader 3 comprou 53 ações de VALE3 a R$ 67.33
+EXECUTOR: Processando ordem do Trader 1
+EXECUTOR: Ordem rejeitada - Ações insuficientes (349 < 497)
+[23:06:04] EXECUTOR: REJEITOU ordem do Trader 1 (VENDA 497 ações a R$ 67.59) em 96ms
+NOVA ORDEM: Trader 2 vende 169 ações de PETR4 a R$ 25.86
+[23:06:04] TRADER 2: VENDA 169 ações a R$ 25.86 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 2, Ação 0, Tipo: V, Preço: 25.86, Qtd: 169)
+Trader 2: Ordem criada (total: 7/100)
+EXECUTOR: Processando ordem do Trader 2
+EXECUTOR: Ordem rejeitada - Ações insuficientes (0 < 169)
+[23:06:04] EXECUTOR: REJEITOU ordem do Trader 2 (VENDA 169 ações a R$ 25.86) em 98ms
+[23:06:05] PRICE UPDATER: Ação 0 - R$ 25.93 → R$ 25.82 (-0.43%) - Variação de mercado
+[23:06:05] PRICE UPDATER: Ação 1 - R$ 67.45 → R$ 66.96 (-0.72%) - Variação de mercado
+[23:06:05] PRICE UPDATER: Ação 2 - R$ 32.12 → R$ 32.35 (0.69%) - Variação de mercado
+[23:06:05] PRICE UPDATER: Ação 3 - R$ 14.38 → R$ 14.44 (0.44%) - Variação de mercado
+[23:06:05] PRICE UPDATER: Ação 4 - R$ 44.91 → R$ 45.16 (0.56%) - Variação de mercado
+[23:06:05] PRICE UPDATER: Ação 5 - R$ 16.06 → R$ 16.01 (-0.33%) - Variação de mercado
+[23:06:05] PRICE UPDATER: Ação 6 - R$ 46.42 → R$ 46.32 (-0.22%) - Variação de mercado
+[23:06:05] PRICE UPDATER: Ação 7 - R$ 54.64 → R$ 54.49 (-0.28%) - Variação de mercado
+[23:06:05] PRICE UPDATER: Ação 8 - R$ 18.51 → R$ 18.36 (-0.84%) - Variação de mercado
+[23:06:05] PRICE UPDATER: Ação 9 - R$ 3.27 → R$ 3.26 (-0.30%) - Variação de mercado
+[23:06:05] PRICE UPDATER: Ação 10 - R$ 21.98 → R$ 21.78 (-0.92%) - Variação de mercado
+[23:06:05] PRICE UPDATER: Ação 11 - R$ 35.40 → R$ 35.13 (-0.76%) - Variação de mercado
+[23:06:05] PRICE UPDATER: Ação 12 - R$ 28.14 → R$ 28.21 (0.27%) - Variação de mercado
+NOVA ORDEM: Trader 0 vende 100 ações de PETR4 a R$ 25.82
+[23:06:05] TRADER 0: VENDA 100 ações a R$ 25.82 (Probabilidade de venda)
+NOVA ORDEM: Trader 0 compra 81 ações de VALE3 a R$ 66.89
+[23:06:05] TRADER 0: COMPRA 81 ações a R$ 66.89 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 0, Ação 1, Tipo: C, Preço: 66.89, Qtd: 81)
+Trader 0: Ordem criada (total: 3/20)
+EXECUTOR: Processando ordem do Trader 0
+NOVA ORDEM: Trader 4 compra 575 ações de ABEV3 a R$ 14.44
+[23:06:05] TRADER 4: COMPRA 575 ações a R$ 14.44 (Probabilidade de compra)
+NOVA ORDEM: Trader 4 vende 329 ações de VALE3 a R$ 67.14
+NOVA ORDEM: Trader 5 compra 164 ações de PETR4 a R$ 25.75
+[23:06:05] TRADER 4: VENDA 329 ações a R$ 67.14 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 4, Ação 1, Tipo: V, Preço: 67.14, Qtd: 329)
+Trader 4: Ordem criada (total: 6/50)
+[23:06:05] TRADER 5: COMPRA 164 ações a R$ 25.75 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 5, Ação 0, Tipo: C, Preço: 25.75, Qtd: 164)
+Trader 5: Ordem criada (total: 6/100)
+
+--- CICLO DE ARBITRAGEM 5 ---
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: PETR4 a R$ 25.82
+   Venda: VALE3 a R$ 66.96
+   Spread: 88.69%
+   Lucro potencial: R$ 41144.82
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: ITUB4 a R$ 32.35
+   Venda: BBAS3 a R$ 45.16
+   Spread: 33.06%
+   Lucro potencial: R$ 12813.29
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: BBDC4 a R$ 16.01
+   Venda: ITUB4 a R$ 32.35
+   Spread: 67.57%
+   Lucro potencial: R$ 16337.33
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: BBDC4 a R$ 16.01
+   Venda: BBAS3 a R$ 45.16
+   Spread: 95.31%
+   Lucro potencial: R$ 29150.62
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: ABEV3 a R$ 14.44
+   Venda: JBSS3 a R$ 21.78
+   Spread: 40.51%
+   Lucro potencial: R$ 7336.47
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: MGLU3 a R$ 3.26
+   Venda: LREN3 a R$ 18.36
+   Spread: 139.72%
+   Lucro potencial: R$ 15099.69
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: WEGE3 a R$ 46.32
+   Venda: RENT3 a R$ 54.49
+   Spread: 16.19%
+   Lucro potencial: R$ 8162.95
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: GGBR4 a R$ 28.21
+   Venda: SUZB3 a R$ 35.13
+   Spread: 21.83%
+   Lucro potencial: R$ 6914.26
+   Volume: 1000 ações
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de PETR4 a R$ 25.82
+   Vendendo 1000 ações de VALE3 a R$ 66.96
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 41103.68 (após custos)
+   Novos preços: 25.85 / 66.90
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de ITUB4 a R$ 32.35
+   Vendendo 1000 ações de BBAS3 a R$ 45.16
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 12800.47 (após custos)
+   Novos preços: 32.38 / 45.11
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de BBDC4 a R$ 16.01
+   Vendendo 1000 ações de ITUB4 a R$ 32.35
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 16321.00 (após custos)
+   Novos preços: 16.03 / 32.31
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de BBDC4 a R$ 16.01
+   Vendendo 1000 ações de BBAS3 a R$ 45.16
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 29121.47 (após custos)
+   Novos preços: 16.03 / 45.11
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de ABEV3 a R$ 14.44
+   Vendendo 1000 ações de JBSS3 a R$ 21.78
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 7329.13 (após custos)
+   Novos preços: 14.46 / 21.76
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de MGLU3 a R$ 3.26
+   Vendendo 1000 ações de LREN3 a R$ 18.36
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 15084.59 (após custos)
+   Novos preços: 3.26 / 18.34
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de WEGE3 a R$ 46.32
+   Vendendo 1000 ações de RENT3 a R$ 54.49
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 8154.79 (após custos)
+   Novos preços: 46.37 / 54.43
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de GGBR4 a R$ 28.21
+   Vendendo 1000 ações de SUZB3 a R$ 35.13
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 6907.34 (após custos)
+   Novos preços: 28.24 / 35.09
+
+=== ESTATÍSTICAS DE ARBITRAGEM ===
+Total de oportunidades detectadas: 40
+Total de arbitragens executadas: 40
+Taxa de execução: 100.0%
+Lucro total potencial: R$ 698840.77
+Lucro total realizado: R$ 698141.93
+Eficiência: 99.9%
+Maior spread detectado: 141.01%
+Menor spread executado: 16.19%
+
+Oportunidades por setor:
+  Setor 0: 30 oportunidades
+[23:06:06] EXECUTOR: ACEITOU ordem do Trader 0 (COMPRA 81 ações a R$ 66.89) em 163ms
+EXECUTADA: Trader 0 comprou 81 ações de VALE3 a R$ 66.89
+EXECUTOR: Processando ordem do Trader 4
+EXECUTOR: Ordem rejeitada - Ações insuficientes (0 < 329)
+[23:06:06] EXECUTOR: REJEITOU ordem do Trader 4 (VENDA 329 ações a R$ 67.14) em 183ms
+EXECUTOR: Processando ordem do Trader 5
+[23:06:06] EXECUTOR: ACEITOU ordem do Trader 5 (COMPRA 164 ações a R$ 25.75) em 121ms
+EXECUTADA: Trader 5 comprou 164 ações de PETR4 a R$ 25.75
+NOVA ORDEM: Trader 4 compra 555 ações de BBAS3 a R$ 45.11
+NOVA ORDEM: Trader 1 compra 478 ações de ITUB4 a R$ 32.31
+[23:06:07] TRADER 4: COMPRA 555 ações a R$ 45.11 (Probabilidade de compra)
+NOVA ORDEM: Trader 4 vende 328 ações de VALE3 a R$ 66.64
+[23:06:07] TRADER 4: VENDA 328 ações a R$ 66.64 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 4, Ação 1, Tipo: V, Preço: 66.64, Qtd: 328)
+Trader 4: Ordem criada (total: 7/50)
+[23:06:07] TRADER 1: COMPRA 478 ações a R$ 32.31 (Probabilidade de compra)
+NOVA ORDEM: Trader 1 compra 342 ações de VALE3 a R$ 66.95
+[23:06:07] TRADER 1: COMPRA 342 ações a R$ 66.95 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 1, Ação 1, Tipo: C, Preço: 66.95, Qtd: 342)
+Trader 1: Ordem criada (total: 6/50)
+EXECUTOR: Processando ordem do Trader 4
+NOVA ORDEM: Trader 2 compra 112 ações de PETR4 a R$ 25.85
+[23:06:07] TRADER 2: COMPRA 112 ações a R$ 25.85 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 2, Ação 0, Tipo: C, Preço: 25.85, Qtd: 112)
+Trader 2: Ordem criada (total: 8/100)
+EXECUTOR: Ordem rejeitada - Ações insuficientes (0 < 328)
+[23:06:07] EXECUTOR: REJEITOU ordem do Trader 4 (VENDA 328 ações a R$ 66.64) em 76ms
+EXECUTOR: Processando ordem do Trader 1
+[23:06:08] EXECUTOR: ACEITOU ordem do Trader 1 (COMPRA 342 ações a R$ 66.95) em 123ms
+EXECUTADA: Trader 1 comprou 342 ações de VALE3 a R$ 66.95
+EXECUTOR: Processando ordem do Trader 2
+[23:06:08] EXECUTOR: ACEITOU ordem do Trader 2 (COMPRA 112 ações a R$ 25.85) em 85ms
+EXECUTADA: Trader 2 comprou 112 ações de PETR4 a R$ 25.85
+[23:06:08] PRICE UPDATER: Ação 0 - R$ 25.85 → R$ 25.78 (-0.27%) - Variação de mercado
+[23:06:08] PRICE UPDATER: Ação 1 - R$ 66.90 → R$ 67.06 (0.24%) - Variação de mercado
+[23:06:08] PRICE UPDATER: Ação 2 - R$ 32.31 → R$ 32.22 (-0.29%) - Variação de mercado
+[23:06:08] PRICE UPDATER: Ação 3 - R$ 14.46 → R$ 14.49 (0.26%) - Variação de mercado
+[23:06:08] PRICE UPDATER: Ação 4 - R$ 45.11 → R$ 44.98 (-0.30%) - Variação de mercado
+[23:06:08] PRICE UPDATER: Ação 5 - R$ 16.03 → R$ 16.02 (-0.04%) - Variação de mercado
+[23:06:08] PRICE UPDATER: Ação 6 - R$ 46.37 → R$ 46.17 (-0.44%) - Variação de mercado
+[23:06:08] PRICE UPDATER: Ação 7 - R$ 54.43 → R$ 54.79 (0.66%) - Variação de mercado
+[23:06:08] PRICE UPDATER: Ação 8 - R$ 18.34 → R$ 18.23 (-0.59%) - Variação de mercado
+[23:06:08] PRICE UPDATER: Ação 9 - R$ 3.26 → R$ 3.29 (0.97%) - Variação de mercado
+[23:06:08] PRICE UPDATER: Ação 10 - R$ 21.76 → R$ 21.76 (0.00%) - Variação de mercado
+[23:06:08] PRICE UPDATER: Ação 11 - R$ 35.09 → R$ 35.14 (0.15%) - Variação de mercado
+[23:06:08] PRICE UPDATER: Ação 12 - R$ 28.24 → R$ 28.31 (0.24%) - Variação de mercado
+NOVA ORDEM: Trader 3 compra 139 ações de PETR4 a R$ 25.89
+NOVA ORDEM: Trader 5 vende 138 ações de PETR4 a R$ 25.67
+[23:06:08] TRADER 3: COMPRA 139 ações a R$ 25.89 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 3, Ação 0, Tipo: C, Preço: 25.89, Qtd: 139)
+[23:06:08] TRADER 5: VENDA 138 ações a R$ 25.67 (Probabilidade de venda)
+Trader 3: Ordem criada (total: 5/20)
+✓ Ordem adicionada na fila (Trader 5, Ação 0, Tipo: V, Preço: 25.67, Qtd: 138)
+Trader 5: Ordem criada (total: 7/100)
+EXECUTOR: Processando ordem do Trader 3
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 1 com diferença de 88.94%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 2 com diferença de 22.23%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 3 com diferença de 56.03%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 4 com diferença de 54.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 5 com diferença de 46.69%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 6 com diferença de 56.68%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 7 com diferença de 72.03%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 8 com diferença de 34.29%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 9 com diferença de 154.70%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 10 com diferença de 16.91%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 11 com diferença de 30.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 12 com diferença de 9.37%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 2 com diferença de 70.18%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 3 com diferença de 128.91%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 4 com diferença de 39.41%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 5 com diferença de 122.87%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 6 com diferença de 36.91%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 7 com diferença de 20.14%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 8 com diferença de 114.50%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 9 com diferença de 181.28%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 10 com diferença de 102.02%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 11 com diferença de 62.45%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 12 com diferença de 81.26%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 3 com diferença de 75.90%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 4 com diferença de 33.05%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 5 com diferença de 67.17%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 6 com diferença de 35.58%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 7 com diferença de 51.88%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 8 com diferença de 55.46%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 9 com diferença de 162.92%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 10 com diferença de 38.77%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 11 com diferença de 8.68%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 12 com diferença de 12.92%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 4 com diferença de 102.52%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 5 com diferença de 10.00%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 6 com diferença de 104.43%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 7 com diferença de 116.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 8 com diferença de 22.84%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 9 com diferença de 125.96%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 10 com diferença de 40.07%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 11 com diferença de 83.21%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 12 com diferença de 64.56%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 5 com diferença de 94.96%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 6 com diferença de 2.60%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 7 com diferença de 19.67%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 8 com diferença de 84.64%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 9 com diferença de 172.72%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 10 com diferença de 69.60%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 11 com diferença de 24.55%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 12 com diferença de 45.49%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 6 com diferença de 96.96%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 7 com diferença de 109.51%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 8 com diferença de 12.91%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 9 com diferença de 131.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 10 com diferença de 30.38%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 11 com diferença de 74.77%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 12 com diferença de 55.45%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 7 com diferença de 17.09%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 8 com diferença de 86.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 9 com diferença de 173.38%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 10 com diferença de 71.88%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 11 com diferença de 27.11%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 12 com diferença de 47.95%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 8 com diferença de 100.14%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 9 com diferença de 177.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 10 com diferença de 86.31%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 11 com diferença de 43.69%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 12 com diferença de 63.73%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 9 com diferença de 138.82%
+
+--- CICLO DE ARBITRAGEM 6 ---
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 10 com diferença de 17.64%
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: PETR4 a R$ 25.78
+   Venda: VALE3 a R$ 67.06
+   Spread: 88.94%
+   Lucro potencial: R$ 41282.38
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: ITUB4 a R$ 32.22
+   Venda: BBAS3 a R$ 44.98
+   Spread: 33.05%
+   Lucro potencial: R$ 12758.84
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: BBDC4 a R$ 16.02
+   Venda: ITUB4 a R$ 32.22
+   Spread: 67.17%
+   Lucro potencial: R$ 16201.68
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: BBDC4 a R$ 16.02
+   Venda: BBAS3 a R$ 44.98
+   Spread: 94.96%
+   Lucro potencial: R$ 28960.52
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: ABEV3 a R$ 14.49
+   Venda: JBSS3 a R$ 21.76
+   Spread: 40.07%
+   Lucro potencial: R$ 7262.67
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: MGLU3 a R$ 3.29
+   Venda: LREN3 a R$ 18.23
+   Spread: 138.82%
+   Lucro potencial: R$ 14938.26
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 11 com diferença de 63.38%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 12 com diferença de 43.31%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 10 com diferença de 147.43%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 11 com diferença de 165.74%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 12 com diferença de 158.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 11 com diferença de 47.06%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 12 com diferença de 26.18%
+OPORTUNIDADE DE ARBITRAGEM: Ações 11 e 12 com diferença de 21.55%
+ALERTA [MÉDIA]: Volume de negociação muito alto - 11200.00
+   Compra: WEGE3 a R$ 46.17
+   Venda: RENT3 a R$ 54.79
+   Spread: 17.09%
+   Lucro potencial: R$ 8625.41
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: GGBR4 a R$ 28.31
+   Venda: SUZB3 a R$ 35.14
+   Spread: 21.55%
+   Lucro potencial: R$ 6835.77
+   Volume: 1000 ações
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de PETR4 a R$ 25.78
+   Vendendo 1000 ações de VALE3 a R$ 67.06
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 41241.09 (após custos)
+   Novos preços: 25.80 / 66.99
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de ITUB4 a R$ 32.22
+   Vendendo 1000 ações de BBAS3 a R$ 44.98
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 12746.08 (após custos)
+   Novos preços: 32.25 / 44.93
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de BBDC4 a R$ 16.02
+   Vendendo 1000 ações de ITUB4 a R$ 32.22
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 16185.48 (após custos)
+   Novos preços: 16.03 / 32.19
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de BBDC4 a R$ 16.02
+   Vendendo 1000 ações de BBAS3 a R$ 44.98
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 28931.56 (após custos)
+   Novos preços: 16.03 / 44.93
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de ABEV3 a R$ 14.49
+   Vendendo 1000 ações de JBSS3 a R$ 21.76
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 7255.40 (após custos)
+   Novos preços: 14.51 / 21.73
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de MGLU3 a R$ 3.29
+   Vendendo 1000 ações de LREN3 a R$ 18.23
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 14923.32 (após custos)
+   Novos preços: 3.30 / 18.21
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de WEGE3 a R$ 46.17
+   Vendendo 1000 ações de RENT3 a R$ 54.79
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 8616.79 (após custos)
+   Novos preços: 46.21 / 54.74
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de GGBR4 a R$ 28.31
+   Vendendo 1000 ações de SUZB3 a R$ 35.14
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 6828.94 (após custos)
+   Novos preços: 28.34 / 35.11
+
+=== OPORTUNIDADES DE ARBITRAGEM ATIVAS ===
+Nenhuma oportunidade ativa no momento.
+[23:06:08] EXECUTOR: ACEITOU ordem do Trader 3 (COMPRA 139 ações a R$ 25.89) em 92ms
+EXECUTADA: Trader 3 comprou 139 ações de PETR4 a R$ 25.89
+EXECUTOR: Processando ordem do Trader 5
+[23:06:09] EXECUTOR: ACEITOU ordem do Trader 5 (VENDA 138 ações a R$ 25.67) em 51ms
+EXECUTADA: Trader 5 vendeu 138 ações de PETR4 a R$ 25.67
+NOVA ORDEM: Trader 5 compra 192 ações de WEGE3 a R$ 46.21
+[23:06:09] TRADER 5: COMPRA 192 ações a R$ 46.21 (Probabilidade de compra)
+NOVA ORDEM: Trader 5 compra 142 ações de VALE3 a R$ 66.78
+[23:06:09] TRADER 5: COMPRA 142 ações a R$ 66.78 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 5, Ação 1, Tipo: C, Preço: 66.78, Qtd: 142)
+Trader 5: Ordem criada (total: 8/100)
+EXECUTOR: Processando ordem do Trader 5
+[23:06:10] EXECUTOR: ACEITOU ordem do Trader 5 (COMPRA 142 ações a R$ 66.78) em 137ms
+EXECUTADA: Trader 5 comprou 142 ações de VALE3 a R$ 66.78
+NOVA ORDEM: Trader 2 vende 114 ações de PETR4 a R$ 25.79
+[23:06:10] TRADER 2: VENDA 114 ações a R$ 25.79 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 2, Ação 0, Tipo: V, Preço: 25.79, Qtd: 114)
+Trader 2: Ordem criada (total: 9/100)
+EXECUTOR: Processando ordem do Trader 2
+EXECUTOR: Ordem rejeitada - Ações insuficientes (112 < 114)
+[23:06:10] EXECUTOR: REJEITOU ordem do Trader 2 (VENDA 114 ações a R$ 25.79) em 56ms
+[23:06:11] PRICE UPDATER: Ação 0 - R$ 25.80 → R$ 25.80 (0.00%) - Variação de mercado
+[23:06:11] PRICE UPDATER: Ação 1 - R$ 66.99 → R$ 66.84 (-0.23%) - Variação de mercado
+[23:06:11] PRICE UPDATER: Ação 2 - R$ 32.19 → R$ 31.94 (-0.77%) - Variação de mercado
+[23:06:11] PRICE UPDATER: Ação 3 - R$ 14.51 → R$ 14.39 (-0.80%) - Variação de mercado
+[23:06:11] PRICE UPDATER: Ação 4 - R$ 44.93 → R$ 45.23 (0.66%) - Variação de mercado
+[23:06:11] PRICE UPDATER: Ação 5 - R$ 16.03 → R$ 15.91 (-0.76%) - Variação de mercado
+[23:06:11] PRICE UPDATER: Ação 6 - R$ 46.21 → R$ 46.59 (0.81%) - Variação de mercado
+[23:06:11] PRICE UPDATER: Ação 7 - R$ 54.74 → R$ 54.49 (-0.44%) - Variação de mercado
+[23:06:11] PRICE UPDATER: Ação 8 - R$ 18.21 → R$ 18.15 (-0.35%) - Variação de mercado
+[23:06:11] PRICE UPDATER: Ação 9 - R$ 3.30 → R$ 3.29 (-0.09%) - Variação de mercado
+[23:06:11] PRICE UPDATER: Ação 10 - R$ 21.73 → R$ 21.71 (-0.12%) - Variação de mercado
+[23:06:11] PRICE UPDATER: Ação 11 - R$ 35.11 → R$ 34.98 (-0.38%) - Variação de mercado
+[23:06:11] PRICE UPDATER: Ação 12 - R$ 28.34 → R$ 28.49 (0.54%) - Variação de mercado
+NOVA ORDEM: Trader 0 vende 114 ações de PETR4 a R$ 25.90
+[23:06:11] TRADER 0: VENDA 114 ações a R$ 25.90 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 0, Ação 0, Tipo: V, Preço: 25.90, Qtd: 114)
+Trader 0: Ordem criada (total: 4/20)
+EXECUTOR: Processando ordem do Trader 0
+[2J[H=== SISTEMA DE TRADING - VERSÃO THREADS ===
+Tempo de execução: 20 segundos
+Sistema ativo: SIM
+
+
+=== ESTADO DAS AÇÕES ===
+PETR4:
+  Preço atual: R$ 25.80
+  Variação: 0.00%
+  Volume negociado: 3175
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+VALE3:
+  Preço atual: R$ 66.84
+  Variação: -0.23%
+  Volume negociado: 3225
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+ITUB4:
+  Preço atual: R$ 31.94
+  Variação: -0.77%
+  Volume negociado: 596
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+ABEV3:
+  Preço atual: R$ 14.39
+  Variação: -0.80%
+  Volume negociado: 614
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+BBAS3:
+  Preço atual: R$ 45.23
+  Variação: 0.66%
+  Volume negociado: 655
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+BBDC4:
+  Preço atual: R$ 15.91
+  Variação: -0.76%
+  Volume negociado: 559
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+WEGE3:
+  Preço atual: R$ 46.59
+  Variação: 0.81%
+  Volume negociado: 572
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+RENT3:
+  Preço atual: R$ 54.49
+  Variação: -0.44%
+  Volume negociado: 492
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+LREN3:
+  Preço atual: R$ 18.15
+  Variação: -0.35%
+  Volume negociado: 547
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+MGLU3:
+  Preço atual: R$ 3.29
+  Variação: -0.09%
+  Volume negociado: 572
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+JBSS3:
+  Preço atual: R$ 21.71
+  Variação: -0.12%
+  Volume negociado: 637
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+SUZB3:
+  Preço atual: R$ 34.98
+  Variação: -0.38%
+  Volume negociado: 662
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+GGBR4:
+  Preço atual: R$ 28.49
+  Variação: 0.54%
+  Volume negociado: 586
+  Preço médio: R$ 0.00
+  Volatilidade: 0.00%
+
+
+=== ESTADO DOS TRADERS ===
+Trader 0 (Trader Conservador):
+  Saldo: R$ 91980.76
+  Ações possuídas:
+    PETR4: 100 ações
+    VALE3: 81 ações
+
+Trader 1 (Trader Agressivo):
+  Saldo: R$ 46346.37
+  Ações possuídas:
+    PETR4: 269 ações
+    VALE3: 691 ações
+
+Trader 2 (Trader Momentum):
+  Saldo: R$ 64097.44
+  Ações possuídas:
+    PETR4: 112 ações
+    VALE3: 489 ações
+
+Trader 3 (Trader Mean Reversion):
+  Saldo: R$ 88145.24
+  Ações possuídas:
+    PETR4: 322 ações
+    VALE3: 53 ações
+
+Trader 4 (Trader Arbitragem):
+  Saldo: R$ 66298.37
+  Ações possuídas:
+    PETR4: 1319 ações
+
+Trader 5 (Trader Aleatório):
+  Saldo: R$ 69481.36
+  Ações possuídas:
+    PETR4: 215 ações
+    VALE3: 372 ações
+
+
+=== ESTADO DO EXECUTOR ===
+Total de ordens: 58
+Ordens executadas: 22
+Ordens canceladas: 16
+Taxa de execução: 37.93%
+
+
+=== OPORTUNIDADES DE ARBITRAGEM ===
+Ações 2 e 8: Diferença de 55.46% (R$ 13.99)
+NOVA ORDEM: Trader 4 vende 689 ações de PETR4 a R$ 25.79
+[23:06:11] TRADER 4: VENDA 689 ações a R$ 25.79 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 4, Ação 0, Tipo: V, Preço: 25.79, Qtd: 689)
+Trader 4: Ordem criada (total: 8/50)
+Ações 2 e 9: Diferença de 162.92% (R$ 28.93)
+Ações 2 e 10: Diferença de 38.77% (R$ 10.46)
+Ações 2 e 11: Diferença de 8.68% (R$ 2.92)
+Ações 2 e 12: Diferença de 12.92% (R$ 3.91)
+Ações 3 e 4: Diferença de 102.52% (R$ 30.49)
+Ações 3 e 5: Diferença de 10.00% (R$ 1.53)
+Ações 3 e 6: Diferença de 104.43% (R$ 31.67)
+Ações 3 e 7: Diferença de 116.33% (R$ 40.30)
+Ações 3 e 8: Diferença de 22.84% (R$ 3.74)
+Ações 3 e 9: Diferença de 125.96% (R$ 11.20)
+Ações 3 e 10: Diferença de 40.07% (R$ 7.26)
+Ações 3 e 11: Diferença de 83.21% (R$ 20.65)
+Ações 3 e 12: Diferença de 64.56% (R$ 13.82)
+Ações 4 e 5: Diferença de 94.96% (R$ 28.96)
+Ações 4 e 6: Diferença de 2.60% (R$ 1.19)
+Ações 4 e 7: Diferença de 19.67% (R$ 9.81)
+Ações 4 e 8: Diferença de 84.64% (R$ 26.75)
+Ações 4 e 9: Diferença de 172.72% (R$ 41.69)
+Ações 4 e 10: Diferença de 69.60% (R$ 23.22)
+Ações 4 e 11: Diferença de 24.55% (R$ 9.83)
+Ações 4 e 12: Diferença de 45.49% (R$ 16.67)
+Ações 5 e 6: Diferença de 96.96% (R$ 30.15)
+Ações 5 e 7: Diferença de 109.51% (R$ 38.77)
+Ações 5 e 8: Diferença de 12.91% (R$ 2.21)
+Ações 5 e 9: Diferença de 131.81% (R$ 12.73)
+Ações 5 e 10: Diferença de 30.38% (R$ 5.74)
+Ações 5 e 11: Diferença de 74.77% (R$ 19.13)
+Ações 5 e 12: Diferença de 55.45% (R$ 12.29)
+Ações 6 e 7: Diferença de 17.09% (R$ 8.63)
+Ações 6 e 8: Diferença de 86.76% (R$ 27.93)
+Ações 6 e 9: Diferença de 173.38% (R$ 42.87)
+Ações 6 e 10: Diferença de 71.88% (R$ 24.41)
+Ações 6 e 11: Diferença de 27.11% (R$ 11.02)
+Ações 6 e 12: Diferença de 47.95% (R$ 17.86)
+Ações 7 e 8: Diferença de 100.14% (R$ 36.56)
+Ações 7 e 9: Diferença de 177.33% (R$ 51.50)
+Ações 7 e 10: Diferença de 86.31% (R$ 33.03)
+Ações 7 e 11: Diferença de 43.69% (R$ 19.65)
+Ações 7 e 12: Diferença de 63.73% (R$ 26.48)
+Ações 8 e 9: Diferença de 138.82% (R$ 14.94)
+Ações 8 e 10: Diferença de 17.64% (R$ 3.53)
+Ações 8 e 11: Diferença de 63.38% (R$ 16.91)
+Ações 8 e 12: Diferença de 43.31% (R$ 10.08)
+Ações 9 e 10: Diferença de 147.43% (R$ 18.46)
+Ações 9 e 11: Diferença de 165.74% (R$ 31.85)
+Ações 9 e 12: Diferença de 158.33% (R$ 25.02)
+Ações 10 e 11: Diferença de 47.06% (R$ 13.39)
+Ações 10 e 12: Diferença de 26.18% (R$ 6.55)
+Ações 11 e 12: Diferença de 21.55% (R$ 6.84)
+
+
+=== ALERTAS DE MERCADO ===
+[MÉDIA] ALTO VOLUME: Volume de negociação muito alto (3904.00)
+[MÉDIA] ALTO VOLUME: Volume de negociação muito alto (7904.00)
+[MÉDIA] ALTO VOLUME: Volume de negociação muito alto (11200.00)
+
+=== ESTATÍSTICAS DE EXECUÇÃO ===
+Taxa de execução: 37.93%
+Taxa de cancelamento: 27.59%
+Oportunidades de execução: 19
+
+=== ESTATÍSTICAS DE ARBITRAGEM ===
+Oportunidades ativas: 50
+Maior diferença detectada: 177.33%
+Ação mais volátil: WEGE3 (0.81%)
+Total de alertas: 3
+
+NOVA ORDEM: Trader 1 compra 499 ações de ABEV3 a R$ 14.39
+[23:06:11] TRADER 1: COMPRA 499 ações a R$ 14.39 (Probabilidade de compra)
+NOVA ORDEM: Trader 1 compra 661 ações de VALE3 a R$ 67.08
+[23:06:11] TRADER 1: COMPRA 661 ações a R$ 67.08 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 1, Ação 1, Tipo: C, Preço: 67.08, Qtd: 661)
+Trader 1: Ordem criada (total: 7/50)
+NOVA ORDEM: Trader 5 compra 233 ações de WEGE3 a R$ 46.59
+[23:06:11] TRADER 5: COMPRA 233 ações a R$ 46.59 (Probabilidade de compra)
+NOVA ORDEM: Trader 5 compra 253 ações de VALE3 a R$ 67.04
+[23:06:11] TRADER 5: COMPRA 253 ações a R$ 67.04 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 5, Ação 1, Tipo: C, Preço: 67.04, Qtd: 253)
+Trader 5: Ordem criada (total: 9/100)
+
+--- CICLO DE ARBITRAGEM 7 ---
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: PETR4 a R$ 25.80
+   Venda: VALE3 a R$ 66.84
+   Spread: 88.59%
+   Lucro potencial: R$ 41035.46
+   Volume: 1000 ações
+🚀 OPORTUNIDADE DE ARBITRAGEM DETECTADA!
+   Compra: ITUB4 a R$ 31.94
+   Venda: BBAS3 a R$ 45.23
+   Spread: 34.44%
+   Lucro potencial: R$ 13290.49
+   Volume: 1000 ações
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de PETR4 a R$ 25.80
+   Vendendo 1000 ações de VALE3 a R$ 66.84
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 40994.43 (após custos)
+   Novos preços: 25.83 / 66.77
+💰 EXECUTANDO ARBITRAGEM!
+   Comprando 1000 ações de ITUB4 a R$ 31.94
+   Vendendo 1000 ações de BBAS3 a R$ 45.23
+   ✅ Arbitragem executada com sucesso!
+   Lucro realizado: R$ 13277.20 (após custos)
+   Novos preços: 31.97 / 45.19
+EXECUTOR: Ordem rejeitada - Ações insuficientes (100 < 114)
+[23:06:12] EXECUTOR: REJEITOU ordem do Trader 0 (VENDA 114 ações a R$ 25.90) em 194ms
+EXECUTOR: Processando ordem do Trader 4
+[23:06:12] EXECUTOR: ACEITOU ordem do Trader 4 (VENDA 689 ações a R$ 25.79) em 108ms
+EXECUTADA: Trader 4 vendeu 689 ações de PETR4 a R$ 25.79
+EXECUTOR: Processando ordem do Trader 1
+[23:06:12] EXECUTOR: ACEITOU ordem do Trader 1 (COMPRA 661 ações a R$ 67.08) em 62ms
+EXECUTADA: Trader 1 comprou 661 ações de VALE3 a R$ 67.08
+EXECUTOR: Processando ordem do Trader 5
+[23:06:12] EXECUTOR: ACEITOU ordem do Trader 5 (COMPRA 253 ações a R$ 67.04) em 155ms
+EXECUTADA: Trader 5 comprou 253 ações de VALE3 a R$ 67.04
+NOVA ORDEM: Trader 1 compra 691 ações de PETR4 a R$ 25.91
+[23:06:12] TRADER 1: COMPRA 691 ações a R$ 25.91 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 1, Ação 0, Tipo: C, Preço: 25.91, Qtd: 691)
+Trader 1: Ordem criada (total: 8/50)
+EXECUTOR: Processando ordem do Trader 1
+NOVA ORDEM: Trader 2 vende 283 ações de PETR4 a R$ 25.95
+[23:06:12] TRADER 2: VENDA 283 ações a R$ 25.95 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 2, Ação 0, Tipo: V, Preço: 25.95, Qtd: 283)
+Trader 2: Ordem criada (total: 10/100)
+NOVA ORDEM: Trader 5 compra 222 ações de PETR4 a R$ 25.75
+[23:06:12] TRADER 5: COMPRA 222 ações a R$ 25.75 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 5, Ação 0, Tipo: C, Preço: 25.75, Qtd: 222)
+Trader 5: Ordem criada (total: 10/100)
+EXECUTOR: Ordem rejeitada - Saldo insuficiente (R$ 2008.34 < R$ 17903.51)
+[23:06:12] EXECUTOR: REJEITOU ordem do Trader 1 (COMPRA 691 ações a R$ 25.91) em 57ms
+EXECUTOR: Processando ordem do Trader 2
+EXECUTOR: Ordem rejeitada - Ações insuficientes (112 < 283)
+[23:06:13] EXECUTOR: REJEITOU ordem do Trader 2 (VENDA 283 ações a R$ 25.95) em 99ms
+EXECUTOR: Processando ordem do Trader 5
+[23:06:13] EXECUTOR: ACEITOU ordem do Trader 5 (COMPRA 222 ações a R$ 25.75) em 95ms
+EXECUTADA: Trader 5 comprou 222 ações de PETR4 a R$ 25.75
+NOVA ORDEM: Trader 4 compra 532 ações de ABEV3 a R$ 14.39
+[23:06:13] TRADER 4: COMPRA 532 ações a R$ 14.39 (Probabilidade de compra)
+NOVA ORDEM: Trader 4 compra 505 ações de VALE3 a R$ 66.92
+[23:06:13] TRADER 4: COMPRA 505 ações a R$ 66.92 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 4, Ação 1, Tipo: C, Preço: 66.92, Qtd: 505)
+Trader 4: Ordem criada (total: 9/50)
+EXECUTOR: Processando ordem do Trader 4
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 1 com diferença de 88.43%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 2 com diferença de 21.26%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 3 com diferença de 56.87%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 4 com diferença de 54.52%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 5 com diferença de 47.50%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 6 com diferença de 57.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 7 com diferença de 71.38%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 8 com diferença de 34.92%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 9 com diferença de 154.78%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 10 com diferença de 17.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 11 com diferença de 30.10%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 12 com diferença de 9.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 2 com diferença de 70.48%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 3 com diferença de 129.07%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 4 com diferença de 38.56%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 5 com diferença de 123.02%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 6 com diferença de 35.61%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 7 com diferença de 20.24%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 8 com diferença de 114.51%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 9 com diferença de 181.20%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 10 com diferença de 101.86%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 11 com diferença de 62.50%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 12 com diferença de 80.37%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 3 com diferença de 75.84%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 4 com diferença de 34.25%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 5 com diferença de 67.07%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 6 com diferença de 37.20%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 7 com diferença de 52.10%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 8 com diferença de 55.16%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 9 com diferença de 162.66%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 10 com diferença de 38.24%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 11 com diferença de 8.97%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 12 com diferença de 11.52%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 4 com diferença de 103.37%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 5 com diferença de 10.04%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 6 com diferença de 105.59%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 7 com diferença de 116.43%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 8 com diferença de 23.09%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 9 com diferença de 125.53%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 10 com diferença de 40.53%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 11 com diferença de 83.39%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 12 com diferença de 65.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 5 com diferença de 95.82%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 6 com diferença de 3.05%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 7 com diferença de 18.68%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 8 com diferença de 85.38%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 9 com diferença de 172.84%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 10 com diferença de 70.19%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 11 com diferença de 25.47%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 12 com diferença de 45.32%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 6 com diferença de 98.16%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 7 com diferença de 109.60%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 8 com diferença de 13.13%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 9 com diferença de 131.43%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 10 com diferença de 30.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 11 com diferença de 74.92%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 12 com diferença de 56.65%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 7 com diferença de 15.65%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 8 com diferença de 87.86%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 9 com diferença de 173.60%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 10 com diferença de 72.85%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 11 com diferença de 28.47%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 12 com diferença de 48.20%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 8 com diferença de 100.07%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 9 com diferença de 177.21%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 10 com diferença de 86.05%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 11 com diferença de 43.63%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 12 com diferença de 62.67%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 9 com diferença de 138.58%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 10 com diferença de 17.86%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 11 com diferença de 63.35%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 12 com diferença de 44.35%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 10 com diferença de 147.33%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 11 com diferença de 165.59%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 12 com diferença de 158.57%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 11 com diferença de 46.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 12 com diferença de 27.02%
+OPORTUNIDADE DE ARBITRAGEM: Ações 11 e 12 com diferença de 20.44%
+ALERTA [MÉDIA]: Volume de negociação muito alto - 14717.00
+[23:06:14] EXECUTOR: ACEITOU ordem do Trader 4 (COMPRA 505 ações a R$ 66.92) em 136ms
+EXECUTADA: Trader 4 comprou 505 ações de VALE3 a R$ 66.92
+[23:06:14] PRICE UPDATER: Ação 0 - R$ 25.83 → R$ 25.68 (-0.58%) - Variação de mercado
+[23:06:14] PRICE UPDATER: Ação 1 - R$ 66.77 → R$ 67.31 (0.81%) - Variação de mercado
+[23:06:14] PRICE UPDATER: Ação 2 - R$ 31.97 → R$ 32.06 (0.27%) - Variação de mercado
+[23:06:14] PRICE UPDATER: Ação 3 - R$ 14.39 → R$ 14.39 (-0.04%) - Variação de mercado
+[23:06:14] PRICE UPDATER: Ação 4 - R$ 45.19 → R$ 45.23 (0.09%) - Variação de mercado
+[23:06:14] PRICE UPDATER: Ação 5 - R$ 15.91 → R$ 15.79 (-0.78%) - Variação de mercado
+[23:06:14] PRICE UPDATER: Ação 6 - R$ 46.59 → R$ 46.89 (0.66%) - Variação de mercado
+[23:06:14] PRICE UPDATER: Ação 7 - R$ 54.49 → R$ 54.03 (-0.86%) - Variação de mercado
+[23:06:14] PRICE UPDATER: Ação 8 - R$ 18.15 → R$ 18.32 (0.93%) - Variação de mercado
+[23:06:14] PRICE UPDATER: Ação 9 - R$ 3.29 → R$ 3.29 (-0.08%) - Variação de mercado
+[23:06:14] PRICE UPDATER: Ação 10 - R$ 21.71 → R$ 21.72 (0.07%) - Variação de mercado
+[23:06:14] PRICE UPDATER: Ação 11 - R$ 34.98 → R$ 34.70 (-0.79%) - Variação de mercado
+[23:06:14] PRICE UPDATER: Ação 12 - R$ 28.49 → R$ 28.52 (0.12%) - Variação de mercado
+NOVA ORDEM: Trader 3 vende 100 ações de PETR4 a R$ 25.68
+[23:06:14] TRADER 3: VENDA 100 ações a R$ 25.68 (Probabilidade de venda)
+NOVA ORDEM: Trader 3 compra 113 ações de VALE3 a R$ 67.10
+[23:06:14] TRADER 3: COMPRA 113 ações a R$ 67.10 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 3, Ação 1, Tipo: C, Preço: 67.10, Qtd: 113)
+Trader 3: Ordem criada (total: 6/20)
+EXECUTOR: Processando ordem do Trader 3
+NOVA ORDEM: Trader 5 compra 200 ações de LREN3 a R$ 18.32
+[23:06:14] TRADER 5: COMPRA 200 ações a R$ 18.32 (Probabilidade de compra)
+NOVA ORDEM: Trader 5 compra 111 ações de VALE3 a R$ 67.56
+[23:06:14] TRADER 5: COMPRA 111 ações a R$ 67.56 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 5, Ação 1, Tipo: C, Preço: 67.56, Qtd: 111)
+Trader 5: Ordem criada (total: 11/100)
+
+--- CICLO DE ARBITRAGEM 8 ---
+EXECUTOR: Ordem rejeitada - Decisão aleatória do sistema
+[23:06:14] EXECUTOR: REJEITOU ordem do Trader 3 (COMPRA 113 ações a R$ 67.10) em 76ms
+EXECUTOR: Processando ordem do Trader 5
+[23:06:15] EXECUTOR: ACEITOU ordem do Trader 5 (COMPRA 111 ações a R$ 67.56) em 168ms
+EXECUTADA: Trader 5 comprou 111 ações de VALE3 a R$ 67.56
+NOVA ORDEM: Trader 4 compra 593 ações de ABEV3 a R$ 14.39
+[23:06:15] TRADER 4: COMPRA 593 ações a R$ 14.39 (Probabilidade de compra)
+NOVA ORDEM: Trader 4 compra 459 ações de VALE3 a R$ 67.20
+[23:06:15] TRADER 4: COMPRA 459 ações a R$ 67.20 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 4, Ação 1, Tipo: C, Preço: 67.20, Qtd: 459)
+Trader 4: Ordem criada (total: 10/50)
+EXECUTOR: Processando ordem do Trader 4
+NOVA ORDEM: Trader 2 vende 206 ações de PETR4 a R$ 25.76
+[23:06:15] TRADER 2: VENDA 206 ações a R$ 25.76 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 2, Ação 0, Tipo: V, Preço: 25.76, Qtd: 206)
+Trader 2: Ordem criada (total: 11/100)
+NOVA ORDEM: Trader 5 compra 214 ações de LREN3 a R$ 18.32
+[23:06:15] TRADER 5: COMPRA 214 ações a R$ 18.32 (Probabilidade de compra)
+NOVA ORDEM: Trader 5 vende 149 ações de VALE3 a R$ 67.39
+[23:06:15] TRADER 5: VENDA 149 ações a R$ 67.39 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 5, Ação 1, Tipo: V, Preço: 67.39, Qtd: 149)
+Trader 5: Ordem criada (total: 12/100)
+EXECUTOR: Ordem rejeitada - Decisão aleatória do sistema
+[23:06:15] EXECUTOR: REJEITOU ordem do Trader 4 (COMPRA 459 ações a R$ 67.20) em 104ms
+EXECUTOR: Processando ordem do Trader 2
+EXECUTOR: Ordem rejeitada - Ações insuficientes (112 < 206)
+[23:06:16] EXECUTOR: REJEITOU ordem do Trader 2 (VENDA 206 ações a R$ 25.76) em 144ms
+EXECUTOR: Processando ordem do Trader 5
+[23:06:16] EXECUTOR: ACEITOU ordem do Trader 5 (VENDA 149 ações a R$ 67.39) em 196ms
+EXECUTADA: Trader 5 vendeu 149 ações de VALE3 a R$ 67.39
+NOVA ORDEM: Trader 0 vende 81 ações de VALE3 a R$ 67.31
+[23:06:16] TRADER 0: VENDA 81 ações a R$ 67.31 (Probabilidade de venda)
+NOVA ORDEM: Trader 0 vende 78 ações de VALE3 a R$ 67.28
+[23:06:16] TRADER 0: VENDA 78 ações a R$ 67.28 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 0, Ação 1, Tipo: V, Preço: 67.28, Qtd: 78)
+Trader 0: Ordem criada (total: 5/20)
+EXECUTOR: Processando ordem do Trader 0
+NOVA ORDEM: Trader 1 vende 306 ações de PETR4 a R$ 25.68
+[23:06:16] TRADER 1: VENDA 306 ações a R$ 25.68 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 1, Ação 0, Tipo: V, Preço: 25.68, Qtd: 306)
+Trader 1: Ordem criada (total: 9/50)
+NOVA ORDEM: Trader 2 compra 163 ações de BBDC4 a R$ 15.79
+[23:06:16] TRADER 2: COMPRA 163 ações a R$ 15.79 (Probabilidade de compra)
+NOVA ORDEM: Trader 2 vende 105 ações de VALE3 a R$ 66.97
+[23:06:16] TRADER 2: VENDA 105 ações a R$ 66.97 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 2, Ação 1, Tipo: V, Preço: 66.97, Qtd: 105)
+Trader 2: Ordem criada (total: 12/100)
+NOVA ORDEM: Trader 5 compra 116 ações de PETR4 a R$ 25.75
+[23:06:16] TRADER 5: COMPRA 116 ações a R$ 25.75 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 5, Ação 0, Tipo: C, Preço: 25.75, Qtd: 116)
+Trader 5: Ordem criada (total: 13/100)
+[23:06:17] EXECUTOR: ACEITOU ordem do Trader 0 (VENDA 78 ações a R$ 67.28) em 165ms
+EXECUTADA: Trader 0 vendeu 78 ações de VALE3 a R$ 67.28
+EXECUTOR: Processando ordem do Trader 1
+EXECUTOR: Ordem rejeitada - Ações insuficientes (269 < 306)
+[23:06:17] EXECUTOR: REJEITOU ordem do Trader 1 (VENDA 306 ações a R$ 25.68) em 196ms
+EXECUTOR: Processando ordem do Trader 2
+[23:06:17] EXECUTOR: ACEITOU ordem do Trader 2 (VENDA 105 ações a R$ 66.97) em 101ms
+EXECUTADA: Trader 2 vendeu 105 ações de VALE3 a R$ 66.97
+EXECUTOR: Processando ordem do Trader 5
+[23:06:17] PRICE UPDATER: Ação 0 - R$ 25.68 → R$ 25.91 (0.90%) - Variação de mercado
+[23:06:17] PRICE UPDATER: Ação 1 - R$ 67.31 → R$ 67.11 (-0.30%) - Variação de mercado
+[23:06:17] PRICE UPDATER: Ação 2 - R$ 32.06 → R$ 32.03 (-0.08%) - Variação de mercado
+[23:06:17] PRICE UPDATER: Ação 3 - R$ 14.39 → R$ 14.30 (-0.61%) - Variação de mercado
+[23:06:17] PRICE UPDATER: Ação 4 - R$ 45.23 → R$ 45.07 (-0.35%) - Variação de mercado
+[23:06:17] PRICE UPDATER: Ação 5 - R$ 15.79 → R$ 15.68 (-0.69%) - Variação de mercado
+[23:06:17] PRICE UPDATER: Ação 6 - R$ 46.89 → R$ 46.92 (0.05%) - Variação de mercado
+[23:06:17] PRICE UPDATER: Ação 7 - R$ 54.03 → R$ 54.53 (0.94%) - Variação de mercado
+[23:06:17] PRICE UPDATER: Ação 8 - R$ 18.32 → R$ 18.16 (-0.84%) - Variação de mercado
+[23:06:17] PRICE UPDATER: Ação 9 - R$ 3.29 → R$ 3.27 (-0.48%) - Variação de mercado
+[23:06:17] PRICE UPDATER: Ação 10 - R$ 21.72 → R$ 21.54 (-0.84%) - Variação de mercado
+[23:06:17] PRICE UPDATER: Ação 11 - R$ 34.70 → R$ 34.94 (0.70%) - Variação de mercado
+[23:06:17] PRICE UPDATER: Ação 12 - R$ 28.52 → R$ 28.48 (-0.15%) - Variação de mercado
+[23:06:17] EXECUTOR: ACEITOU ordem do Trader 5 (COMPRA 116 ações a R$ 25.75) em 172ms
+EXECUTADA: Trader 5 comprou 116 ações de PETR4 a R$ 25.75
+NOVA ORDEM: Trader 1 compra 654 ações de PETR4 a R$ 25.97
+[23:06:17] TRADER 1: COMPRA 654 ações a R$ 25.97 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 1, Ação 0, Tipo: C, Preço: 25.97, Qtd: 654)
+Trader 1: Ordem criada (total: 10/50)
+
+--- CICLO DE ARBITRAGEM 9 ---
+
+=== OPORTUNIDADES DE ARBITRAGEM ATIVAS ===
+Nenhuma oportunidade ativa no momento.
+EXECUTOR: Processando ordem do Trader 1
+EXECUTOR: Ordem rejeitada - Saldo insuficiente (R$ 2008.34 < R$ 16984.64)
+[23:06:18] EXECUTOR: REJEITOU ordem do Trader 1 (COMPRA 654 ações a R$ 25.97) em 122ms
+NOVA ORDEM: Trader 3 compra 73 ações de PETR4 a R$ 26.01
+[23:06:18] TRADER 3: COMPRA 73 ações a R$ 26.01 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 3, Ação 0, Tipo: C, Preço: 26.01, Qtd: 73)
+Trader 3: Ordem criada (total: 7/20)
+EXECUTOR: Processando ordem do Trader 3
+NOVA ORDEM: Trader 4 compra 508 ações de BBAS3 a R$ 45.07
+[23:06:18] TRADER 4: COMPRA 508 ações a R$ 45.07 (Probabilidade de compra)
+NOVA ORDEM: Trader 4 compra 617 ações de VALE3 a R$ 67.22
+[23:06:18] TRADER 4: COMPRA 617 ações a R$ 67.22 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 4, Ação 1, Tipo: C, Preço: 67.22, Qtd: 617)
+Trader 4: Ordem criada (total: 11/50)
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 1 com diferença de 88.59%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 2 com diferença de 21.14%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 3 com diferença de 57.75%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 4 com diferença de 53.99%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 5 com diferença de 49.19%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 6 com diferença de 57.70%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 7 com diferença de 71.17%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 8 com diferença de 35.15%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 9 com diferença de 155.13%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 10 com diferença de 18.41%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 11 com diferença de 29.69%
+OPORTUNIDADE DE ARBITRAGEM: Ações 0 e 12 com diferença de 9.46%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 2 com diferença de 70.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 3 com diferença de 129.74%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 4 com diferença de 39.30%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 5 com diferença de 124.24%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 6 com diferença de 35.42%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 7 com diferença de 20.67%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 8 com diferença de 114.80%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 9 com diferença de 181.39%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 10 com diferença de 102.80%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 11 com diferença de 63.04%
+OPORTUNIDADE DE ARBITRAGEM: Ações 1 e 12 com diferença de 80.82%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 3 com diferença de 76.56%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 4 com diferença de 33.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 5 com diferença de 68.55%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 6 com diferença de 37.70%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 7 com diferença de 51.99%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 8 com diferença de 55.26%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 9 com diferença de 162.91%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 10 com diferença de 39.17%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 11 com diferença de 8.69%
+OPORTUNIDADE DE ARBITRAGEM: Ações 2 e 12 com diferença de 11.74%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 4 com diferença de 103.66%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 5 com diferença de 9.22%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 6 com diferença de 106.57%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 7 com diferença de 116.91%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 8 com diferença de 23.81%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 9 com diferença de 125.48%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 10 com diferença de 40.42%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 11 com diferença de 83.85%
+OPORTUNIDADE DE ARBITRAGEM: Ações 3 e 12 com diferença de 66.31%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 5 com diferença de 96.75%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 6 com diferença de 4.02%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 7 com diferença de 19.01%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 8 com diferença de 85.10%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 9 com diferença de 172.91%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 10 com diferença de 70.64%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 11 com diferença de 25.31%
+OPORTUNIDADE DE ARBITRAGEM: Ações 4 e 12 com diferença de 45.10%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 6 com diferença de 99.80%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 7 com diferença de 110.67%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 8 com diferença de 14.68%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 9 com diferença de 130.91%
+NOVA ORDEM: Trader 5 vende 266 ações de PETR4 a R$ 25.81
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 10 com diferença de 31.49%
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 11 com diferença de 76.11%
+[23:06:18] TRADER 5: VENDA 266 ações a R$ 25.81 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 5, Ação 0, Tipo: V, Preço: 25.81, Qtd: 266)
+Trader 5: Ordem criada (total: 14/100)
+OPORTUNIDADE DE ARBITRAGEM: Ações 5 e 12 com diferença de 57.98%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 7 com diferença de 15.02%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 8 com diferença de 88.36%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 9 com diferença de 173.91%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 10 com diferença de 74.14%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 11 com diferença de 29.25%
+OPORTUNIDADE DE ARBITRAGEM: Ações 6 e 12 com diferença de 48.90%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 8 com diferença de 100.06%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 9 com diferença de 177.35%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 10 com diferença de 86.74%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 11 com diferença de 43.79%
+OPORTUNIDADE DE ARBITRAGEM: Ações 7 e 12 com diferença de 62.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 9 com diferença de 138.91%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 10 com diferença de 17.01%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 11 com diferença de 63.19%
+OPORTUNIDADE DE ARBITRAGEM: Ações 8 e 12 com diferença de 44.24%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 10 com diferença de 147.23%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 11 com diferença de 165.73%
+OPORTUNIDADE DE ARBITRAGEM: Ações 9 e 12 com diferença de 158.76%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 11 com diferença de 47.45%
+OPORTUNIDADE DE ARBITRAGEM: Ações 10 e 12 com diferença de 27.75%
+OPORTUNIDADE DE ARBITRAGEM: Ações 11 e 12 com diferença de 20.37%
+ALERTA [MÉDIA]: Volume de negociação muito alto - 18459.00
+EVENTO: Notícia negativa para MGLU3 (-14.20%)
+[23:06:19] EXECUTOR: ACEITOU ordem do Trader 3 (COMPRA 73 ações a R$ 26.01) em 132ms
+EXECUTADA: Trader 3 comprou 73 ações de PETR4 a R$ 26.01
+EXECUTOR: Processando ordem do Trader 4
+[23:06:19] EXECUTOR: ACEITOU ordem do Trader 4 (COMPRA 617 ações a R$ 67.22) em 81ms
+EXECUTADA: Trader 4 comprou 617 ações de VALE3 a R$ 67.22
+EXECUTOR: Processando ordem do Trader 5
+[23:06:19] EXECUTOR: ACEITOU ordem do Trader 5 (VENDA 266 ações a R$ 25.81) em 92ms
+EXECUTADA: Trader 5 vendeu 266 ações de PETR4 a R$ 25.81
+NOVA ORDEM: Trader 4 compra 284 ações de PETR4 a R$ 25.86
+[23:06:19] TRADER 4: COMPRA 284 ações a R$ 25.86 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 4, Ação 0, Tipo: C, Preço: 25.86, Qtd: 284)
+Trader 4: Ordem criada (total: 12/50)
+EXECUTOR: Processando ordem do Trader 4
+NOVA ORDEM: Trader 1 vende 482 ações de PETR4 a R$ 25.97
+NOVA ORDEM: Trader 2 compra 171 ações de LREN3 a R$ 18.16
+[23:06:19] TRADER 1: VENDA 482 ações a R$ 25.97 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 1, Ação 0, Tipo: V, Preço: 25.97, Qtd: 482)
+Trader 1: Ordem criada (total: 11/50)
+[23:06:19] TRADER 2: COMPRA 171 ações a R$ 18.16 (Probabilidade de compra)
+NOVA ORDEM: Trader 2 vende 183 ações de VALE3 a R$ 67.32
+[23:06:19] TRADER 2: VENDA 183 ações a R$ 67.32 (Probabilidade de venda)
+✓ Ordem adicionada na fila (Trader 2, Ação 1, Tipo: V, Preço: 67.32, Qtd: 183)
+Trader 2: Ordem criada (total: 13/100)
+[23:06:19] EXECUTOR: ACEITOU ordem do Trader 4 (COMPRA 284 ações a R$ 25.86) em 109ms
+EXECUTADA: Trader 4 comprou 284 ações de PETR4 a R$ 25.86
+EXECUTOR: Processando ordem do Trader 1
+EXECUTOR: Ordem rejeitada - Ações insuficientes (269 < 482)
+[23:06:20] EXECUTOR: REJEITOU ordem do Trader 1 (VENDA 482 ações a R$ 25.97) em 73ms
+EXECUTOR: Processando ordem do Trader 2
+[23:06:20] EXECUTOR: ACEITOU ordem do Trader 2 (VENDA 183 ações a R$ 67.32) em 163ms
+EXECUTADA: Trader 2 vendeu 183 ações de VALE3 a R$ 67.32
+[23:06:20] PRICE UPDATER: Ação 0 - R$ 25.91 → R$ 25.72 (-0.74%) - Variação de mercado
+[23:06:20] PRICE UPDATER: Ação 1 - R$ 67.11 → R$ 67.31 (0.30%) - Variação de mercado
+[23:06:20] PRICE UPDATER: Ação 2 - R$ 32.03 → R$ 32.29 (0.79%) - Variação de mercado
+[23:06:20] PRICE UPDATER: Ação 3 - R$ 14.30 → R$ 14.37 (0.53%) - Variação de mercado
+[23:06:20] PRICE UPDATER: Ação 4 - R$ 45.07 → R$ 45.36 (0.65%) - Variação de mercado
+[23:06:20] PRICE UPDATER: Ação 5 - R$ 15.68 → R$ 15.82 (0.88%) - Variação de mercado
+[23:06:20] PRICE UPDATER: Ação 6 - R$ 46.92 → R$ 47.01 (0.19%) - Variação de mercado
+[23:06:20] PRICE UPDATER: Ação 7 - R$ 54.53 → R$ 54.24 (-0.53%) - Variação de mercado
+[23:06:20] PRICE UPDATER: Ação 8 - R$ 18.16 → R$ 18.19 (0.17%) - Variação de mercado
+[23:06:20] PRICE UPDATER: Ação 9 - R$ 3.27 → R$ 3.28 (0.09%) - Variação de mercado
+[23:06:20] PRICE UPDATER: Ação 10 - R$ 21.54 → R$ 21.62 (0.38%) - Variação de mercado
+[23:06:20] PRICE UPDATER: Ação 11 - R$ 34.94 → R$ 35.15 (0.60%) - Variação de mercado
+[23:06:20] PRICE UPDATER: Ação 12 - R$ 28.48 → R$ 28.46 (-0.08%) - Variação de mercado
+
+--- CICLO DE ARBITRAGEM 10 ---
+
+=== ESTATÍSTICAS DE ARBITRAGEM ===
+Total de oportunidades detectadas: 50
+Total de arbitragens executadas: 50
+Taxa de execução: 100.0%
+Lucro total potencial: R$ 890032.26
+Lucro total realizado: R$ 889142.22
+Eficiência: 99.9%
+Maior spread detectado: 141.01%
+Menor spread executado: 16.19%
+
+Oportunidades por setor:
+  Setor 0: 38 oportunidades
+NOVA ORDEM: Trader 5 compra 149 ações de PETR4 a R$ 25.70
+[23:06:20] TRADER 5: COMPRA 149 ações a R$ 25.70 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 5, Ação 0, Tipo: C, Preço: 25.70, Qtd: 149)
+Trader 5: Ordem criada (total: 15/100)
+EXECUTOR: Processando ordem do Trader 5
+[23:06:20] EXECUTOR: ACEITOU ordem do Trader 5 (COMPRA 149 ações a R$ 25.70) em 71ms
+EXECUTADA: Trader 5 comprou 149 ações de PETR4 a R$ 25.70
+NOVA ORDEM: Trader 1 compra 731 ações de PETR4 a R$ 25.65
+NOVA ORDEM: Trader 2 compra 187 ações de PETR4 a R$ 25.62
+[23:06:21] TRADER 1: COMPRA 731 ações a R$ 25.65 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 1, Ação 0, Tipo: C, Preço: 25.65, Qtd: 731)
+Trader 1: Ordem criada (total: 12/50)
+[23:06:21] TRADER 2: COMPRA 187 ações a R$ 25.62 (Probabilidade de compra)
+✓ Ordem adicionada na fila (Trader 2, Ação 0, Tipo: C, Preço: 25.62, Qtd: 187)
+Trader 2: Ordem criada (total: 14/100)
+EXECUTOR: Processando ordem do Trader 1
+EXECUTOR: Ordem rejeitada - Saldo insuficiente (R$ 2008.34 < R$ 18751.77)
+[23:06:22] EXECUTOR: REJEITOU ordem do Trader 1 (COMPRA 731 ações a R$ 25.65) em 167ms
+EXECUTOR: Processando ordem do Trader 2
+[23:06:22] EXECUTOR: ACEITOU ordem do Trader 2 (COMPRA 187 ações a R$ 25.62) em 76ms
+EXECUTADA: Trader 2 comprou 187 ações de PETR4 a R$ 25.62
+[23:06:23] PRICE UPDATER: Ação 0 - R$ 25.72 → R$ 25.72 (0.00%) - Variação de mercado
+[23:06:23] PRICE UPDATER: Ação 1 - R$ 67.31 → R$ 66.97 (-0.51%) - Variação de mer

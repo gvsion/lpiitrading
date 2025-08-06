@@ -1,0 +1,3 @@
+configuração,creation_time_avg,creation_time_std,orders_processed_avg,orders_processed_std,orders_accepted_avg,orders_rejected_avg,throughput_avg,throughput_std,avg_latency_avg,avg_latency_std,max_memory_avg,execution_time_avg
+threads_t2_e1,30.000,0,356,1.500,356,0,11.88,.044,0,0,0,30.000
+processos_t2_e1,30.000,0,52,10.500,52,0,1.75,.349,0,0,0,30.000

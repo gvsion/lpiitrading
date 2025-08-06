@@ -1,0 +1,23 @@
+=== RESUMO DOS TESTES DE PERFORMANCE ===
+Data: 2025-08-05 23:07:33
+Configurações testadas: 1 traders × 1 executores × 2 versões = 2
+Execuções por configuração: 2
+Total de execuções: 4
+Timeout por execução: 30s
+
+=== CONFIGURAÇÕES TESTADAS ===
+Traders: 2
+Executores: 1
+Versões: threads, processos
+
+=== ARQUIVOS GERADOS ===
+CSV: /home/dev/Documentos/Atividade_LPII/results/performance_results.csv
+Resumo: /home/dev/Documentos/Atividade_LPII/results/performance_summary.txt
+Logs: /home/dev/Documentos/Atividade_LPII/logs/
+
+=== MELHORES RESULTADOS ===
+Melhor throughput: 11.88 ops/sec (threads_t2_e1)
+Menor latência: 0 ms (threads_t2_e1)
+Média geral de throughput: 6.815 ops/sec
+Média geral de latência: 0 ms
+Total de configurações testadas: 2
