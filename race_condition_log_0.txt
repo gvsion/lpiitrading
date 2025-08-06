@@ -1,0 +1,352 @@
+=== RACE CONDITION LOG - EXECUÇÃO 0 ===
+Iniciado em: 2025-08-05 22:29:00.000000
+Formato: Timestamp | Thread | Operação | Tipo | ID | Valor_Antigo | Valor_Novo | Detalhes
+================================================================================
+2025-08-05 22:29:00.779216 | Thread_1 | WRITE_ARRAY | ORDEM | 0 | 0.00 | 1000.00 | Escrita na posição do array
+2025-08-05 22:29:00.779311 | Thread_4 | READ_PRECO | PRECO | 0 | 10.00 | 10.00 | Leitura de preço para modificação
+2025-08-05 22:29:00.779365 | Thread_0 | WRITE_ARRAY | ORDEM | 0 | 0.00 | 0.00 | Escrita na posição do array
+2025-08-05 22:29:00.779411 | Thread_2 | WRITE_ARRAY | ORDEM | 0 | 0.00 | 2000.00 | Escrita na posição do array
+2025-08-05 22:29:00.779450 | Thread_3 | READ_PRECO | PRECO | 0 | 10.00 | 10.00 | Leitura de preço para modificação
+2025-08-05 22:29:00.779491 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 0.00 | 0.00 | Leitura do contador global
+2025-08-05 22:29:00.819742 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 0.00 | 1.00 | Escrita do contador global incrementado
+2025-08-05 22:29:00.829375 | Thread_1 | WRITE_PRECO | PRECO | 0 | 0.00 | 10.10 | Atualização de preço
+2025-08-05 22:29:00.829470 | Thread_0 | WRITE_PRECO | PRECO | 0 | 10.10 | 10.00 | Atualização de preço
+2025-08-05 22:29:00.829504 | Thread_2 | WRITE_PRECO | PRECO | 0 | 10.00 | 10.20 | Atualização de preço
+2025-08-05 22:29:00.839569 | Thread_4 | WRITE_PRECO | PRECO | 0 | 10.00 | 10.10 | Escrita de preço modificado
+2025-08-05 22:29:00.839699 | Thread_3 | WRITE_PRECO | PRECO | 0 | 10.10 | 10.10 | Escrita de preço modificado
+2025-08-05 22:29:00.839921 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 1.00 | 1.00 | Leitura do contador global
+2025-08-05 22:29:00.869695 | Thread_4 | READ_VOLUME | VOLUME | 0 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:00.869852 | Thread_3 | READ_VOLUME | VOLUME | 0 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:00.879507 | Thread_1 | WRITE_QUANTIDADE | VOLUME | 0 | 0.00 | 101.00 | Atualização de quantidade
+2025-08-05 22:29:00.879577 | Thread_0 | WRITE_QUANTIDADE | VOLUME | 0 | 0.00 | 100.00 | Atualização de quantidade
+2025-08-05 22:29:00.879615 | Thread_2 | WRITE_QUANTIDADE | VOLUME | 0 | 100.00 | 102.00 | Atualização de quantidade
+2025-08-05 22:29:00.880149 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 1.00 | 2.00 | Escrita do contador global incrementado
+2025-08-05 22:29:00.900289 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 2.00 | 2.00 | Leitura do contador global
+2025-08-05 22:29:00.929646 | Thread_1 | WRITE_TIPO | TIPO | 0 | 78.00 | 86.00 | Atualização de tipo
+2025-08-05 22:29:00.929731 | Thread_0 | WRITE_TIPO | TIPO | 0 | 78.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:00.929769 | Thread_2 | WRITE_TIPO | TIPO | 0 | 86.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:00.929914 | Thread_4 | WRITE_VOLUME | VOLUME | 0 | 1000.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:00.929987 | Thread_3 | WRITE_VOLUME | VOLUME | 0 | 1010.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:00.940535 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 2.00 | 3.00 | Escrita do contador global incrementado
+2025-08-05 22:29:00.960073 | Thread_4 | WRITE_OPERACOES | CONTADOR | 0 | 0.00 | 1.00 | Incremento de operações
+2025-08-05 22:29:00.960193 | Thread_3 | WRITE_OPERACOES | CONTADOR | 0 | 0.00 | 1.00 | Incremento de operações
+2025-08-05 22:29:00.960713 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 3.00 | 3.00 | Leitura do contador global
+2025-08-05 22:29:00.979805 | Thread_1 | WRITE_INDICE | CONTADOR | 0 | 0.00 | 1.00 | Incremento de índice
+2025-08-05 22:29:00.979898 | Thread_0 | WRITE_INDICE | CONTADOR | 0 | 0.00 | 1.00 | Incremento de índice
+2025-08-05 22:29:00.979917 | Thread_2 | WRITE_INDICE | CONTADOR | 0 | 0.00 | 1.00 | Incremento de índice
+2025-08-05 22:29:00.990290 | Thread_4 | READ_PRECO | PRECO | 1 | 11.00 | 11.00 | Leitura de preço para modificação
+2025-08-05 22:29:00.990345 | Thread_3 | READ_PRECO | PRECO | 1 | 11.00 | 11.00 | Leitura de preço para modificação
+2025-08-05 22:29:01.000889 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 3.00 | 4.00 | Escrita do contador global incrementado
+2025-08-05 22:29:01.021051 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 4.00 | 4.00 | Leitura do contador global
+2025-08-05 22:29:01.030027 | Thread_1 | WRITE_ARRAY | ORDEM | 3 | 3.00 | 1001.00 | Escrita na posição do array
+2025-08-05 22:29:01.030101 | Thread_2 | WRITE_ARRAY | ORDEM | 3 | 3.00 | 2001.00 | Escrita na posição do array
+2025-08-05 22:29:01.030134 | Thread_0 | WRITE_ARRAY | ORDEM | 3 | 3.00 | 1.00 | Escrita na posição do array
+2025-08-05 22:29:01.050507 | Thread_3 | WRITE_PRECO | PRECO | 1 | 11.00 | 11.10 | Escrita de preço modificado
+2025-08-05 22:29:01.050591 | Thread_4 | WRITE_PRECO | PRECO | 1 | 11.00 | 11.10 | Escrita de preço modificado
+2025-08-05 22:29:01.061335 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 4.00 | 5.00 | Escrita do contador global incrementado
+2025-08-05 22:29:01.080152 | Thread_1 | WRITE_PRECO | PRECO | 3 | 0.00 | 10.11 | Atualização de preço
+2025-08-05 22:29:01.080228 | Thread_2 | WRITE_PRECO | PRECO | 3 | 0.00 | 10.21 | Atualização de preço
+2025-08-05 22:29:01.080256 | Thread_0 | WRITE_PRECO | PRECO | 3 | 0.00 | 10.01 | Atualização de preço
+2025-08-05 22:29:01.080673 | Thread_3 | READ_VOLUME | VOLUME | 1 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:01.080701 | Thread_4 | READ_VOLUME | VOLUME | 1 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:01.081491 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 5.00 | 5.00 | Leitura do contador global
+2025-08-05 22:29:01.121754 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 5.00 | 6.00 | Escrita do contador global incrementado
+2025-08-05 22:29:01.130286 | Thread_1 | WRITE_QUANTIDADE | VOLUME | 3 | 0.00 | 102.00 | Atualização de quantidade
+2025-08-05 22:29:01.130355 | Thread_2 | WRITE_QUANTIDADE | VOLUME | 3 | 0.00 | 103.00 | Atualização de quantidade
+2025-08-05 22:29:01.130383 | Thread_0 | WRITE_QUANTIDADE | VOLUME | 3 | 0.00 | 101.00 | Atualização de quantidade
+2025-08-05 22:29:01.140858 | Thread_3 | WRITE_VOLUME | VOLUME | 1 | 1000.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:01.141018 | Thread_4 | WRITE_VOLUME | VOLUME | 1 | 1000.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:01.141914 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 6.00 | 6.00 | Leitura do contador global
+2025-08-05 22:29:01.171050 | Thread_3 | WRITE_OPERACOES | CONTADOR | 1 | 0.00 | 1.00 | Incremento de operações
+2025-08-05 22:29:01.171218 | Thread_4 | WRITE_OPERACOES | CONTADOR | 1 | 1.00 | 2.00 | Incremento de operações
+2025-08-05 22:29:01.180427 | Thread_1 | WRITE_TIPO | TIPO | 3 | 78.00 | 86.00 | Atualização de tipo
+2025-08-05 22:29:01.180530 | Thread_2 | WRITE_TIPO | TIPO | 3 | 78.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:01.180615 | Thread_0 | WRITE_TIPO | TIPO | 3 | 78.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:01.182110 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 6.00 | 7.00 | Escrita do contador global incrementado
+2025-08-05 22:29:01.201250 | Thread_3 | READ_PRECO | PRECO | 2 | 12.00 | 12.00 | Leitura de preço para modificação
+2025-08-05 22:29:01.201315 | Thread_4 | READ_PRECO | PRECO | 2 | 12.00 | 12.00 | Leitura de preço para modificação
+2025-08-05 22:29:01.202343 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 7.00 | 7.00 | Leitura do contador global
+2025-08-05 22:29:01.230588 | Thread_1 | WRITE_INDICE | CONTADOR | 0 | 3.00 | 4.00 | Incremento de índice
+2025-08-05 22:29:01.230659 | Thread_2 | WRITE_INDICE | CONTADOR | 0 | 4.00 | 5.00 | Incremento de índice
+2025-08-05 22:29:01.230762 | Thread_0 | WRITE_INDICE | CONTADOR | 0 | 5.00 | 6.00 | Incremento de índice
+2025-08-05 22:29:01.242514 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 7.00 | 8.00 | Escrita do contador global incrementado
+2025-08-05 22:29:01.261440 | Thread_3 | WRITE_PRECO | PRECO | 2 | 12.00 | 12.10 | Escrita de preço modificado
+2025-08-05 22:29:01.261647 | Thread_4 | WRITE_PRECO | PRECO | 2 | 12.00 | 12.10 | Escrita de preço modificado
+2025-08-05 22:29:01.262680 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 8.00 | 8.00 | Leitura do contador global
+2025-08-05 22:29:01.280747 | Thread_1 | WRITE_ARRAY | ORDEM | 6 | 6.00 | 1002.00 | Escrita na posição do array
+2025-08-05 22:29:01.280842 | Thread_2 | WRITE_ARRAY | ORDEM | 6 | 6.00 | 2002.00 | Escrita na posição do array
+2025-08-05 22:29:01.280883 | Thread_0 | WRITE_ARRAY | ORDEM | 6 | 2002.00 | 2.00 | Escrita na posição do array
+2025-08-05 22:29:01.291633 | Thread_3 | READ_VOLUME | VOLUME | 2 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:01.291755 | Thread_4 | READ_VOLUME | VOLUME | 2 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:01.302906 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 8.00 | 9.00 | Escrita do contador global incrementado
+2025-08-05 22:29:01.323031 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 9.00 | 9.00 | Leitura do contador global
+2025-08-05 22:29:01.330899 | Thread_1 | WRITE_PRECO | PRECO | 6 | 0.00 | 10.12 | Atualização de preço
+2025-08-05 22:29:01.331016 | Thread_2 | WRITE_PRECO | PRECO | 6 | 0.00 | 10.22 | Atualização de preço
+2025-08-05 22:29:01.331049 | Thread_0 | WRITE_PRECO | PRECO | 6 | 0.00 | 10.02 | Atualização de preço
+2025-08-05 22:29:01.351798 | Thread_3 | WRITE_VOLUME | VOLUME | 2 | 1000.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:01.351931 | Thread_4 | WRITE_VOLUME | VOLUME | 2 | 1010.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:01.363155 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 9.00 | 10.00 | Escrita do contador global incrementado
+2025-08-05 22:29:01.381103 | Thread_2 | WRITE_QUANTIDADE | VOLUME | 6 | 0.00 | 104.00 | Atualização de quantidade
+2025-08-05 22:29:01.381183 | Thread_1 | WRITE_QUANTIDADE | VOLUME | 6 | 0.00 | 103.00 | Atualização de quantidade
+2025-08-05 22:29:01.381226 | Thread_0 | WRITE_QUANTIDADE | VOLUME | 6 | 0.00 | 102.00 | Atualização de quantidade
+2025-08-05 22:29:01.381933 | Thread_3 | WRITE_OPERACOES | CONTADOR | 2 | 0.00 | 1.00 | Incremento de operações
+2025-08-05 22:29:01.382035 | Thread_4 | WRITE_OPERACOES | CONTADOR | 2 | 1.00 | 2.00 | Incremento de operações
+2025-08-05 22:29:01.383299 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 10.00 | 10.00 | Leitura do contador global
+2025-08-05 22:29:01.412100 | Thread_3 | READ_PRECO | PRECO | 3 | 13.00 | 13.00 | Leitura de preço para modificação
+2025-08-05 22:29:01.412174 | Thread_4 | READ_PRECO | PRECO | 3 | 13.00 | 13.00 | Leitura de preço para modificação
+2025-08-05 22:29:01.423486 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 10.00 | 11.00 | Escrita do contador global incrementado
+2025-08-05 22:29:01.431244 | Thread_2 | WRITE_TIPO | TIPO | 6 | 78.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:01.431320 | Thread_1 | WRITE_TIPO | TIPO | 6 | 78.00 | 86.00 | Atualização de tipo
+2025-08-05 22:29:01.431358 | Thread_0 | WRITE_TIPO | TIPO | 6 | 78.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:01.443646 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 11.00 | 11.00 | Leitura do contador global
+2025-08-05 22:29:01.472296 | Thread_3 | WRITE_PRECO | PRECO | 3 | 13.00 | 13.10 | Escrita de preço modificado
+2025-08-05 22:29:01.472445 | Thread_4 | WRITE_PRECO | PRECO | 3 | 13.00 | 13.10 | Escrita de preço modificado
+2025-08-05 22:29:01.481382 | Thread_2 | WRITE_INDICE | CONTADOR | 0 | 6.00 | 7.00 | Incremento de índice
+2025-08-05 22:29:01.481448 | Thread_0 | WRITE_INDICE | CONTADOR | 0 | 7.00 | 8.00 | Incremento de índice
+2025-08-05 22:29:01.481478 | Thread_1 | WRITE_INDICE | CONTADOR | 0 | 6.00 | 7.00 | Incremento de índice
+2025-08-05 22:29:01.483888 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 11.00 | 12.00 | Escrita do contador global incrementado
+2025-08-05 22:29:01.502479 | Thread_3 | READ_VOLUME | VOLUME | 3 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:01.502553 | Thread_4 | READ_VOLUME | VOLUME | 3 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:01.504040 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 12.00 | 12.00 | Leitura do contador global
+2025-08-05 22:29:01.531537 | Thread_2 | WRITE_ARRAY | ORDEM | 9 | 9.00 | 2003.00 | Escrita na posição do array
+2025-08-05 22:29:01.531618 | Thread_0 | WRITE_ARRAY | ORDEM | 9 | 9.00 | 3.00 | Escrita na posição do array
+2025-08-05 22:29:01.531941 | Thread_1 | WRITE_ARRAY | ORDEM | 9 | 2003.00 | 1003.00 | Escrita na posição do array
+2025-08-05 22:29:01.544260 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 12.00 | 13.00 | Escrita do contador global incrementado
+2025-08-05 22:29:01.562789 | Thread_3 | WRITE_VOLUME | VOLUME | 3 | 1000.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:01.562872 | Thread_4 | WRITE_VOLUME | VOLUME | 3 | 1000.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:01.564448 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 13.00 | 13.00 | Leitura do contador global
+2025-08-05 22:29:01.581684 | Thread_2 | WRITE_PRECO | PRECO | 9 | 0.00 | 10.23 | Atualização de preço
+2025-08-05 22:29:01.581753 | Thread_0 | WRITE_PRECO | PRECO | 9 | 0.00 | 10.03 | Atualização de preço
+2025-08-05 22:29:01.582046 | Thread_1 | WRITE_PRECO | PRECO | 9 | 10.03 | 10.13 | Atualização de preço
+2025-08-05 22:29:01.592943 | Thread_3 | WRITE_OPERACOES | CONTADOR | 3 | 0.00 | 1.00 | Incremento de operações
+2025-08-05 22:29:01.593010 | Thread_4 | WRITE_OPERACOES | CONTADOR | 3 | 0.00 | 1.00 | Incremento de operações
+2025-08-05 22:29:01.604688 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 13.00 | 14.00 | Escrita do contador global incrementado
+2025-08-05 22:29:01.623145 | Thread_3 | READ_PRECO | PRECO | 4 | 14.00 | 14.00 | Leitura de preço para modificação
+2025-08-05 22:29:01.623189 | Thread_4 | READ_PRECO | PRECO | 4 | 14.00 | 14.00 | Leitura de preço para modificação
+2025-08-05 22:29:01.625024 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 14.00 | 14.00 | Leitura do contador global
+2025-08-05 22:29:01.631833 | Thread_2 | WRITE_QUANTIDADE | VOLUME | 9 | 0.00 | 105.00 | Atualização de quantidade
+2025-08-05 22:29:01.631893 | Thread_0 | WRITE_QUANTIDADE | VOLUME | 9 | 0.00 | 103.00 | Atualização de quantidade
+2025-08-05 22:29:01.632095 | Thread_1 | WRITE_QUANTIDADE | VOLUME | 9 | 103.00 | 104.00 | Atualização de quantidade
+2025-08-05 22:29:01.665221 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 14.00 | 15.00 | Escrita do contador global incrementado
+2025-08-05 22:29:01.681984 | Thread_2 | WRITE_TIPO | TIPO | 9 | 78.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:01.682060 | Thread_0 | WRITE_TIPO | TIPO | 9 | 78.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:01.682179 | Thread_1 | WRITE_TIPO | TIPO | 9 | 67.00 | 86.00 | Atualização de tipo
+2025-08-05 22:29:01.683348 | Thread_3 | WRITE_PRECO | PRECO | 4 | 14.00 | 14.10 | Escrita de preço modificado
+2025-08-05 22:29:01.683436 | Thread_4 | WRITE_PRECO | PRECO | 4 | 14.10 | 14.10 | Escrita de preço modificado
+2025-08-05 22:29:01.685347 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 15.00 | 15.00 | Leitura do contador global
+2025-08-05 22:29:01.713517 | Thread_3 | READ_VOLUME | VOLUME | 4 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:01.713652 | Thread_4 | READ_VOLUME | VOLUME | 4 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:01.725488 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 15.00 | 16.00 | Escrita do contador global incrementado
+2025-08-05 22:29:01.732157 | Thread_2 | WRITE_INDICE | CONTADOR | 0 | 9.00 | 10.00 | Incremento de índice
+2025-08-05 22:29:01.732253 | Thread_1 | WRITE_INDICE | CONTADOR | 0 | 10.00 | 11.00 | Incremento de índice
+2025-08-05 22:29:01.732302 | Thread_0 | WRITE_INDICE | CONTADOR | 0 | 9.00 | 10.00 | Incremento de índice
+2025-08-05 22:29:01.745633 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 16.00 | 16.00 | Leitura do contador global
+2025-08-05 22:29:01.773790 | Thread_3 | WRITE_VOLUME | VOLUME | 4 | 1000.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:01.773867 | Thread_4 | WRITE_VOLUME | VOLUME | 4 | 1000.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:01.782310 | Thread_2 | WRITE_ARRAY | ORDEM | 12 | 12.00 | 2004.00 | Escrita na posição do array
+2025-08-05 22:29:01.782354 | Thread_1 | WRITE_ARRAY | ORDEM | 12 | 2004.00 | 1004.00 | Escrita na posição do array
+2025-08-05 22:29:01.782404 | Thread_0 | WRITE_ARRAY | ORDEM | 12 | 1004.00 | 4.00 | Escrita na posição do array
+2025-08-05 22:29:01.785834 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 16.00 | 17.00 | Escrita do contador global incrementado
+2025-08-05 22:29:01.803940 | Thread_3 | WRITE_OPERACOES | CONTADOR | 4 | 0.00 | 1.00 | Incremento de operações
+2025-08-05 22:29:01.803987 | Thread_4 | WRITE_OPERACOES | CONTADOR | 4 | 0.00 | 1.00 | Incremento de operações
+2025-08-05 22:29:01.805954 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 17.00 | 17.00 | Leitura do contador global
+2025-08-05 22:29:01.832417 | Thread_2 | WRITE_PRECO | PRECO | 12 | 0.00 | 10.24 | Atualização de preço
+2025-08-05 22:29:01.832470 | Thread_1 | WRITE_PRECO | PRECO | 12 | 0.00 | 10.14 | Atualização de preço
+2025-08-05 22:29:01.832489 | Thread_0 | WRITE_PRECO | PRECO | 12 | 10.24 | 10.04 | Atualização de preço
+2025-08-05 22:29:01.834097 | Thread_3 | READ_PRECO | PRECO | 5 | 15.00 | 15.00 | Leitura de preço para modificação
+2025-08-05 22:29:01.834131 | Thread_4 | READ_PRECO | PRECO | 5 | 15.00 | 15.00 | Leitura de preço para modificação
+2025-08-05 22:29:01.846101 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 17.00 | 18.00 | Escrita do contador global incrementado
+2025-08-05 22:29:01.866260 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 18.00 | 18.00 | Leitura do contador global
+2025-08-05 22:29:01.882533 | Thread_2 | WRITE_QUANTIDADE | VOLUME | 12 | 0.00 | 106.00 | Atualização de quantidade
+2025-08-05 22:29:01.882585 | Thread_0 | WRITE_QUANTIDADE | VOLUME | 12 | 0.00 | 104.00 | Atualização de quantidade
+2025-08-05 22:29:01.882606 | Thread_1 | WRITE_QUANTIDADE | VOLUME | 12 | 0.00 | 105.00 | Atualização de quantidade
+2025-08-05 22:29:01.894250 | Thread_3 | WRITE_PRECO | PRECO | 5 | 15.00 | 15.10 | Escrita de preço modificado
+2025-08-05 22:29:01.894306 | Thread_4 | WRITE_PRECO | PRECO | 5 | 15.00 | 15.10 | Escrita de preço modificado
+2025-08-05 22:29:01.906615 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 18.00 | 19.00 | Escrita do contador global incrementado
+2025-08-05 22:29:01.924460 | Thread_3 | READ_VOLUME | VOLUME | 5 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:01.924573 | Thread_4 | READ_VOLUME | VOLUME | 5 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:01.926810 | Thread_5 | READ_CONTADOR | CONTADOR | 0 | 19.00 | 19.00 | Leitura do contador global
+2025-08-05 22:29:01.932654 | Thread_2 | WRITE_TIPO | TIPO | 12 | 78.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:01.932742 | Thread_0 | WRITE_TIPO | TIPO | 12 | 78.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:01.932799 | Thread_1 | WRITE_TIPO | TIPO | 12 | 78.00 | 86.00 | Atualização de tipo
+2025-08-05 22:29:01.967033 | Thread_5 | WRITE_CONTADOR | CONTADOR | 0 | 19.00 | 20.00 | Escrita do contador global incrementado
+2025-08-05 22:29:01.982848 | Thread_2 | WRITE_INDICE | CONTADOR | 0 | 12.00 | 13.00 | Incremento de índice
+2025-08-05 22:29:01.982884 | Thread_1 | WRITE_INDICE | CONTADOR | 0 | 13.00 | 14.00 | Incremento de índice
+2025-08-05 22:29:01.982906 | Thread_0 | WRITE_INDICE | CONTADOR | 0 | 12.00 | 13.00 | Incremento de índice
+2025-08-05 22:29:01.984769 | Thread_3 | WRITE_VOLUME | VOLUME | 5 | 1000.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:01.984796 | Thread_4 | WRITE_VOLUME | VOLUME | 5 | 1000.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:02.014891 | Thread_4 | WRITE_OPERACOES | CONTADOR | 5 | 0.00 | 1.00 | Incremento de operações
+2025-08-05 22:29:02.014984 | Thread_3 | WRITE_OPERACOES | CONTADOR | 5 | 0.00 | 1.00 | Incremento de operações
+2025-08-05 22:29:02.033002 | Thread_2 | WRITE_ARRAY | ORDEM | 15 | 15.00 | 2005.00 | Escrita na posição do array
+2025-08-05 22:29:02.033074 | Thread_1 | WRITE_ARRAY | ORDEM | 15 | 2005.00 | 1005.00 | Escrita na posição do array
+2025-08-05 22:29:02.033106 | Thread_0 | WRITE_ARRAY | ORDEM | 15 | 1005.00 | 5.00 | Escrita na posição do array
+2025-08-05 22:29:02.045089 | Thread_4 | READ_PRECO | PRECO | 6 | 16.00 | 16.00 | Leitura de preço para modificação
+2025-08-05 22:29:02.045138 | Thread_3 | READ_PRECO | PRECO | 6 | 16.00 | 16.00 | Leitura de preço para modificação
+2025-08-05 22:29:02.083141 | Thread_2 | WRITE_PRECO | PRECO | 15 | 0.00 | 10.25 | Atualização de preço
+2025-08-05 22:29:02.083187 | Thread_0 | WRITE_PRECO | PRECO | 15 | 10.25 | 10.05 | Atualização de preço
+2025-08-05 22:29:02.083252 | Thread_1 | WRITE_PRECO | PRECO | 15 | 0.00 | 10.15 | Atualização de preço
+2025-08-05 22:29:02.105255 | Thread_4 | WRITE_PRECO | PRECO | 6 | 16.00 | 16.10 | Escrita de preço modificado
+2025-08-05 22:29:02.105300 | Thread_3 | WRITE_PRECO | PRECO | 6 | 16.00 | 16.10 | Escrita de preço modificado
+2025-08-05 22:29:02.133241 | Thread_2 | WRITE_QUANTIDADE | VOLUME | 15 | 0.00 | 107.00 | Atualização de quantidade
+2025-08-05 22:29:02.133282 | Thread_0 | WRITE_QUANTIDADE | VOLUME | 15 | 0.00 | 105.00 | Atualização de quantidade
+2025-08-05 22:29:02.133333 | Thread_1 | WRITE_QUANTIDADE | VOLUME | 15 | 105.00 | 106.00 | Atualização de quantidade
+2025-08-05 22:29:02.135348 | Thread_4 | READ_VOLUME | VOLUME | 6 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:02.135386 | Thread_3 | READ_VOLUME | VOLUME | 6 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:02.183344 | Thread_2 | WRITE_TIPO | TIPO | 15 | 78.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:02.183396 | Thread_0 | WRITE_TIPO | TIPO | 15 | 78.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:02.183486 | Thread_1 | WRITE_TIPO | TIPO | 15 | 67.00 | 86.00 | Atualização de tipo
+2025-08-05 22:29:02.195602 | Thread_3 | WRITE_VOLUME | VOLUME | 6 | 1000.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:02.195658 | Thread_4 | WRITE_VOLUME | VOLUME | 6 | 1000.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:02.225746 | Thread_3 | WRITE_OPERACOES | CONTADOR | 6 | 0.00 | 1.00 | Incremento de operações
+2025-08-05 22:29:02.225840 | Thread_4 | WRITE_OPERACOES | CONTADOR | 6 | 0.00 | 1.00 | Incremento de operações
+2025-08-05 22:29:02.233475 | Thread_0 | WRITE_INDICE | CONTADOR | 0 | 15.00 | 16.00 | Incremento de índice
+2025-08-05 22:29:02.233514 | Thread_2 | WRITE_INDICE | CONTADOR | 0 | 15.00 | 16.00 | Incremento de índice
+2025-08-05 22:29:02.233569 | Thread_1 | WRITE_INDICE | CONTADOR | 0 | 17.00 | 18.00 | Incremento de índice
+2025-08-05 22:29:02.255934 | Thread_3 | READ_PRECO | PRECO | 7 | 17.00 | 17.00 | Leitura de preço para modificação
+2025-08-05 22:29:02.255973 | Thread_4 | READ_PRECO | PRECO | 7 | 17.00 | 17.00 | Leitura de preço para modificação
+2025-08-05 22:29:02.283625 | Thread_2 | WRITE_ARRAY | ORDEM | 18 | 18.00 | 2006.00 | Escrita na posição do array
+2025-08-05 22:29:02.283687 | Thread_0 | WRITE_ARRAY | ORDEM | 18 | 18.00 | 6.00 | Escrita na posição do array
+2025-08-05 22:29:02.283716 | Thread_1 | WRITE_ARRAY | ORDEM | 18 | 18.00 | 1006.00 | Escrita na posição do array
+2025-08-05 22:29:02.316155 | Thread_3 | WRITE_PRECO | PRECO | 7 | 17.00 | 17.10 | Escrita de preço modificado
+2025-08-05 22:29:02.316205 | Thread_4 | WRITE_PRECO | PRECO | 7 | 17.00 | 17.10 | Escrita de preço modificado
+2025-08-05 22:29:02.333770 | Thread_0 | WRITE_PRECO | PRECO | 18 | 0.00 | 10.06 | Atualização de preço
+2025-08-05 22:29:02.333835 | Thread_1 | WRITE_PRECO | PRECO | 18 | 10.06 | 10.16 | Atualização de preço
+2025-08-05 22:29:02.333857 | Thread_2 | WRITE_PRECO | PRECO | 18 | 0.00 | 10.26 | Atualização de preço
+2025-08-05 22:29:02.346317 | Thread_3 | READ_VOLUME | VOLUME | 7 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:02.346366 | Thread_4 | READ_VOLUME | VOLUME | 7 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:02.383924 | Thread_0 | WRITE_QUANTIDADE | VOLUME | 18 | 0.00 | 106.00 | Atualização de quantidade
+2025-08-05 22:29:02.383996 | Thread_1 | WRITE_QUANTIDADE | VOLUME | 18 | 0.00 | 107.00 | Atualização de quantidade
+2025-08-05 22:29:02.384052 | Thread_2 | WRITE_QUANTIDADE | VOLUME | 18 | 0.00 | 108.00 | Atualização de quantidade
+2025-08-05 22:29:02.406650 | Thread_4 | WRITE_VOLUME | VOLUME | 7 | 1000.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:02.406720 | Thread_3 | WRITE_VOLUME | VOLUME | 7 | 1000.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:02.434078 | Thread_0 | WRITE_TIPO | TIPO | 18 | 78.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:02.434136 | Thread_2 | WRITE_TIPO | TIPO | 18 | 78.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:02.434168 | Thread_1 | WRITE_TIPO | TIPO | 18 | 67.00 | 86.00 | Atualização de tipo
+2025-08-05 22:29:02.436830 | Thread_4 | WRITE_OPERACOES | CONTADOR | 7 | 0.00 | 1.00 | Incremento de operações
+2025-08-05 22:29:02.436857 | Thread_3 | WRITE_OPERACOES | CONTADOR | 7 | 1.00 | 2.00 | Incremento de operações
+2025-08-05 22:29:02.466963 | Thread_3 | READ_PRECO | PRECO | 8 | 18.00 | 18.00 | Leitura de preço para modificação
+2025-08-05 22:29:02.467048 | Thread_4 | READ_PRECO | PRECO | 8 | 18.00 | 18.00 | Leitura de preço para modificação
+2025-08-05 22:29:02.484187 | Thread_0 | WRITE_INDICE | CONTADOR | 0 | 18.00 | 19.00 | Incremento de índice
+2025-08-05 22:29:02.484223 | Thread_2 | WRITE_INDICE | CONTADOR | 0 | 19.00 | 20.00 | Incremento de índice
+2025-08-05 22:29:02.484276 | Thread_1 | WRITE_INDICE | CONTADOR | 0 | 20.00 | 21.00 | Incremento de índice
+2025-08-05 22:29:02.527185 | Thread_4 | WRITE_PRECO | PRECO | 8 | 18.00 | 18.10 | Escrita de preço modificado
+2025-08-05 22:29:02.527296 | Thread_3 | WRITE_PRECO | PRECO | 8 | 18.00 | 18.10 | Escrita de preço modificado
+2025-08-05 22:29:02.534304 | Thread_0 | WRITE_ARRAY | ORDEM | 21 | 21.00 | 7.00 | Escrita na posição do array
+2025-08-05 22:29:02.534344 | Thread_2 | WRITE_ARRAY | ORDEM | 21 | 21.00 | 2007.00 | Escrita na posição do array
+2025-08-05 22:29:02.534377 | Thread_1 | WRITE_ARRAY | ORDEM | 21 | 7.00 | 1007.00 | Escrita na posição do array
+2025-08-05 22:29:02.557356 | Thread_4 | READ_VOLUME | VOLUME | 8 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:02.557404 | Thread_3 | READ_VOLUME | VOLUME | 8 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:02.584403 | Thread_0 | WRITE_PRECO | PRECO | 21 | 0.00 | 10.07 | Atualização de preço
+2025-08-05 22:29:02.584446 | Thread_2 | WRITE_PRECO | PRECO | 21 | 0.00 | 10.27 | Atualização de preço
+2025-08-05 22:29:02.584473 | Thread_1 | WRITE_PRECO | PRECO | 21 | 10.27 | 10.17 | Atualização de preço
+2025-08-05 22:29:02.617642 | Thread_3 | WRITE_VOLUME | VOLUME | 8 | 1000.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:02.617686 | Thread_4 | WRITE_VOLUME | VOLUME | 8 | 1000.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:02.634552 | Thread_0 | WRITE_QUANTIDADE | VOLUME | 21 | 0.00 | 107.00 | Atualização de quantidade
+2025-08-05 22:29:02.634602 | Thread_2 | WRITE_QUANTIDADE | VOLUME | 21 | 0.00 | 109.00 | Atualização de quantidade
+2025-08-05 22:29:02.634626 | Thread_1 | WRITE_QUANTIDADE | VOLUME | 21 | 107.00 | 108.00 | Atualização de quantidade
+2025-08-05 22:29:02.647771 | Thread_4 | WRITE_OPERACOES | CONTADOR | 8 | 0.00 | 1.00 | Incremento de operações
+2025-08-05 22:29:02.647819 | Thread_3 | WRITE_OPERACOES | CONTADOR | 8 | 0.00 | 1.00 | Incremento de operações
+2025-08-05 22:29:02.677908 | Thread_4 | READ_PRECO | PRECO | 9 | 19.00 | 19.00 | Leitura de preço para modificação
+2025-08-05 22:29:02.677955 | Thread_3 | READ_PRECO | PRECO | 9 | 19.00 | 19.00 | Leitura de preço para modificação
+2025-08-05 22:29:02.684657 | Thread_0 | WRITE_TIPO | TIPO | 21 | 78.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:02.684709 | Thread_1 | WRITE_TIPO | TIPO | 21 | 67.00 | 86.00 | Atualização de tipo
+2025-08-05 22:29:02.684736 | Thread_2 | WRITE_TIPO | TIPO | 21 | 67.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:02.734819 | Thread_0 | WRITE_INDICE | CONTADOR | 0 | 21.00 | 22.00 | Incremento de índice
+2025-08-05 22:29:02.734872 | Thread_1 | WRITE_INDICE | CONTADOR | 0 | 21.00 | 22.00 | Incremento de índice
+2025-08-05 22:29:02.734905 | Thread_2 | WRITE_INDICE | CONTADOR | 0 | 21.00 | 22.00 | Incremento de índice
+2025-08-05 22:29:02.738105 | Thread_4 | WRITE_PRECO | PRECO | 9 | 19.00 | 19.10 | Escrita de preço modificado
+2025-08-05 22:29:02.738142 | Thread_3 | WRITE_PRECO | PRECO | 9 | 19.00 | 19.10 | Escrita de preço modificado
+2025-08-05 22:29:02.768223 | Thread_4 | READ_VOLUME | VOLUME | 9 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:02.768281 | Thread_3 | READ_VOLUME | VOLUME | 9 | 1000.00 | 1000.00 | Leitura de volume para modificação
+2025-08-05 22:29:02.785004 | Thread_0 | WRITE_ARRAY | ORDEM | 24 | 24.00 | 8.00 | Escrita na posição do array
+2025-08-05 22:29:02.785104 | Thread_1 | WRITE_ARRAY | ORDEM | 24 | 24.00 | 1008.00 | Escrita na posição do array
+2025-08-05 22:29:02.785136 | Thread_2 | WRITE_ARRAY | ORDEM | 24 | 24.00 | 2008.00 | Escrita na posição do array
+2025-08-05 22:29:02.828417 | Thread_4 | WRITE_VOLUME | VOLUME | 9 | 1000.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:02.828499 | Thread_3 | WRITE_VOLUME | VOLUME | 9 | 1000.00 | 1010.00 | Escrita de volume modificado
+2025-08-05 22:29:02.835119 | Thread_0 | WRITE_PRECO | PRECO | 24 | 0.00 | 10.08 | Atualização de preço
+2025-08-05 22:29:02.835204 | Thread_1 | WRITE_PRECO | PRECO | 24 | 10.08 | 10.18 | Atualização de preço
+2025-08-05 22:29:02.835227 | Thread_2 | WRITE_PRECO | PRECO | 24 | 10.08 | 10.28 | Atualização de preço
+2025-08-05 22:29:02.858558 | Thread_4 | WRITE_OPERACOES | CONTADOR | 9 | 0.00 | 1.00 | Incremento de operações
+2025-08-05 22:29:02.858629 | Thread_3 | WRITE_OPERACOES | CONTADOR | 9 | 0.00 | 1.00 | Incremento de operações
+2025-08-05 22:29:02.885255 | Thread_2 | WRITE_QUANTIDADE | VOLUME | 24 | 0.00 | 110.00 | Atualização de quantidade
+2025-08-05 22:29:02.885301 | Thread_0 | WRITE_QUANTIDADE | VOLUME | 24 | 0.00 | 108.00 | Atualização de quantidade
+2025-08-05 22:29:02.885385 | Thread_1 | WRITE_QUANTIDADE | VOLUME | 24 | 0.00 | 109.00 | Atualização de quantidade
+2025-08-05 22:29:02.888746 | Thread_4 | READ_PRECO | PRECO | 0 | 10.10 | 10.10 | Leitura de preço para modificação
+2025-08-05 22:29:02.888790 | Thread_3 | READ_PRECO | PRECO | 0 | 10.10 | 10.10 | Leitura de preço para modificação
+2025-08-05 22:29:02.935365 | Thread_2 | WRITE_TIPO | TIPO | 24 | 78.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:02.935438 | Thread_0 | WRITE_TIPO | TIPO | 24 | 78.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:02.935466 | Thread_1 | WRITE_TIPO | TIPO | 24 | 67.00 | 86.00 | Atualização de tipo
+2025-08-05 22:29:02.949023 | Thread_4 | WRITE_PRECO | PRECO | 0 | 10.10 | 10.20 | Escrita de preço modificado
+2025-08-05 22:29:02.949184 | Thread_3 | WRITE_PRECO | PRECO | 0 | 10.10 | 10.20 | Escrita de preço modificado
+2025-08-05 22:29:02.979190 | Thread_4 | READ_VOLUME | VOLUME | 0 | 1010.00 | 1010.00 | Leitura de volume para modificação
+2025-08-05 22:29:02.979272 | Thread_3 | READ_VOLUME | VOLUME | 0 | 1010.00 | 1010.00 | Leitura de volume para modificação
+2025-08-05 22:29:02.985554 | Thread_2 | WRITE_INDICE | CONTADOR | 0 | 24.00 | 25.00 | Incremento de índice
+2025-08-05 22:29:02.985714 | Thread_0 | WRITE_INDICE | CONTADOR | 0 | 24.00 | 25.00 | Incremento de índice
+2025-08-05 22:29:02.985779 | Thread_1 | WRITE_INDICE | CONTADOR | 0 | 24.00 | 25.00 | Incremento de índice
+2025-08-05 22:29:03.035819 | Thread_2 | WRITE_ARRAY | ORDEM | 27 | 27.00 | 2009.00 | Escrita na posição do array
+2025-08-05 22:29:03.035908 | Thread_1 | WRITE_ARRAY | ORDEM | 27 | 2009.00 | 1009.00 | Escrita na posição do array
+2025-08-05 22:29:03.035980 | Thread_0 | WRITE_ARRAY | ORDEM | 27 | 2009.00 | 9.00 | Escrita na posição do array
+2025-08-05 22:29:03.039399 | Thread_4 | WRITE_VOLUME | VOLUME | 0 | 1010.00 | 1020.00 | Escrita de volume modificado
+2025-08-05 22:29:03.039453 | Thread_3 | WRITE_VOLUME | VOLUME | 0 | 1010.00 | 1020.00 | Escrita de volume modificado
+2025-08-05 22:29:03.069636 | Thread_4 | WRITE_OPERACOES | CONTADOR | 0 | 2.00 | 3.00 | Incremento de operações
+2025-08-05 22:29:03.069875 | Thread_3 | WRITE_OPERACOES | CONTADOR | 0 | 2.00 | 3.00 | Incremento de operações
+2025-08-05 22:29:03.086061 | Thread_1 | WRITE_PRECO | PRECO | 27 | 0.00 | 10.19 | Atualização de preço
+2025-08-05 22:29:03.086166 | Thread_2 | WRITE_PRECO | PRECO | 27 | 0.00 | 10.29 | Atualização de preço
+2025-08-05 22:29:03.086335 | Thread_0 | WRITE_PRECO | PRECO | 27 | 0.00 | 10.09 | Atualização de preço
+2025-08-05 22:29:03.100023 | Thread_4 | READ_PRECO | PRECO | 1 | 11.10 | 11.10 | Leitura de preço para modificação
+2025-08-05 22:29:03.100171 | Thread_3 | READ_PRECO | PRECO | 1 | 11.10 | 11.10 | Leitura de preço para modificação
+2025-08-05 22:29:03.136228 | Thread_1 | WRITE_QUANTIDADE | VOLUME | 27 | 0.00 | 110.00 | Atualização de quantidade
+2025-08-05 22:29:03.136371 | Thread_2 | WRITE_QUANTIDADE | VOLUME | 27 | 110.00 | 111.00 | Atualização de quantidade
+2025-08-05 22:29:03.136492 | Thread_0 | WRITE_QUANTIDADE | VOLUME | 27 | 111.00 | 109.00 | Atualização de quantidade
+2025-08-05 22:29:03.160302 | Thread_4 | WRITE_PRECO | PRECO | 1 | 11.10 | 11.20 | Escrita de preço modificado
+2025-08-05 22:29:03.160407 | Thread_3 | WRITE_PRECO | PRECO | 1 | 11.10 | 11.20 | Escrita de preço modificado
+2025-08-05 22:29:03.186361 | Thread_1 | WRITE_TIPO | TIPO | 27 | 78.00 | 86.00 | Atualização de tipo
+2025-08-05 22:29:03.186497 | Thread_2 | WRITE_TIPO | TIPO | 27 | 86.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:03.186592 | Thread_0 | WRITE_TIPO | TIPO | 27 | 67.00 | 67.00 | Atualização de tipo
+2025-08-05 22:29:03.190611 | Thread_3 | READ_VOLUME | VOLUME | 1 | 1010.00 | 1010.00 | Leitura de volume para modificação
+2025-08-05 22:29:03.190698 | Thread_4 | READ_VOLUME | VOLUME | 1 | 1010.00 | 1010.00 | Leitura de volume para modificação
+2025-08-05 22:29:03.236514 | Thread_1 | WRITE_INDICE | CONTADOR | 0 | 27.00 | 28.00 | Incremento de índice
+2025-08-05 22:29:03.236673 | Thread_2 | WRITE_INDICE | CONTADOR | 0 | 28.00 | 29.00 | Incremento de índice
+2025-08-05 22:29:03.236740 | Thread_0 | WRITE_INDICE | CONTADOR | 0 | 28.00 | 29.00 | Incremento de índice
+2025-08-05 22:29:03.250949 | Thread_3 | WRITE_VOLUME | VOLUME | 1 | 1010.00 | 1020.00 | Escrita de volume modificado
+2025-08-05 22:29:03.251099 | Thread_4 | WRITE_VOLUME | VOLUME | 1 | 1010.00 | 1020.00 | Escrita de volume modificado
+2025-08-05 22:29:03.281162 | Thread_3 | WRITE_OPERACOES | CONTADOR | 1 | 2.00 | 3.00 | Incremento de operações
+2025-08-05 22:29:03.281374 | Thread_4 | WRITE_OPERACOES | CONTADOR | 1 | 2.00 | 3.00 | Incremento de operações
+2025-08-05 22:29:03.311429 | Thread_3 | READ_PRECO | PRECO | 2 | 12.10 | 12.10 | Leitura de preço para modificação
+2025-08-05 22:29:03.311559 | Thread_4 | READ_PRECO | PRECO | 2 | 12.10 | 12.10 | Leitura de preço para modificação
+2025-08-05 22:29:03.371714 | Thread_3 | WRITE_PRECO | PRECO | 2 | 12.10 | 12.20 | Escrita de preço modificado
+2025-08-05 22:29:03.371791 | Thread_4 | WRITE_PRECO | PRECO | 2 | 12.10 | 12.20 | Escrita de preço modificado
+2025-08-05 22:29:03.401892 | Thread_3 | READ_VOLUME | VOLUME | 2 | 1010.00 | 1010.00 | Leitura de volume para modificação
+2025-08-05 22:29:03.401971 | Thread_4 | READ_VOLUME | VOLUME | 2 | 1010.00 | 1010.00 | Leitura de volume para modificação
+2025-08-05 22:29:03.462187 | Thread_4 | WRITE_VOLUME | VOLUME | 2 | 1010.00 | 1020.00 | Escrita de volume modificado
+2025-08-05 22:29:03.462358 | Thread_3 | WRITE_VOLUME | VOLUME | 2 | 1010.00 | 1020.00 | Escrita de volume modificado
+2025-08-05 22:29:03.492428 | Thread_4 | WRITE_OPERACOES | CONTADOR | 2 | 2.00 | 3.00 | Incremento de operações
+2025-08-05 22:29:03.492580 | Thread_3 | WRITE_OPERACOES | CONTADOR | 2 | 2.00 | 3.00 | Incremento de operações
+2025-08-05 22:29:03.522733 | Thread_4 | READ_PRECO | PRECO | 3 | 13.10 | 13.10 | Leitura de preço para modificação
+2025-08-05 22:29:03.522946 | Thread_3 | READ_PRECO | PRECO | 3 | 13.10 | 13.10 | Leitura de preço para modificação
+2025-08-05 22:29:03.583000 | Thread_4 | WRITE_PRECO | PRECO | 3 | 13.10 | 13.20 | Escrita de preço modificado
+2025-08-05 22:29:03.583097 | Thread_3 | WRITE_PRECO | PRECO | 3 | 13.20 | 13.20 | Escrita de preço modificado
+2025-08-05 22:29:03.613182 | Thread_4 | READ_VOLUME | VOLUME | 3 | 1010.00 | 1010.00 | Leitura de volume para modificação
+2025-08-05 22:29:03.613328 | Thread_3 | READ_VOLUME | VOLUME | 3 | 1010.00 | 1010.00 | Leitura de volume para modificação
+2025-08-05 22:29:03.673445 | Thread_4 | WRITE_VOLUME | VOLUME | 3 | 1010.00 | 1020.00 | Escrita de volume modificado
+2025-08-05 22:29:03.673571 | Thread_3 | WRITE_VOLUME | VOLUME | 3 | 1010.00 | 1020.00 | Escrita de volume modificado
+2025-08-05 22:29:03.703718 | Thread_4 | WRITE_OPERACOES | CONTADOR | 3 | 2.00 | 3.00 | Incremento de operações
+2025-08-05 22:29:03.703808 | Thread_3 | WRITE_OPERACOES | CONTADOR | 3 | 2.00 | 3.00 | Incremento de operações
+2025-08-05 22:29:03.733993 | Thread_4 | READ_PRECO | PRECO | 4 | 14.10 | 14.10 | Leitura de preço para modificação
+2025-08-05 22:29:03.734160 | Thread_3 | READ_PRECO | PRECO | 4 | 14.10 | 14.10 | Leitura de preço para modificação
+2025-08-05 22:29:03.794302 | Thread_4 | WRITE_PRECO | PRECO | 4 | 14.10 | 14.20 | Escrita de preço modificado
+2025-08-05 22:29:03.794515 | Thread_3 | WRITE_PRECO | PRECO | 4 | 14.10 | 14.20 | Escrita de preço modificado
+2025-08-05 22:29:03.824585 | Thread_4 | READ_VOLUME | VOLUME | 4 | 1010.00 | 1010.00 | Leitura de volume para modificação
+2025-08-05 22:29:03.824693 | Thread_3 | READ_VOLUME | VOLUME | 4 | 1010.00 | 1010.00 | Leitura de volume para modificação
+2025-08-05 22:29:03.884870 | Thread_3 | WRITE_VOLUME | VOLUME | 4 | 1010.00 | 1020.00 | Escrita de volume modificado
+2025-08-05 22:29:03.885063 | Thread_4 | WRITE_VOLUME | VOLUME | 4 | 1010.00 | 1020.00 | Escrita de volume modificado
+2025-08-05 22:29:03.915074 | Thread_3 | WRITE_OPERACOES | CONTADOR | 4 | 2.00 | 3.00 | Incremento de operações
+2025-08-05 22:29:03.915171 | Thread_4 | WRITE_OPERACOES | CONTADOR | 4 | 3.00 | 4.00 | Incremento de operações
+
+=== RELATÓRIO FINAL ===
+Total de operações: 340
+Operações de leitura: 80
+Operações de escrita: 260
+Operações inconsistentes: 12
+Race conditions detectadas: 47
+Taxa de race conditions: 13.82%

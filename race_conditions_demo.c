@@ -130,15 +130,35 @@ void* thread_trader_race(void* arg) {
         // DELIBERADAMENTE escrever na mesma posição sem sincronização
         int posicao = indice_ordem % 100; // Race condition no índice
         
+        // Log da operação de escrita
+        log_operation(thread_id, "WRITE_ARRAY", "ORDEM", posicao, 
+                     ordens_race[posicao].id, thread_id * 1000 + i, 
+                     "Escrita na posição do array");
+        
         // Simular operação não-atômica
         ordens_race[posicao].id = thread_id * 1000 + i;
         usleep(delay_ms * 1000); // Delay estratégico para tornar race condition visível
         
+        // Log da operação de preço
+        log_operation(thread_id, "WRITE_PRECO", "PRECO", posicao, 
+                     ordens_race[posicao].preco, 10.0 + (thread_id * 0.1) + (i * 0.01), 
+                     "Atualização de preço");
+        
         ordens_race[posicao].preco = 10.0 + (thread_id * 0.1) + (i * 0.01);
         usleep(delay_ms * 1000);
         
+        // Log da operação de quantidade
+        log_operation(thread_id, "WRITE_QUANTIDADE", "VOLUME", posicao, 
+                     ordens_race[posicao].quantidade, 100 + thread_id + i, 
+                     "Atualização de quantidade");
+        
         ordens_race[posicao].quantidade = 100 + thread_id + i;
         usleep(delay_ms * 1000);
+        
+        // Log da operação de tipo
+        log_operation(thread_id, "WRITE_TIPO", "TIPO", posicao, 
+                     ordens_race[posicao].tipo, (thread_id % 2 == 0) ? 'C' : 'V', 
+                     "Atualização de tipo");
         
         ordens_race[posicao].tipo = (thread_id % 2 == 0) ? 'C' : 'V';
         usleep(delay_ms * 1000);
@@ -146,9 +166,18 @@ void* thread_trader_race(void* arg) {
         // Marcar como potencialmente corrompido
         ordens_race[posicao].corrompido = 1;
         
+        // Log da operação de índice
+        log_operation(thread_id, "WRITE_INDICE", "CONTADOR", 0, 
+                     indice_ordem, indice_ordem + 1, 
+                     "Incremento de índice");
+        
         // Incrementar índice de forma não-atômica
         indice_ordem++;
         usleep(delay_ms * 1000);
+        
+        // Detectar race condition em tempo real
+        detectar_race_condition_tempo_real(thread_id, "WRITE_ARRAY", "ORDEM", posicao, 
+                                         ordens_race[posicao].id, thread_id * 1000 + i);
         
         printf("Thread %d: Escreveu na posição %d (ID: %d, Preço: %.2f, Qtd: %d, Tipo: %c)\n",
                thread_id, posicao, ordens_race[posicao].id, ordens_race[posicao].preco,
@@ -174,6 +203,11 @@ void* thread_executor_race(void* arg) {
         // DELIBERADAMENTE modificar a mesma ação sem sincronização
         int acao_id = i % 10;
         
+        // Log da leitura de preço
+        log_operation(thread_id, "READ_PRECO", "PRECO", acao_id, 
+                     acoes_race[acao_id].preco, acoes_race[acao_id].preco, 
+                     "Leitura de preço para modificação");
+        
         // Operação não-atômica: ler, modificar, escrever
         double preco_atual = acoes_race[acao_id].preco;
         usleep(delay_ms * 1000); // Delay estratégico
@@ -181,8 +215,18 @@ void* thread_executor_race(void* arg) {
         preco_atual += 0.1; // Modificar preço
         usleep(delay_ms * 1000);
         
+        // Log da escrita de preço
+        log_operation(thread_id, "WRITE_PRECO", "PRECO", acao_id, 
+                     acoes_race[acao_id].preco, preco_atual, 
+                     "Escrita de preço modificado");
+        
         acoes_race[acao_id].preco = preco_atual; // Escrever de volta
         usleep(delay_ms * 1000);
+        
+        // Log da leitura de volume
+        log_operation(thread_id, "READ_VOLUME", "VOLUME", acao_id, 
+                     acoes_race[acao_id].volume, acoes_race[acao_id].volume, 
+                     "Leitura de volume para modificação");
         
         // Modificar volume de forma não-atômica
         int volume_atual = acoes_race[acao_id].volume;
@@ -191,8 +235,18 @@ void* thread_executor_race(void* arg) {
         volume_atual += 10;
         usleep(delay_ms * 1000);
         
+        // Log da escrita de volume
+        log_operation(thread_id, "WRITE_VOLUME", "VOLUME", acao_id, 
+                     acoes_race[acao_id].volume, volume_atual, 
+                     "Escrita de volume modificado");
+        
         acoes_race[acao_id].volume = volume_atual;
         usleep(delay_ms * 1000);
+        
+        // Log da operação de incremento
+        log_operation(thread_id, "WRITE_OPERACOES", "CONTADOR", acao_id, 
+                     acoes_race[acao_id].operacoes, acoes_race[acao_id].operacoes + 1, 
+                     "Incremento de operações");
         
         // Incrementar operações de forma não-atômica
         acoes_race[acao_id].operacoes++;
@@ -200,6 +254,10 @@ void* thread_executor_race(void* arg) {
         
         // Marcar como potencialmente corrompido
         acoes_race[acao_id].corrompido = 1;
+        
+        // Detectar race condition em tempo real
+        detectar_race_condition_tempo_real(thread_id, "WRITE_PRECO", "PRECO", acao_id, 
+                                         acoes_race[acao_id].preco, preco_atual);
         
         printf("Thread %d: Modificou ação %d (Preço: %.2f, Volume: %d, Operações: %d)\n",
                thread_id, acao_id, acoes_race[acao_id].preco, 
@@ -222,6 +280,11 @@ void* thread_contador_race(void* arg) {
            thread_id, num_iteracoes, delay_ms);
     
     for (int i = 0; i < num_iteracoes && demo_ativo; i++) {
+        // Log da leitura do contador
+        log_operation(thread_id, "READ_CONTADOR", "CONTADOR", 0, 
+                     contador_global, contador_global, 
+                     "Leitura do contador global");
+        
         // DELIBERADAMENTE incrementar contador de forma não-atômica
         int valor_atual = contador_global;
         usleep(delay_ms * 1000); // Delay estratégico
@@ -229,8 +292,17 @@ void* thread_contador_race(void* arg) {
         valor_atual++; // Incrementar
         usleep(delay_ms * 1000);
         
+        // Log da escrita do contador
+        log_operation(thread_id, "WRITE_CONTADOR", "CONTADOR", 0, 
+                     contador_global, valor_atual, 
+                     "Escrita do contador global incrementado");
+        
         contador_global = valor_atual; // Escrever de volta
         usleep(delay_ms * 1000);
+        
+        // Detectar race condition em tempo real
+        detectar_race_condition_tempo_real(thread_id, "WRITE_CONTADOR", "CONTADOR", 0, 
+                                         contador_global, valor_atual);
         
         printf("Thread %d: Incrementou contador para %d\n", thread_id, contador_global);
     }
@@ -244,6 +316,9 @@ void* thread_contador_race(void* arg) {
 void executar_demo_race_conditions() {
     printf("\n=== DEMO DE RACE CONDITIONS ===\n");
     printf("⚠️  AVISO: Este demo irá gerar inconsistências deliberadamente!\n\n");
+    
+    // Inicializar sistema de logging
+    inicializar_race_condition_logger();
     
     // Inicializar dados
     inicializar_dados_race_conditions();
@@ -289,6 +364,13 @@ void executar_demo_race_conditions() {
     if (detectar_corrupcao) {
         detectar_inconsistencias();
     }
+    
+    // Gerar relatórios de logging
+    gerar_relatorio_diferencas_execucoes();
+    analisar_padroes_race_conditions();
+    
+    // Finalizar logging
+    finalizar_race_condition_logger();
     
     printf("\n=== DEMO FINALIZADO ===\n");
     printf("Contador global final: %d\n", contador_global);
@@ -351,31 +433,37 @@ void demo_race_conditions() {
     printf("⚠️  AVISO: Este código gera problemas deliberadamente!\n");
     printf("⚠️  NÃO use em produção - apenas para demonstração!\n\n");
     
-    // Explicar tipos de race conditions
-    demonstrar_tipos_race_conditions();
+    printf("Escolha uma opção:\n");
+    printf("1. Executar demo uma vez\n");
+    printf("2. Executar demo 10 vezes com logging detalhado\n");
+    printf("Digite sua escolha (1 ou 2): ");
     
-    // Executar demo uma vez
-    executar_demo_race_conditions();
+    int escolha;
+    scanf("%d", &escolha);
     
-    // Perguntar se quer executar múltiplas vezes
-    printf("\nDeseja executar o demo múltiplas vezes? (1=Sim, 0=Não): ");
-    int resposta;
-    scanf("%d", &resposta);
+    // Configurar parâmetros
+    detectar_corrupcao = 1;
+    demo_ativo = 1;
     
-    if (resposta) {
-        printf("Quantas execuções? (1-10): ");
-        int num_execucoes;
-        scanf("%d", &num_execucoes);
+    if (escolha == 2) {
+        // Executar múltiplas vezes com logging detalhado
+        executar_multiplas_vezes_com_logging(10);
         
-        if (num_execucoes > 0 && num_execucoes <= 10) {
-            executar_multiplas_vezes(num_execucoes);
-        } else {
-            printf("Número inválido. Executando 3 vezes por padrão.\n");
-            executar_multiplas_vezes(3);
-        }
+        // Comparar arquivos de log
+        comparar_arquivos_log(10);
+        
+        printf("\n=== EXECUÇÕES MÚLTIPLAS CONCLUÍDAS ===\n");
+        printf("Logs salvos em arquivos: race_condition_log_1.txt até race_condition_log_10.txt\n");
+        printf("Verifique os logs para análise detalhada das race conditions!\n");
+    } else {
+        // Explicar tipos de race conditions
+        demonstrar_tipos_race_conditions();
+        
+        // Executar demo uma vez
+        executar_demo_race_conditions();
+        
+        printf("\n=== DEMO CONCLUÍDO ===\n");
+        printf("✅ Race conditions demonstradas com sucesso!\n");
+        printf("📚 Use este conhecimento para implementar sincronização adequada.\n");
     }
-    
-    printf("\n=== DEMO FINALIZADO ===\n");
-    printf("✅ Race conditions demonstradas com sucesso!\n");
-    printf("📚 Use este conhecimento para implementar sincronização adequada.\n");
 } 

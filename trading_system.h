@@ -56,6 +56,7 @@
 #define TIMEOUT_THREAD_JOIN 5000    // 5 segundos timeout para join
 #define MAX_TENTATIVAS_THREAD 3     // Máximo de tentativas para criar thread
 #define MAX_OPORTUNIDADES 50        // Máximo de oportunidades de arbitragem
+#define MAX_LOG_ENTRIES 10000       // Máximo de entradas de log
 
 // Estruturas globais para threads
 typedef struct {
@@ -332,6 +333,22 @@ void exibir_oportunidades_ativas();
 void* thread_arbitragem_detector(void* arg);
 int criar_thread_arbitragem_detector(TradingSystem* sistema);
 void parar_detector_arbitragem();
+
+// Funções para race condition logger
+void inicializar_race_condition_logger();
+void get_precise_timestamp(time_t* timestamp, long* microsec);
+char* format_timestamp(time_t timestamp, long microsec);
+void log_operation(int thread_id, const char* operation_type, const char* data_type, 
+                  int data_id, double old_value, double new_value, const char* details);
+void detectar_race_condition_tempo_real(int thread_id, const char* operation, 
+                                       const char* data_type, int data_id, 
+                                       double old_value, double new_value);
+void gerar_relatorio_diferencas_execucoes();
+void analisar_padroes_race_conditions();
+void finalizar_race_condition_logger();
+void executar_multiplas_vezes_com_logging(int num_execucoes);
+void comparar_arquivos_log(int num_execucoes);
+int logging_esta_ativo();
 
 // Estruturas para comunicação entre processos/threads
 typedef struct {
