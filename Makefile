@@ -4,8 +4,8 @@ CFLAGS = -Wall -Wextra -std=c99 -g -pthread
 LIBS = -lm -lpthread
 
 # Arquivos fonte
-SOURCES_THREADS = main_threads.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c pipes_sistema.c trader_profiles.c global_vars.c executor_melhorado.c price_updater_melhorado.c threads_sistema.c race_conditions_demo.c arbitrage_detector.c race_condition_logger.c
-SOURCES_PROCESSOS = main_processos.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c pipes_sistema.c trader_profiles.c global_vars.c executor_melhorado.c price_updater_melhorado.c threads_sistema.c race_conditions_demo.c arbitrage_detector.c race_condition_logger.c
+SOURCES_THREADS = main_threads.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c pipes_sistema.c trader_profiles.c global_vars.c executor_melhorado.c price_updater_melhorado.c threads_sistema.c race_conditions_demo.c arbitrage_detector.c race_condition_logger.c performance_metrics.c
+SOURCES_PROCESSOS = main_processos.c trader.c executor.c price_updater.c arbitrage_monitor.c utils.c mercado.c pipes_sistema.c trader_profiles.c global_vars.c executor_melhorado.c price_updater_melhorado.c threads_sistema.c race_conditions_demo.c arbitrage_detector.c race_condition_logger.c performance_metrics.c
 HEADERS = trading_system.h
 
 # Executáveis

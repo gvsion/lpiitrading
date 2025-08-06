@@ -173,8 +173,14 @@ void processo_arbitrage_monitor_func() {
 void iniciar_processos() {
     printf("=== INICIANDO PROCESSOS COM PIPES ===\n");
     
+    // Inicializar métricas de performance
+    inicializar_metricas_performance();
+    
     // Inicializar seed do rand
     srand(time(NULL));
+    
+    // Iniciar medição de tempo de criação
+    iniciar_medicao_criacao(1); // 1 = processos
     
     // Criar pipes do sistema
     int* descritores = criar_pipes_sistema();
@@ -300,6 +306,9 @@ void iniciar_processos() {
         }
     }
     
+    // Finalizar medição de tempo de criação
+    finalizar_medicao_criacao(1); // 1 = processos
+    
     printf("=== TODOS OS PROCESSOS INICIADOS COM PIPES ===\n\n");
     log_evento("Todos os processos iniciados com pipes");
 }
@@ -341,6 +350,14 @@ void parar_processos() {
             printf("✓ Processo Trader %d parado\n", i);
         }
     }
+    
+    // Calcular métricas finais
+    calcular_metricas_mercado(sistema_compartilhado);
+    calcular_throughput(1, 30.0); // 1 = processos, 30 segundos estimados
+    
+    // Exibir métricas de performance
+    exibir_metricas_performance(1); // 1 = processos
+    exibir_metricas_mercado();
     
     // Limpar pipes do sistema
     if (pipes_estao_ativos()) {
@@ -389,6 +406,9 @@ int main() {
     
     // Configurar handler para SIGINT
     signal(SIGINT, signal_handler);
+    
+    // Inicializar métricas de performance
+    inicializar_metricas_performance();
     
     // Inicializar seed do rand
     srand(time(NULL));

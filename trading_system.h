@@ -350,6 +350,32 @@ void executar_multiplas_vezes_com_logging(int num_execucoes);
 void comparar_arquivos_log(int num_execucoes);
 int logging_esta_ativo();
 
+// Funções para métricas de performance
+void inicializar_metricas_performance();
+void get_monotonic_time(struct timespec* ts);
+double calculate_time_diff_ms(struct timespec start, struct timespec end);
+double calculate_time_diff_us(struct timespec start, struct timespec end);
+void get_resource_usage(void* metric);
+void iniciar_medicao_criacao(int is_process);
+void finalizar_medicao_criacao(int is_process);
+void* iniciar_medicao_processamento(int is_process);
+void finalizar_medicao_processamento(int is_process, int order_accepted);
+void* iniciar_medicao_resposta_end_to_end(int is_process);
+void finalizar_medicao_resposta_end_to_end(int is_process);
+void coletar_estatisticas_recursos(int is_process);
+void calcular_throughput(int is_process, double total_time_seconds);
+void calcular_metricas_mercado(TradingSystem* sistema);
+void coletar_estatisticas_individual(int thread_id, int is_process, int orders_processed, 
+                                   double avg_latency, double throughput);
+void exibir_metricas_performance(int is_process);
+void exibir_metricas_mercado();
+void comparar_processos_vs_threads();
+void salvar_metricas_arquivo(const char* filename);
+void finalizar_metricas_performance();
+void* obter_metricas_processos();
+void* obter_metricas_threads();
+void* obter_metricas_mercado();
+
 // Estruturas para comunicação entre processos/threads
 typedef struct {
     int tipo_mensagem; // 1: nova ordem, 2: atualizar preço, 3: executar ordem

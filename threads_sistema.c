@@ -152,9 +152,11 @@ void* thread_trader_func(void* arg) {
            perfil->intervalo_min_ordens, perfil->intervalo_max_ordens,
            perfil->max_ordens_por_sessao, perfil->tempo_limite_sessao);
     
-    // Variáveis de controle
+    // Variáveis de controle e métricas
     int ordens_enviadas = 0;
     time_t inicio_sessao = time(NULL);
+    int orders_processed = 0;
+    double total_latency = 0.0;
     
     while (estado_mercado.sistema_ativo) {
         // Verificar limites de sessão
@@ -169,6 +171,9 @@ void* thread_trader_func(void* arg) {
                    trader_id, ordens_enviadas, perfil->max_ordens_por_sessao);
             break;
         }
+        
+        // Iniciar medição de tempo de processamento
+        void* processing_time = iniciar_medicao_processamento(0); // 0 = threads
         
         // Decidir ação do trader
         int acao_id = decidir_acao_trader(sistema, trader_id, perfil);
@@ -204,8 +209,16 @@ void* thread_trader_func(void* arg) {
             }
             
             // Adicionar ordem na fila global
-            if (adicionar_ordem_fila(ordem)) {
+            int order_accepted = adicionar_ordem_fila(ordem);
+            
+            // Finalizar medição de tempo de processamento
+            finalizar_medicao_processamento(0, order_accepted); // 0 = threads
+            
+            if (order_accepted) {
                 ordens_enviadas++;
+                orders_processed++;
+                // total_latency será calculado na função finalizar_medicao_processamento
+                
                 printf("Trader %d: Ordem criada (total: %d/%d)\n", 
                        trader_id, ordens_enviadas, perfil->max_ordens_por_sessao);
             }
@@ -215,6 +228,11 @@ void* thread_trader_func(void* arg) {
         int intervalo = gerar_intervalo_aleatorio(perfil->intervalo_min_ordens, perfil->intervalo_max_ordens);
         sleep(intervalo);
     }
+    
+    // Coletar estatísticas individuais
+    double avg_latency = orders_processed > 0 ? total_latency / orders_processed : 0.0;
+    double throughput = orders_processed / 30.0; // Estimativa de 30 segundos
+    coletar_estatisticas_individual(trader_id, 0, orders_processed, avg_latency, throughput);
     
     printf("=== THREAD TRADER %d FINALIZADA ===\n", trader_id);
     printf("Total de ordens enviadas: %d\n", ordens_enviadas);

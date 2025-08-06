@@ -90,6 +90,14 @@ void limpar_sistema(TradingSystem* sistema) {
     // Aguardar threads terminarem
     aguardar_threads_terminarem();
     
+    // Calcular métricas finais
+    calcular_metricas_mercado(sistema);
+    calcular_throughput(0, 30.0); // 0 = threads, 30 segundos estimados
+    
+    // Exibir métricas de performance
+    exibir_metricas_performance(0); // 0 = threads
+    exibir_metricas_mercado();
+    
     // Limpar estruturas globais
     limpar_estruturas_globais();
     
@@ -121,6 +129,9 @@ void iniciar_threads(TradingSystem* sistema) {
     
     // Inicializar estruturas globais
     inicializar_estruturas_globais();
+    
+    // Inicializar métricas de performance
+    inicializar_metricas_performance();
     
     // Inicializar seed do rand
     srand(time(NULL));
@@ -155,6 +166,9 @@ void iniciar_threads(TradingSystem* sistema) {
     if (!criar_thread_arbitragem_detector(sistema)) {
         printf("✗ Erro ao criar thread detector de arbitragem\n");
     }
+    
+    // Finalizar medição de tempo de criação
+    finalizar_medicao_criacao(0); // 0 = threads
     
     printf("=== TODAS AS THREADS INICIADAS ===\n");
 }
