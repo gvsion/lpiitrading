@@ -82,27 +82,16 @@ TradingSystem* inicializar_sistema() {
 void limpar_sistema(TradingSystem* sistema) {
     if (!sistema) return;
     
+    printf("=== FINALIZANDO SISTEMA ===\n");
+    
     // Parar todas as threads
-    sistema->sistema_ativo = 0;
+    parar_todas_threads();
     
     // Aguardar threads terminarem
-    for (int i = 0; i < MAX_TRADERS; i++) {
-        if (threads_traders[i].ativa) {
-            pthread_join(threads_traders[i].thread, NULL);
-        }
-    }
+    aguardar_threads_terminarem();
     
-    if (thread_price_updater.ativa) {
-        pthread_join(thread_price_updater.thread, NULL);
-    }
-    
-    if (thread_executor.ativa) {
-        pthread_join(thread_executor.thread, NULL);
-    }
-    
-    if (thread_arbitrage_monitor.ativa) {
-        pthread_join(thread_arbitrage_monitor.thread, NULL);
-    }
+    // Limpar estruturas globais
+    limpar_estruturas_globais();
     
     // Limpar mutexes
     for (int i = 0; i < sistema->num_acoes; i++) {
@@ -118,126 +107,51 @@ void limpar_sistema(TradingSystem* sistema) {
     sem_destroy(&sistema->sem_ordens);
     
     free(sistema);
-    log_evento("Sistema de trading finalizado");
+    printf("✓ Sistema de trading finalizado\n");
 }
 
-// Função da thread do trader
-void* thread_trader_func(void* arg) {
-    ThreadTrader* thread_data = (ThreadTrader*)arg;
-    TradingSystem* sistema = thread_data->sistema;
-    int trader_id = thread_data->trader_id;
-    
-    printf("Thread do trader %d iniciada\n", trader_id);
-    
-    while (sistema->sistema_ativo) {
-        executar_estrategia_trader(sistema, trader_id);
-        sleep(2 + (trader_id * 1)); // Cada trader opera em intervalos diferentes
-    }
-    
-    printf("Thread do trader %d finalizada\n", trader_id);
-    return NULL;
-}
-
-// Função da thread de atualização de preços
-void* thread_price_updater_func(void* arg) {
-    ThreadPriceUpdater* thread_data = (ThreadPriceUpdater*)arg;
-    TradingSystem* sistema = thread_data->sistema;
-    
-    printf("Thread de atualização de preços iniciada\n");
-    
-    while (sistema->sistema_ativo) {
-        atualizar_todos_precos(sistema);
-        
-        // Simular notícias ocasionalmente
-        if (rand() % 100 < 10) { // 10% de chance
-            simular_noticia_mercado(sistema);
-        }
-        
-        sleep(3); // Atualizar preços a cada 3 segundos
-    }
-    
-    printf("Thread de atualização de preços finalizada\n");
-    return NULL;
-}
-
-// Função da thread do executor
-void* thread_executor_func(void* arg) {
-    ThreadExecutor* thread_data = (ThreadExecutor*)arg;
-    TradingSystem* sistema = thread_data->sistema;
-    
-    printf("Thread do executor iniciada\n");
-    
-    while (sistema->sistema_ativo) {
-        executar_ordens_pendentes(sistema);
-        sleep(1); // Executar ordens a cada segundo
-    }
-    
-    printf("Thread do executor finalizada\n");
-    return NULL;
-}
-
-// Função da thread de monitoramento de arbitragem
-void* thread_arbitrage_monitor_func(void* arg) {
-    ThreadArbitrageMonitor* thread_data = (ThreadArbitrageMonitor*)arg;
-    TradingSystem* sistema = thread_data->sistema;
-    
-    printf("Thread de monitoramento de arbitragem iniciada\n");
-    
-    while (sistema->sistema_ativo) {
-        monitorar_arbitragem(sistema);
-        detectar_padroes_preco(sistema);
-        
-        // Simular eventos de mercado ocasionalmente
-        if (rand() % 100 < 5) { // 5% de chance
-            simular_evento_mercado(sistema);
-        }
-        
-        sleep(5); // Monitorar a cada 5 segundos
-    }
-    
-    printf("Thread de monitoramento de arbitragem finalizada\n");
-    return NULL;
-}
+// Funções de threads movidas para threads_sistema.c
 
 // Função para iniciar todas as threads
 void iniciar_threads(TradingSystem* sistema) {
-    // Iniciar threads dos traders
-    for (int i = 0; i < sistema->num_traders; i++) {
-        threads_traders[i].sistema = sistema;
-        threads_traders[i].trader_id = i;
-        threads_traders[i].ativa = 1;
-        
-        if (pthread_create(&threads_traders[i].thread, NULL, thread_trader_func, &threads_traders[i]) != 0) {
-            printf("Erro ao criar thread do trader %d\n", i);
-            threads_traders[i].ativa = 0;
+    printf("=== INICIANDO THREADS ===\n");
+    
+    // Definir sistema global
+    sistema_global = sistema;
+    
+    // Inicializar estruturas globais
+    inicializar_estruturas_globais();
+    
+    // Inicializar seed do rand
+    srand(time(NULL));
+    
+    // Inicializar perfis de trader
+    inicializar_perfis_trader();
+    
+    // Criar threads traders
+    for (int i = 0; i < MAX_TRADERS; i++) {
+        int perfil_id = i % 3; // Distribuir perfis entre traders
+        if (!criar_thread_trader(i, perfil_id)) {
+            printf("✗ Erro ao criar thread trader %d\n", i);
         }
     }
     
-    // Iniciar thread de atualização de preços
-    thread_price_updater.sistema = sistema;
-    thread_price_updater.ativa = 1;
-    if (pthread_create(&thread_price_updater.thread, NULL, thread_price_updater_func, &thread_price_updater) != 0) {
-        printf("Erro ao criar thread de atualização de preços\n");
-        thread_price_updater.ativa = 0;
+    // Criar thread executor
+    if (!criar_thread_executor()) {
+        printf("✗ Erro ao criar thread executor\n");
     }
     
-    // Iniciar thread do executor
-    thread_executor.sistema = sistema;
-    thread_executor.ativa = 1;
-    if (pthread_create(&thread_executor.thread, NULL, thread_executor_func, &thread_executor) != 0) {
-        printf("Erro ao criar thread do executor\n");
-        thread_executor.ativa = 0;
+    // Criar thread price updater
+    if (!criar_thread_price_updater()) {
+        printf("✗ Erro ao criar thread price updater\n");
     }
     
-    // Iniciar thread de monitoramento de arbitragem
-    thread_arbitrage_monitor.sistema = sistema;
-    thread_arbitrage_monitor.ativa = 1;
-    if (pthread_create(&thread_arbitrage_monitor.thread, NULL, thread_arbitrage_monitor_func, &thread_arbitrage_monitor) != 0) {
-        printf("Erro ao criar thread de monitoramento de arbitragem\n");
-        thread_arbitrage_monitor.ativa = 0;
+    // Criar thread arbitrage monitor
+    if (!criar_thread_arbitrage_monitor()) {
+        printf("✗ Erro ao criar thread arbitrage monitor\n");
     }
     
-    log_evento("Todas as threads iniciadas");
+    printf("=== TODAS AS THREADS INICIADAS ===\n");
 }
 
 // Função para exibir estatísticas em tempo real

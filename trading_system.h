@@ -51,6 +51,19 @@
 #define PESO_PRECO_ATUAL 0.4        // Peso do preço atual (40%)
 #define ARQUIVO_HISTORICO "historico_precos.txt" // Arquivo para salvar histórico
 
+// Constantes para threads
+#define MAX_FILA_ORDENS 1000        // Tamanho máximo da fila de ordens
+#define TIMEOUT_THREAD_JOIN 5000    // 5 segundos timeout para join
+#define MAX_TENTATIVAS_THREAD 3     // Máximo de tentativas para criar thread
+
+// Estruturas globais para threads
+typedef struct {
+    int sistema_ativo;
+    int mercado_aberto;
+    time_t inicio_sessao;
+    pthread_mutex_t mutex;
+} EstadoMercado;
+
 // Estruturas de dados
 typedef struct {
     char nome[MAX_NOME];
@@ -91,6 +104,17 @@ typedef struct {
     time_t timestamp;
     int status; // 0: pendente, 1: executada, 2: cancelada
 } Ordem;
+
+// Estrutura para fila de ordens (após definição de Ordem)
+typedef struct {
+    Ordem ordens[MAX_FILA_ORDENS];
+    int inicio;
+    int fim;
+    int tamanho;
+    pthread_mutex_t mutex;
+    pthread_cond_t cond_nao_vazia;
+    pthread_cond_t cond_nao_cheia;
+} FilaOrdens;
 
 typedef struct {
     int id;
@@ -270,6 +294,23 @@ void salvar_historico_precos(TradingSystem* sistema);
 void log_atualizacao_preco(int acao_id, double preco_anterior, double novo_preco, const char* motivo);
 void inicializar_arquivo_historico();
 
+// Funções para threads
+void inicializar_estruturas_globais();
+void limpar_estruturas_globais();
+int criar_thread_trader(int trader_id, int perfil_id);
+int criar_thread_executor();
+int criar_thread_price_updater();
+int criar_thread_arbitrage_monitor();
+void* thread_trader_func(void* arg);
+void* thread_executor_func(void* arg);
+void* thread_price_updater_func(void* arg);
+void* thread_arbitrage_monitor_func(void* arg);
+int adicionar_ordem_fila(Ordem ordem);
+int remover_ordem_fila(Ordem* ordem);
+void parar_todas_threads();
+int verificar_retorno_pthread(int resultado, const char* operacao);
+void aguardar_threads_terminarem();
+
 // Estruturas para comunicação entre processos/threads
 typedef struct {
     int tipo_mensagem; // 1: nova ordem, 2: atualizar preço, 3: executar ordem
@@ -283,5 +324,8 @@ typedef struct {
 // Variáveis globais para memória compartilhada (externas)
 extern int shm_id;
 extern int shm_id_pipes;
+
+// Variável global para threads
+extern TradingSystem* sistema_global;
 
 #endif // TRADING_SYSTEM_H 

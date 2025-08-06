@@ -1,0 +1,2 @@
+=== HISTÓRICO DE PREÇOS ===
+Timestamp,Ação,Preço_Anterior,Preço_Novo,Variação,Motivo
