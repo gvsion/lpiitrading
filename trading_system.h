@@ -15,6 +15,7 @@
 #include <math.h>
 #include <sys/ipc.h>
 #include <sys/shm.h>
+#include <poll.h>
 
 // Constantes do sistema
 #define MAX_ACOES 13
@@ -22,6 +23,17 @@
 #define MAX_ORDENS 100
 #define MAX_NOME 50
 #define MAX_STRATEGY 20
+
+// Constantes para perfis de trader
+#define PERFIL_CONSERVADOR 0
+#define PERFIL_AGRESSIVO 1
+#define PERFIL_DAY_TRADER 2
+
+// Constantes para limites de processo
+#define MAX_ORDENS_POR_TRADER 50
+#define TEMPO_LIMITE_PROCESSO 300 // 5 minutos
+#define INTERVALO_MIN_ORDENS 1
+#define INTERVALO_MAX_ORDENS 3
 
 // Estruturas de dados
 typedef struct {
@@ -74,6 +86,20 @@ typedef struct {
     int ordens_canceladas;
     pthread_mutex_t mutex;
 } Executor;
+
+// Estrutura para perfil de trader
+typedef struct {
+    int perfil_id;
+    char nome[MAX_NOME];
+    int intervalo_min_ordens; // segundos
+    int intervalo_max_ordens; // segundos
+    int max_ordens_por_sessao;
+    int tempo_limite_sessao; // segundos
+    double agressividade; // 0.0 a 1.0
+    double volume_medio; // quantidade média de ações
+    int acoes_preferidas[MAX_ACOES];
+    int num_acoes_preferidas;
+} PerfilTrader;
 
 typedef struct {
     Acao acoes[MAX_ACOES];
@@ -194,6 +220,17 @@ void limpar_tela();
 void atualizar_todos_precos(TradingSystem* sistema);
 void simular_noticia_mercado(TradingSystem* sistema);
 
+// Funções para perfis de trader
+void inicializar_perfis_trader();
+PerfilTrader* obter_perfil_trader(int perfil_id);
+void aplicar_perfil_trader(TradingSystem* sistema, int trader_id, int perfil_id);
+void log_ordem_trader(int trader_id, int acao_id, char tipo, double preco, int quantidade, const char* motivo);
+void processo_trader_melhorado(int trader_id, int perfil_id);
+int gerar_intervalo_aleatorio(int min, int max);
+int decidir_acao_trader(TradingSystem* sistema, int trader_id, PerfilTrader* perfil);
+double calcular_probabilidade_compra(TradingSystem* sistema, int acao_id, PerfilTrader* perfil);
+double calcular_probabilidade_venda(TradingSystem* sistema, int acao_id, PerfilTrader* perfil);
+
 // Estruturas para comunicação entre processos/threads
 typedef struct {
     int tipo_mensagem; // 1: nova ordem, 2: atualizar preço, 3: executar ordem
@@ -203,5 +240,9 @@ typedef struct {
     int quantidade;
     char dados_extras[100];
 } Mensagem;
+
+// Variáveis globais para memória compartilhada (externas)
+extern int shm_id;
+extern int shm_id_pipes;
 
 #endif // TRADING_SYSTEM_H 

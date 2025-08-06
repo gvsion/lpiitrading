@@ -36,7 +36,6 @@ void processo_executor_func();
 void processo_arbitrage_monitor_func();
 
 // Variáveis globais para comunicação entre processos
-static int shm_id;
 static TradingSystem* sistema_compartilhado = NULL;
 
 // Funções de utilidade
@@ -123,25 +122,9 @@ void limpar_memoria_compartilhada() {
 
 // Função do processo trader
 void processo_trader(int trader_id) {
-    printf("Processo do trader %d iniciado (PID: %d)\n", trader_id, getpid());
-    
-    // Anexar memória compartilhada
-    TradingSystem* sistema = (TradingSystem*)shmat(shm_id, NULL, 0);
-    if (sistema == (void*)-1) {
-        perror("Erro ao anexar memória compartilhada no processo trader");
-        exit(1);
-    }
-    
-    while (sistema->sistema_ativo) {
-        executar_estrategia_trader(sistema, trader_id);
-        sleep(2 + (trader_id * 1)); // Cada trader opera em intervalos diferentes
-    }
-    
-    // Desanexar memória compartilhada
-    shmdt(sistema);
-    
-    printf("Processo do trader %d finalizado\n", trader_id);
-    exit(0);
+    // Usar a versão melhorada com perfil
+    int perfil_id = trader_id % 3; // Distribuir perfis entre traders
+    processo_trader_melhorado(trader_id, perfil_id);
 }
 
 // Função do processo price updater
@@ -449,6 +432,9 @@ int main() {
     
     // Inicializar seed do rand
     srand(time(NULL));
+    
+    // Inicializar perfis de trader
+    inicializar_perfis_trader();
     
     // Criar memória compartilhada
     if (!criar_memoria_compartilhada()) {
